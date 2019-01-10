@@ -1,5 +1,5 @@
 
-namespace Nest.Desktop.Domain {
+namespace Nest.Model.Domain {
     
     public class InterakcijaLijekova {
         public virtual System.Guid Id { get; set; }

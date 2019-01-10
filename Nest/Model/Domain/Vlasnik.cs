@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Nest.Desktop.Domain {
+namespace Nest.Model.Domain {
     
     public class Vlasnik {
         public Vlasnik() {
@@ -17,7 +17,7 @@ namespace Nest.Desktop.Domain {
         public virtual string Prezime { get; set; }
         [Required]
         public virtual System.Guid Idprijava { get; set; }
-        public virtual DateTime? Datumrod { get; set; }
+        public virtual DateTime? DatumRod { get; set; }
         public virtual IEnumerable<Zivotinja> Zivotinjas { get; set; }
 
     }

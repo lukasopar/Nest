@@ -80,48 +80,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Domain\Bolest.cs" />
-    <Compile Include="Domain\BolestNaPostupku.cs" />
-    <Compile Include="Domain\InterakcijaLijekova.cs" />
-    <Compile Include="Domain\Lijek.cs" />
-    <Compile Include="Domain\LijekKodVeterinara.cs" />
-    <Compile Include="Domain\LijekNaPostupku.cs" />
-    <Compile Include="Domain\LijekNaRacunu.cs" />
-    <Compile Include="Domain\LijekZaBolest.cs" />
-    <Compile Include="Domain\Postupak.cs" />
-    <Compile Include="Domain\PostupakNaRacunu.cs" />
-    <Compile Include="Domain\Racun.cs" />
-    <Compile Include="Domain\Sysdiagrams.cs" />
-    <Compile Include="Domain\Veterinar.cs" />
-    <Compile Include="Domain\Vlasnik.cs" />
-    <Compile Include="Domain\VrstaPostupka.cs" />
-    <Compile Include="Domain\VrstaZivotinje.cs" />
-    <Compile Include="Domain\VrstaZivotinjeKodVeterinara.cs" />
-    <Compile Include="Domain\Zivotinja.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapping\BolestMap.cs" />
-    <Compile Include="Mapping\BolestNaPostupkuMap.cs" />
-    <Compile Include="Mapping\InterakcijaLijekovaMap.cs" />
-    <Compile Include="Mapping\LijekKodVeterinaraMap.cs" />
-    <Compile Include="Mapping\LijekMap.cs" />
-    <Compile Include="Mapping\LijekNaPostupkuMap.cs" />
-    <Compile Include="Mapping\LijekNaRacunuMap.cs" />
-    <Compile Include="Mapping\LijekZaBolestMap.cs" />
-    <Compile Include="Mapping\PostupakMap.cs" />
-    <Compile Include="Mapping\PostupakNaRacunuMap.cs" />
-    <Compile Include="Mapping\RacunMap.cs" />
-    <Compile Include="Mapping\SysdiagramsMap.cs" />
-    <Compile Include="Mapping\VeterinarMap.cs" />
-    <Compile Include="Mapping\VlasnikMap.cs" />
-    <Compile Include="Mapping\VrstaPostupkaMap.cs" />
-    <Compile Include="Mapping\VrstaZivotinjeKodVeterinaraMap.cs" />
-    <Compile Include="Mapping\VrstaZivotinjeMap.cs" />
-    <Compile Include="Mapping\ZivotinjaMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

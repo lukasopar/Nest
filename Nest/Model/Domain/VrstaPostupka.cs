@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Nest.Desktop.Domain {
+namespace Nest.Model.Domain {
     
     public class VrstaPostupka {
         public VrstaPostupka() {

@@ -2,14 +2,15 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Nest.Desktop.Domain {
+namespace Nest.Model.Domain {
     
     public class Lijek {
         public Lijek() {
             InterakcijaLijekovas1 = new List<InterakcijaLijekova>();
             InterakcijaLijekovas2 = new List<InterakcijaLijekova>();
             LijekKodVeterinaras = new List<LijekKodVeterinara>();
-            LijekZaBolests = new List<LijekZaBolest>();
+            Bolests = new List<Bolest>();
+            Postupaks = new List<Postupak>();
         }
         public virtual System.Guid Id { get; set; }
         [Required]
@@ -18,6 +19,7 @@ namespace Nest.Desktop.Domain {
         public virtual IEnumerable<InterakcijaLijekova> InterakcijaLijekovas1 { get; set; }
         public virtual IEnumerable<InterakcijaLijekova> InterakcijaLijekovas2 { get; set; }
         public virtual IEnumerable<LijekKodVeterinara> LijekKodVeterinaras { get; set; }
-        public virtual IEnumerable<LijekZaBolest> LijekZaBolests { get; set; }
+        public virtual IEnumerable<Bolest> Bolests { get; set; }
+        public virtual IEnumerable<Postupak> Postupaks { get; set; }
     }
 }
