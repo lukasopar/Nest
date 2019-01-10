@@ -12,11 +12,14 @@ namespace Nest.Model.Domain {
         }
         public virtual System.Guid Id { get; set; }
         [Required]
+        public virtual string KorisnickoIme { get; set; }
+        [Required]
+        public virtual string Lozinka { get; set; }
+        [Required]
         public virtual string Ime { get; set; }
         [Required]
         public virtual string Prezime { get; set; }
-        [Required]
-        public virtual System.Guid Idprijava { get; set; }
+
         public virtual DateTime? DatumRod { get; set; }
         public virtual IEnumerable<Zivotinja> Zivotinjas { get; set; }
 

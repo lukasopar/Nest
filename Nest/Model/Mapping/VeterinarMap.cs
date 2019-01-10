@@ -14,8 +14,8 @@ namespace Nest.Desktop.Mapping {
             Map(x => x.Prezime).Not.Nullable();
             Map(x => x.DatumRod).Not.Nullable();
             Map(x => x.DatumLicence).Not.Nullable();
-            //Dovršiti...
-            Map(x => x.Idprijava).Not.Nullable();
+            Map(x => x.KorisnickoIme).Not.Nullable();
+            Map(x => x.Lozinka).Not.Nullable();
             HasMany(x => x.LijekKodVeterinaras);
             HasMany(x => x.VrstaPostupkas);
             HasMany(x => x.VrstaZivotinjes);

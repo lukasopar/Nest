@@ -15,14 +15,15 @@ namespace Nest.Model.Domain {
            // VrstaZivotinjeKodVeterinaras = new List<VrstaZivotinjeKodVeterinara>();
         }
         public virtual System.Guid Id { get; set; }
+        public virtual string KorisnickoIme { get; set; }
+        public virtual string Lozinka { get; set; }
         [Required]
         public virtual string Ime { get; set; }
         [Required]
         public virtual string Prezime { get; set; }
         public virtual DateTime? DatumRod { get; set; }
         public virtual DateTime? DatumLicence { get; set; }
-        [Required]
-        public virtual System.Guid Idprijava { get; set; }
+        
         public virtual IEnumerable<LijekKodVeterinara> LijekKodVeterinaras { get; set; }
         //public virtual IEnumerable<Postupak> Postupaks { get; set; }
         public virtual IEnumerable<VrstaPostupka> VrstaPostupkas { get; set; }
