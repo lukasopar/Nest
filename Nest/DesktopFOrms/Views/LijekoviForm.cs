@@ -23,29 +23,22 @@ namespace DesktopFOrms.Views
 
 
         public LijekoviPresenter Presenter { private get; set; }
-        public IList<Tuple<string, string>> Lijekovi
+        public IList<Lijek> Lijekovi
         {
             get {
-                var l = new List<Tuple<string, string>>();
-                foreach(var item in listView1.Items)
-                {
-                    var tup = new Tuple<string, string>(item.ToString(), "test");
-                    l.Add(tup);
-
-                }
+                var l = new List<Lijek>();
+                
                 return l;
             }
             set
             {
-                foreach (var tup in value)
+                foreach (var lijek in value)
                 {
-                    ListViewItem it = new ListViewItem(tup.Item1);
-                    it.SubItems.Add(tup.Item2);
+                    ListViewItem it = new ListViewItem(new string[] { lijek.Naziv, lijek.Opis});
+                    it.Tag = lijek;
                     listView1.Items.Add(it);
                 }
             }
         }
-        public IList<string> LijekoviIme { get { return null; } set { return; } }
-        public IList<string> LijekoviOpis { get { return null; } set { return; } }
     }
 }

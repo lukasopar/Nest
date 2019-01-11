@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LijekoviForm));
-            //System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -62,8 +61,8 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.nazivLijeka,
             this.opis});
-            //this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            //listViewItem1});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(50, 240);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(624, 180);
@@ -81,7 +80,7 @@
             this.opis.Text = "Opis";
             this.opis.Width = 400;
             // 
-            // Form1
+            // LijekoviForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -89,7 +88,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "LijekoviForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
