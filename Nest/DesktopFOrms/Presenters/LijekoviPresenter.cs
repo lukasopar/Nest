@@ -26,7 +26,12 @@ namespace DesktopFOrms.Presenters
         private void UpdateLijekoviListView()
         {
             //var lijekovi = _repository.DohvatiSve().ToList();
-
+            var tup1 = new Tuple<string, string>("Lijek1", "slab");
+            var tup2 = new Tuple<string, string>("Lijek2", "jaci");
+            var l = new List<Tuple<string,string>>();
+            l.Add(tup1);
+            l.Add(tup2);
+            _view.Lijekovi = l;
             _view.LijekoviIme = new List<string>();
             _view.LijekoviOpis = new List<string>();
 

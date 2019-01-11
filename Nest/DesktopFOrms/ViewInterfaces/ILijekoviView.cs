@@ -9,6 +9,7 @@ namespace DesktopFOrms.ViewInterfaces
 {
     public interface ILijekoviView
     {
+        IList<Tuple<string, string>> Lijekovi { get; set; }
         IList<string> LijekoviIme { get; set; }
         IList<string> LijekoviOpis { get; set; }
         Presenters.LijekoviPresenter Presenter {  set; }
