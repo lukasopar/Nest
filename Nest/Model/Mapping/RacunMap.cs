@@ -10,10 +10,10 @@ namespace Nest.Desktop.Mapping {
         
         public RacunMap() {
 			
-			Id(x => x.Id);
+			Id(x => x.Id).GeneratedBy.GuidNative();
             Map(x => x.Datum).Not.Nullable();
             HasManyToMany(x => x.LijekKodVeterinaras).Cascade.All().Table("LijekVetsRacuns");
-            HasMany(x => x.Postupaks);
+            HasMany(x => x.Postupaks).Cascade.SaveUpdate();
         }
     }
 }

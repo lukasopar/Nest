@@ -10,11 +10,11 @@ namespace Nest.Desktop.Mapping {
         
         public LijekKodVeterinaraMap() {
 			
-			Id(x => x.Id);
+			Id(x => x.Id).GeneratedBy.GuidNative();
             Map(x => x.Cijena).Not.Nullable();
 			Map(x => x.Napomena);
-			References(x => x.Lijek).Cascade.None();
-            References(x => x.Veterinar).Cascade.None();
+			References(x => x.Lijek).Cascade.SaveUpdate();
+            References(x => x.Veterinar).Cascade.SaveUpdate();
             HasManyToMany(x => x.Racuns).Cascade.All().Table("LijekVetsRacuns");
         }
     }

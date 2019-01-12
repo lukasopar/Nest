@@ -1,5 +1,5 @@
-﻿using DesktopFOrms.ViewInterfaces;
-using Model.IRepositories;
+﻿using DatabaseBootstrap.IRepositories;
+using DesktopFOrms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;

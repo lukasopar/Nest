@@ -11,13 +11,13 @@ namespace Nest.Desktop.Mapping {
         
         public VlasnikMap() {
 
-			Id(x => x.Id);
+			Id(x => x.Id).GeneratedBy.GuidNative();
 			Map(x => x.Ime).Not.Nullable();
             Map(x => x.Prezime).Not.Nullable();
             Map(x => x.KorisnickoIme).Not.Nullable();
             Map(x => x.Lozinka).Not.Nullable();
             Map(x => x.DatumRod).Not.Nullable();
-            HasMany(x => x.Zivotinjas);
+            HasMany(x => x.Zivotinjas).Cascade.All();
         }
     }
 }

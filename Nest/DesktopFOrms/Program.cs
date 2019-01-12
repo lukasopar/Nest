@@ -1,4 +1,5 @@
-﻿using DesktopFOrms.Presenters;
+﻿using DatabaseBootstrap;
+using DesktopFOrms.Presenters;
 using DesktopFOrms.Views;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -21,7 +22,7 @@ namespace DesktopFOrms
         [STAThread]
         static void Main()
         {
-            
+            //NHibernateService.OpenSessionFactory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

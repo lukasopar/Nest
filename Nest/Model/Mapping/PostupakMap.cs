@@ -10,12 +10,12 @@ namespace Nest.Desktop.Mapping {
         
         public PostupakMap() {
 			
-			Id(x => x.Id);
+			Id(x => x.Id).GeneratedBy.GuidNative();
 			Map(x => x.Opaska);
             Map(x => x.Datum);
-            References(x => x.Zivotinja).Cascade.None();
-            References(x => x.VrstaPostupka).Cascade.None();
-            References(x => x.Racun).Cascade.None();
+            References(x => x.Zivotinja).Cascade.SaveUpdate();
+            References(x => x.VrstaPostupka).Cascade.SaveUpdate();
+            References(x => x.Racun).Cascade.SaveUpdate();
             HasManyToMany(x => x.Bolests).Cascade.All().Table("BolestsPostupaks");
             HasManyToMany(x => x.Lijeks).Cascade.All().Table("LijeksPostupaks");
 

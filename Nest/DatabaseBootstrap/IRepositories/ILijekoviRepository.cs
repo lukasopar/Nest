@@ -1,13 +1,14 @@
-﻿using Model.Repositories;
+﻿using DatabaseBootstrap.Repositories;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
-namespace Model.IRepositories
+namespace DatabaseBootstrap.IRepositories
 {
     public interface ILijekoviRepository : IBasicRepository<Lijek>
     {
-        //dodati kad bu trebalo
+        //dodati kaj treba
     }
 }

@@ -1,3 +1,4 @@
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -5,12 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Nest.Model.Domain {
     
-    public class Zivotinja {
+    public class Zivotinja :EntityClass{
         public Zivotinja() {
             Postupaks = new List<Postupak>();
             VrstaZivotinjes = new List<VrstaZivotinje>();
         }
-        public virtual System.Guid Id { get; set; }
+        //public virtual System.Guid Id { get; set; }
         public virtual Vlasnik Vlasnik { get; set; }
         [Required]
         public virtual string Ime { get; set; }

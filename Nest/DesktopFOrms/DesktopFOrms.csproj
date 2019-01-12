@@ -121,6 +121,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseBootstrap\DatabaseBootstrap.csproj">
+      <Project>{FEE4D1DE-6086-434B-AAA7-7605D9C99533}</Project>
+      <Name>DatabaseBootstrap</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{60CB5F47-78B4-43F0-B2DE-0CD01D6C3089}</Project>
       <Name>Model</Name>

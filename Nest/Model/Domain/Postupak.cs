@@ -1,17 +1,18 @@
 
 
+using Model;
 using System;
 using System.Collections.Generic;
 
 namespace Nest.Model.Domain {
     
-    public class Postupak {
+    public class Postupak : EntityClass{
         public Postupak() {
             Bolests = new List<Bolest>();
             Lijeks = new List<Lijek>();
             //PostupakNaRacunus = new List<PostupakNaRacunu>();
         }
-        public virtual System.Guid Id { get; set; }
+        //public virtual System.Guid Id { get; set; }
         //public virtual Veterinar Veterinar { get; set; }
         public virtual Zivotinja Zivotinja { get; set; }
         public virtual VrstaPostupka VrstaPostupka { get; set; }

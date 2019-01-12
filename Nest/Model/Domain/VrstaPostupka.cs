@@ -1,16 +1,17 @@
 
+using Model;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
 namespace Nest.Model.Domain {
     
-    public class VrstaPostupka {
+    public class VrstaPostupka : EntityClass {
         public VrstaPostupka() {
             Postupaks = new List<Postupak>();
 
         }
-        public virtual System.Guid Id { get; set; }
+        //public virtual System.Guid Id { get; set; }
         public virtual Veterinar Veterinar { get; set; }
         [Required]
         public virtual string Naziv { get; set; }

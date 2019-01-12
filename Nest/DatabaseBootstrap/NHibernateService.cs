@@ -2,6 +2,7 @@
 using FluentNHibernate.Cfg.Db;
 using Nest.Model.Domain;
 using NHibernate;
+using NHibernate.Tool.hbm2ddl;
 using System;
 
 namespace DatabaseBootstrap
@@ -9,7 +10,7 @@ namespace DatabaseBootstrap
     public class NHibernateService
     {
         private static ISessionFactory _sessionFactory;
-        public ISession OpenSession()
+        public static ISession OpenSession()
         {
             try
             {

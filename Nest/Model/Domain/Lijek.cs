@@ -1,10 +1,11 @@
+using Model;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
 namespace Nest.Model.Domain {
     
-    public class Lijek {
+    public class Lijek : EntityClass{
         public Lijek() {
             InterakcijaLijekovas1 = new List<InterakcijaLijekova>();
             InterakcijaLijekovas2 = new List<InterakcijaLijekova>();
@@ -12,7 +13,7 @@ namespace Nest.Model.Domain {
             Bolests = new List<Bolest>();
             Postupaks = new List<Postupak>();
         }
-        public virtual System.Guid Id { get; set; }
+        //public virtual System.Guid Id { get; set; }
         [Required]
         public virtual string Naziv { get; set; }
         public virtual string Opis { get; set; }

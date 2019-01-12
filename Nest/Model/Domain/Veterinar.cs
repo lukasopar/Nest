@@ -1,11 +1,12 @@
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
 namespace Nest.Model.Domain {
-    
-    public class Veterinar {
+
+    public class Veterinar : EntityClass {
         public Veterinar()
         {
             LijekKodVeterinaras = new List<LijekKodVeterinara>();
@@ -14,7 +15,7 @@ namespace Nest.Model.Domain {
             VrstaZivotinjes = new List<VrstaZivotinje>();
            // VrstaZivotinjeKodVeterinaras = new List<VrstaZivotinjeKodVeterinara>();
         }
-        public virtual System.Guid Id { get; set; }
+     //   public virtual System.Guid Id { get; set; }
         public virtual string KorisnickoIme { get; set; }
         public virtual string Lozinka { get; set; }
         [Required]

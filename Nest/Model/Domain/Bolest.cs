@@ -1,15 +1,16 @@
+using Model;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
 namespace Nest.Model.Domain {
     
-    public class Bolest {
+    public class Bolest : EntityClass {
         public Bolest() {
             Postupaks = new List<Postupak>();
             Lijeks = new List<Lijek>();
         }
-        public virtual System.Guid Id { get; set; }
+        //public virtual System.Guid Id { get; set; }
         [Required]
         public virtual string Naziv { get; set; }
         public virtual string Opis { get; set; }
