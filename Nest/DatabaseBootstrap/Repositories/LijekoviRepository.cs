@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DatabaseBootstrap.Repositories
 {
-    public class LijekoviRepository : BasicRepository<Lijek>
+    public class LijekoviRepository : BasicRepository<Lijek>, ILijekoviRepository
     {
         //Dodati kaj treba za lijekove
         

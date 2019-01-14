@@ -26,10 +26,7 @@ namespace DesktopFOrms.Presenters
 
         private void UpdateLijekoviListView()
         {
-            //var lijekovi = _repository.DohvatiSve().ToList();
-            var lijekovi = new List<Lijek>();
-            lijekovi.Add(new Lijek { Naziv = "Lijek1", Opis = "Jaki" });
-            lijekovi.Add(new Lijek { Naziv = "Lijek2", Opis = "Slabi" });
+            var lijekovi = _repository.DohvatiSve();
             _view.Lijekovi = lijekovi;
         }
     }

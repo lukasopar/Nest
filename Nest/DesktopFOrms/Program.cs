@@ -1,4 +1,5 @@
 ﻿using DatabaseBootstrap;
+using DatabaseBootstrap.Repositories;
 using DesktopFOrms.Presenters;
 using DesktopFOrms.Views;
 using FluentNHibernate.Cfg;
@@ -22,14 +23,13 @@ namespace DesktopFOrms
         [STAThread]
         static void Main()
         {
-            //NHibernateService.OpenSessionFactory();
+            NHibernateService.OpenSessionFactory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var view = new LijekoviForm();
-
-            var presenter = new LijekoviPresenter(view, null);
-            Application.Run(view);
+            GlavniForm form = new GlavniForm();
+            form.Show();
+            Application.Run();
         }
 
         

@@ -86,6 +86,12 @@
   <ItemGroup>
     <Compile Include="Presenters\LijekoviPresenter.cs" />
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
+    <Compile Include="Views\GlavniForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GlavniForm.Designer.cs">
+      <DependentUpon>GlavniForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LijekoviForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\GlavniForm.resx">
+      <DependentUpon>GlavniForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LijekoviForm.resx">
       <DependentUpon>LijekoviForm.cs</DependentUpon>
     </EmbeddedResource>

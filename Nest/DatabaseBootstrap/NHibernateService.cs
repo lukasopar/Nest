@@ -2,7 +2,6 @@
 using FluentNHibernate.Cfg.Db;
 using Nest.Model.Domain;
 using NHibernate;
-using NHibernate.Tool.hbm2ddl;
 using System;
 
 namespace DatabaseBootstrap
@@ -20,6 +19,7 @@ namespace DatabaseBootstrap
                 }
                 ISession session = _sessionFactory.OpenSession();
                 return session;
+
             }
             catch (Exception e)
             {
@@ -30,7 +30,7 @@ namespace DatabaseBootstrap
         {
             var nhConfig = Fluently.Configure()
             .Database(SQLiteConfiguration.Standard
-            .ConnectionString("Data Source=e:\\Fakultet\\Objektno oblikovanje\\Veterinari.db;Version=3")
+            .ConnectionString("Data Source=C:\\Objektno\\Veterinari.db;Version=3")
             .AdoNetBatchSize(100))
             .Mappings(mappings => mappings.FluentMappings
                 .AddFromAssemblyOf<Bolest>()

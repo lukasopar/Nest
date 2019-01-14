@@ -9,7 +9,7 @@ namespace DatabaseBootstrap.Repositories
 {
     public interface IBasicRepository<T> where T : EntityClass
     {
-        IQueryable<T> DohvatiSve();
+        List<T> DohvatiSve();
         T DohvatiPrekoID(Guid id);
         void Stvori(T entity);
         void Azuriraj(T entity);

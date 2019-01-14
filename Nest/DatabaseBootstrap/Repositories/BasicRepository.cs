@@ -3,20 +3,19 @@ using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DatabaseBootstrap.Repositories
 {
     public class BasicRepository<T> : IBasicRepository<T> where T : EntityClass
     {
-        public IQueryable<T> DohvatiSve()
+        public List<T> DohvatiSve()
         {
             using (ISession session = NHibernateService.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     IQueryable<T> query = session.Query<T>().AsQueryable();
-                    return query;
+                    return query.ToList();
                 }            }        }
 
         public void Azuriraj(T entity)

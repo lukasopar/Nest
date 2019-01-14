@@ -40,5 +40,16 @@ namespace DesktopFOrms.Views
                 }
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            GlavniForm view = new GlavniForm();
+
+            this.Close();
+
+            view.Show();
+        }
     }
 }
