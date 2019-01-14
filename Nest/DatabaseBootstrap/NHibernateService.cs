@@ -2,6 +2,7 @@
 using FluentNHibernate.Cfg.Db;
 using Nest.Model.Domain;
 using NHibernate;
+using NHibernate.Tool.hbm2ddl;
 using System;
 
 namespace DatabaseBootstrap
@@ -30,7 +31,7 @@ namespace DatabaseBootstrap
         {
             var nhConfig = Fluently.Configure()
             .Database(SQLiteConfiguration.Standard
-            .ConnectionString("Data Source=C:\\Objektno\\Veterinari.db;Version=3")
+            .ConnectionString("Data Source=c:\\Objektno\\Veterinari.db;Version=3")
             .AdoNetBatchSize(100))
             .Mappings(mappings => mappings.FluentMappings
                 .AddFromAssemblyOf<Bolest>()
@@ -46,7 +47,7 @@ namespace DatabaseBootstrap
                 .AddFromAssemblyOf<Zivotinja>())
             .BuildConfiguration();
             var sessionFactory = nhConfig.BuildSessionFactory();
-            //ISession sess = sessionFactory.OpenSession();
+            ISession sess = sessionFactory.OpenSession();
             // var schemaExport = new SchemaExport(nhConfig);
             //schemaExport.Create(false, true);
             return sessionFactory;

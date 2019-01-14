@@ -84,8 +84,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\BolestiPresenter.cs" />
     <Compile Include="Presenters\LijekoviPresenter.cs" />
+    <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
+    <Compile Include="ViewInterfaces\IBolestiView.cs" />
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
+    <Compile Include="Views\BolestDetaljiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BolestDetaljiForm.Designer.cs">
+      <DependentUpon>BolestDetaljiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BolestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BolestForm.Designer.cs">
+      <DependentUpon>BolestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GlavniForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +115,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\BolestDetaljiForm.resx">
+      <DependentUpon>BolestDetaljiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BolestForm.resx">
+      <DependentUpon>BolestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\GlavniForm.resx">
       <DependentUpon>GlavniForm.cs</DependentUpon>
     </EmbeddedResource>

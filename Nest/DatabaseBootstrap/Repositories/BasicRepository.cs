@@ -16,7 +16,9 @@ namespace DatabaseBootstrap.Repositories
                 {
                     IQueryable<T> query = session.Query<T>().AsQueryable();
                     return query.ToList();
-                }            }        }
+                }
+            }
+        }
 
         public void Azuriraj(T entity)
         {
@@ -26,7 +28,8 @@ namespace DatabaseBootstrap.Repositories
                 {
                     session.Save(entity);
                     session.Transaction.Commit();
-                }            }
+                }
+            }
         }
 
         public T DohvatiPrekoID(Guid id)
@@ -37,7 +40,8 @@ namespace DatabaseBootstrap.Repositories
                 {
                     T entity = session.Get<T>(id);
                     return entity;
-                }            }
+                }
+            }
         }
 
         public void Izbrisi(Guid id)
@@ -52,7 +56,8 @@ namespace DatabaseBootstrap.Repositories
                            .ExecuteUpdate();
 
                     transaction.Commit();
-                }            }
+                }
+            }
         }
 
         public void Stvori(T entity)
@@ -63,7 +68,8 @@ namespace DatabaseBootstrap.Repositories
                 {
                     session.Save(entity);
                     transaction.Commit();
-                }            }
+                }
+            }
         }
 
         

@@ -1,4 +1,5 @@
 ﻿using DatabaseBootstrap;
+using DatabaseBootstrap.IRepositories;
 using DatabaseBootstrap.Repositories;
 using DesktopFOrms.Presenters;
 using DesktopFOrms.Views;
@@ -27,9 +28,12 @@ namespace DesktopFOrms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            GlavniForm form = new GlavniForm();
-            form.Show();
-            Application.Run();
+
+            var repository = new BolestiRepository();
+            var view = new BolestForm();
+
+            var presenter = new BolestiPresenter(view, repository);
+            Application.Run(view);
         }
 
         
