@@ -1,7 +1,7 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.Repositories;
-using DesktopFOrms.Presenters;
-using DesktopFOrms.Views;
+using DesktopForms.Presenters;
+using DesktopForms.Views;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Nest.Model.Domain;

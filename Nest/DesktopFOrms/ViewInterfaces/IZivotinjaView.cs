@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DesktopForms.ViewInterfaces
 {
-    public interface ILijekoviView
+    public interface IZivotinjaView
     {
-        IList<Lijek> Lijekovi { get; set; }
-        Presenters.LijekoviPresenter Presenter {  set; }
+        IList<Vlasnik> Vlasnici { get; set; }
+        Presenters.ZivotinjaPresenter Presenter { set; }
     }
 }

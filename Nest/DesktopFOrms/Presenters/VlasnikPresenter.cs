@@ -9,25 +9,23 @@ using System.Threading.Tasks;
 
 namespace DesktopForms.Presenters
 {
-    public class LijekoviPresenter
+    public class VlasnikPresenter
     {
-        private readonly ILijekoviView _view;
-        private readonly ILijekoviRepository _repository;
+        private readonly IVlasnikView _view;
+        private readonly IVlasnikRepository _repository;
 
 
-        public LijekoviPresenter(ILijekoviView view, ILijekoviRepository repository)
+        public VlasnikPresenter(IVlasnikView view, IVlasnikRepository repository)
         {
             _view = view;
             view.Presenter = this;
             _repository = repository;
-
-            UpdateLijekoviListView();
         }
 
-        private void UpdateLijekoviListView()
+        public void registrirajVlasnika(Vlasnik vlasnik)
         {
-            var lijekovi = _repository.DohvatiSve();
-            _view.Lijekovi = lijekovi;
+            _repository.Stvori(vlasnik);
         }
+
     }
 }
