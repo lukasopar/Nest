@@ -6,7 +6,7 @@ namespace Model
 {
     public abstract class EntityClass
     {
-        public virtual Guid Id { get; set; }
+        public virtual int Id { get; set; }
         public override bool Equals(object obj)
         {
             var ob = obj as EntityClass;

@@ -24,9 +24,23 @@ namespace DesktopForms.Presenters
         
         public void UpdateLijek(Lijek lijek)
         {
-            var novi = _repository.DohvatiPrekoID(lijek.Id);
+            var novi = _repository.DohvatiLijekPoId(lijek.Id);
             _view.Bolesti = novi.Bolests.ToList();
-            _view.Interakcije = novi.InterakcijaLijekovas1.ToList();
+
+            HashSet<InterakcijaLijekova> interakcije = new HashSet<InterakcijaLijekova>();
+
+            foreach(InterakcijaLijekova interakcija in novi.InterakcijaLijekovas1.ToList())
+            {
+                interakcije.Add(interakcija);
+            }
+
+            foreach (InterakcijaLijekova interakcija in novi.InterakcijaLijekovas2.ToList())
+            {
+                interakcije.Add(interakcija);
+            }
+
+            _view.Lijek = lijek;
+            _view.Interakcije = interakcije.ToList();
         }
 
     }

@@ -10,7 +10,7 @@ namespace Nest.Desktop.Mapping {
         
         public LijekKodVeterinaraMap() {
 			
-			Id(x => x.Id).GeneratedBy.GuidNative();
+			Id(x => x.Id).GeneratedBy.Native();
             Map(x => x.Cijena).Not.Nullable();
 			Map(x => x.Napomena);
 			References(x => x.Lijek).Cascade.SaveUpdate();

@@ -29,7 +29,7 @@ namespace DatabaseBootstrap.Repositories
                 }            }
         }
 
-        public T DohvatiPrekoID(Guid id)
+        public T DohvatiPrekoID(int id)
         {
             using (ISession session = NHibernateService.OpenSession())
             {
@@ -40,7 +40,7 @@ namespace DatabaseBootstrap.Repositories
                 }            }
         }
 
-        public void Izbrisi(Guid id)
+        public void Izbrisi(int id)
         {
             using (ISession session = NHibernateService.OpenSession())
             {

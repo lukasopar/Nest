@@ -21,7 +21,7 @@ namespace DesktopForms.Presenters
             view.Presenter = this;
             _zivotinjaRepository = repository;
             _vlasniciRepository = vlasnici_repository;
-            _view.Vlasnici = vlasnici_repository.DohvatiSve();
+            _view.Vlasnici = vlasnici_repository.DohvatiSveVlasnike();
         }
 
         public void RegistrirajZivotinju(Zivotinja zivotinja)
@@ -36,7 +36,7 @@ namespace DesktopForms.Presenters
 
         public void UpdateVlasnikList(String nameLike)
         {
-            _view.Vlasnici = _vlasniciRepository.DohvatiSve().Where(vlasnik => vlasnik.KorisnickoIme.Contains(nameLike)).ToList();
+            _view.Vlasnici = _vlasniciRepository.DohvatiSveVlasnike().Where(vlasnik => vlasnik.KorisnickoIme.Contains(nameLike)).ToList();
         }
     }
 }

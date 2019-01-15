@@ -48,7 +48,6 @@ namespace DesktopForms.Views
         {
             Boolean valid = true;
             var zivotinja = new Zivotinja();
-            zivotinja.Id = new Guid();
             if (textBox1.Text.Equals(""))
             {
                 label9.Text = "Ovo polje je obavezno";

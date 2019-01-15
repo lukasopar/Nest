@@ -9,6 +9,6 @@ namespace DatabaseBootstrap.IRepositories
 {
     public interface ILijekoviRepository : IBasicRepository<Lijek>
     {
-        //dodati kaj treba
+        Lijek DohvatiLijekPoId(int id);
     }
 }

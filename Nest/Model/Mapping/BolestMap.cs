@@ -10,7 +10,7 @@ namespace Nest.Model.Mapping {
 
         public BolestMap()
         {
-            Id(x => x.Id).GeneratedBy.GuidNative();
+            Id(x => x.Id).GeneratedBy.Native();
             Map(x => x.Naziv).Length(30).Not.Nullable();
             Map(x => x.Opis);
             HasManyToMany(x => x.Postupaks).Cascade.All().Table("BolestsPostupaks");

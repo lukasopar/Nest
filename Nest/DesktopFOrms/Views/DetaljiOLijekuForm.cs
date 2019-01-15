@@ -1,4 +1,5 @@
-﻿using DesktopForms.Presenters;
+﻿using DatabaseBootstrap.Repositories;
+using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
@@ -15,12 +16,14 @@ namespace DesktopForms.Views
 {
     public partial class DetaljiOLijekuForm : Form, IDetaljiOLijekuView
     {
+
+        private readonly string DEFAULT_TEXT = "Podaci o lijeku: ";
         private Lijek _lijek;
 
         public DetaljiOLijekuForm(Lijek lijek)
         {
             InitializeComponent();
-            _lijek = lijek;
+            Lijek = lijek;
         }
 
         public IList<Bolest> Bolesti
@@ -33,11 +36,12 @@ namespace DesktopForms.Views
             }
             set
             {
+                listView2.Items.Clear();
                 foreach (var bolest in value)
                 {
                     ListViewItem it = new ListViewItem(new string[] { bolest.Naziv, bolest.Opis });
                     it.Tag = bolest;
-                    listView1.Items.Add(it);
+                    listView2.Items.Add(it);
                 }
             }
         }
@@ -51,6 +55,7 @@ namespace DesktopForms.Views
             }
             set
             {
+                listView1.Items.Clear();
                 foreach (var interakcija in value)
                 {
                     ListViewItem it;
@@ -64,7 +69,7 @@ namespace DesktopForms.Views
                         it = new ListViewItem(new string[] { interakcija.Lijek1.Naziv, interakcija.Opis });
                         it.Tag = interakcija.Lijek1;
                     }
-                    listView2.Items.Add(it);
+                    listView1.Items.Add(it);
                 }
             }
         }
@@ -74,26 +79,40 @@ namespace DesktopForms.Views
             set
             {
                 _lijek = value;
+                label1.Text = DEFAULT_TEXT + _lijek.Naziv;
             }
         }
 
         public DetaljiOLijekuPresenter Presenter { private get; set; }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+       
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //prebaci se na stranicu s tom bolesti
+            ListView.SelectedListViewItemCollection items = listView2.SelectedItems;
+            ListViewItem lvItem = items[0];
+            Bolest bolest = (Bolest)lvItem.Tag;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            LijekoviForm view = new LijekoviForm();
+
+            var presenter = new LijekoviPresenter(view, new LijekoviRepository());
+
+            view.Show();
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListView.SelectedListViewItemCollection items = listView1.SelectedItems;
             ListViewItem lvItem = items[0];
             Lijek lijek = (Lijek)lvItem.Tag;
 
             Presenter.UpdateLijek(lijek);
-        }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prebaci se na stranicu s tom bolesti
-            ListView.SelectedListViewItemCollection items = listView1.SelectedItems;
-            ListViewItem lvItem = items[0];
-            Bolest lijek = (Bolest)lvItem.Tag;
         }
     }
 }

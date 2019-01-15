@@ -29,7 +29,6 @@ namespace DesktopForms.Views
         {
             Boolean valid = true;
             var vlasnik = new Vlasnik();
-            vlasnik.Id = new Guid();
             if (textBox1.Text.Equals(""))
             {
                 label7.Text = "Ovo polje je obavezno";

@@ -11,8 +11,8 @@ namespace Nest.Desktop.Mapping {
         
         public ZivotinjaMap() {
 			
-			Id(x => x.Id).GeneratedBy.GuidNative();
-			Map(x => x.Ime).Not.Nullable();
+			Id(x => x.Id).GeneratedBy.Native();
+            Map(x => x.Ime).Not.Nullable();
 			Map(x => x.DatumRod);
 			Map(x => x.Napomena);
 			References(x => x.Vlasnik).Cascade.None();
