@@ -9,7 +9,7 @@ namespace Nest.Desktop.Mapping {
         
         public VrstaPostupkaMap() {
 		
-			Id(x => x.Id).GeneratedBy.GuidNative();
+			Id(x => x.Id).GeneratedBy.Native();
 			Map(x => x.Naziv).Not.Nullable();
 			Map(x => x.Opis);
 			Map(x => x.Cijena).Not.Nullable();

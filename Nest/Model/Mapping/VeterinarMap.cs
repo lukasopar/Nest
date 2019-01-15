@@ -9,7 +9,7 @@ namespace Nest.Desktop.Mapping {
     public class VeterinarMap : ClassMap<Veterinar> {
         
         public VeterinarMap() {
-			Id(x => x.Id).GeneratedBy.GuidNative();
+			Id(x => x.Id).GeneratedBy.Native();
             Map(x => x.Ime).Not.Nullable();
             Map(x => x.Prezime).Not.Nullable();
             Map(x => x.DatumRod).Not.Nullable();

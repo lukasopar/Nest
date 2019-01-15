@@ -9,6 +9,6 @@ namespace DatabaseBootstrap.IRepositories
 {
     public interface IBolestiRepository : IBasicRepository<Bolest>
     {
-        //dodati kaj treba
+        Bolest DohvatiPrekoIDSLijekovima(int id);
     }
 }

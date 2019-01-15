@@ -31,7 +31,7 @@ namespace DatabaseBootstrap
         {
             var nhConfig = Fluently.Configure()
             .Database(SQLiteConfiguration.Standard
-            .ConnectionString("Data Source=c:\\Objektno\\Veterinari.db;Version=3")
+            .ConnectionString("Data Source=c:\\Objektno\\Veterinari.db;Version=3;BinaryGUID=False")
             .AdoNetBatchSize(100))
             .Mappings(mappings => mappings.FluentMappings
                 .AddFromAssemblyOf<Bolest>()

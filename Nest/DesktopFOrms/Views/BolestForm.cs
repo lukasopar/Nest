@@ -46,5 +46,22 @@ namespace DesktopFOrms.Views
             if (selected == null) return;
             Presenter.DetaljiBolest((Bolest)selected);
         }
+
+        void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo info = listView1.HitTest(e.X, e.Y);
+            ListViewItem item = info.Item;
+
+            if (item != null)
+            {
+                var selected = listView1.SelectedItems[0].Tag;
+                if (selected == null) return;
+                Presenter.DetaljiBolest((Bolest)selected);
+            }
+            else
+            {
+                
+            }
+        }
     }
 }

@@ -30,7 +30,12 @@ namespace DesktopFOrms.Views
                     textBox1.Text = "Nema opisa.";
                 else
                     textBox1.Text = value.Opis;
-                
+                foreach(var lijek in Bolest.Lijeks)
+                {
+                    var item = new ListViewItem(lijek.Naziv);
+                    item.Tag = lijek;
+                    listView1.Items.Add(item);
+                }
             }
         }
         public BolestiPresenter Presenter { private get; set; }

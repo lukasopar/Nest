@@ -34,7 +34,9 @@ namespace DesktopFOrms.Presenters
         {
             BolestDetaljiForm detalji = new BolestDetaljiForm();
             detalji.Presenter = this;
-            detalji.Bolest = bolest;
+            var dohvaceno = _repository.DohvatiPrekoIDSLijekovima(bolest.Id);
+            detalji.Bolest = dohvaceno;
+            //detalji.Bolest = bolest;
             detalji.ShowDialog();
         }
     }

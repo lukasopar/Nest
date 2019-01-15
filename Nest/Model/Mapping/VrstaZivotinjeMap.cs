@@ -10,7 +10,7 @@ namespace Nest.Desktop.Mapping {
     public class VrstaZivotinjeMap : ClassMap<VrstaZivotinje> {
         
         public VrstaZivotinjeMap() {
-			Id(x => x.Id).GeneratedBy.GuidNative();
+			Id(x => x.Id).GeneratedBy.Native();
 			Map(x => x.Vrsta).Not.Nullable();
 			References(x => x.Veterinar).Cascade.None();
 

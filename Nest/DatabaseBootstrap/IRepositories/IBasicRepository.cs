@@ -10,9 +10,9 @@ namespace DatabaseBootstrap.Repositories
     public interface IBasicRepository<T> where T : EntityClass
     {
         List<T> DohvatiSve();
-        T DohvatiPrekoID(Guid id);
+        T DohvatiPrekoID(int id);
         void Stvori(T entity);
         void Azuriraj(T entity);
-        void Izbrisi(Guid id);
+        void Izbrisi(int id);
     }
 }
