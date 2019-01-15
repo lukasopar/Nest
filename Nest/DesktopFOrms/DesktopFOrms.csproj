@@ -85,12 +85,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\DetaljiOLijekuPresenter.cs" />
     <Compile Include="Presenters\LijekoviPresenter.cs" />
     <Compile Include="Presenters\VlasnikPresenter.cs" />
     <Compile Include="Presenters\ZivotinjaPresenter.cs" />
+    <Compile Include="ViewInterfaces\IDetaljiOLijekuView.cs" />
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
     <Compile Include="ViewInterfaces\IVlasnikView.cs" />
     <Compile Include="ViewInterfaces\IZivotinjaView.cs" />
+    <Compile Include="Views\DetaljiOLijekuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DetaljiOLijekuForm.Designer.cs">
+      <DependentUpon>DetaljiOLijekuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GlavniForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +125,9 @@
     <Compile Include="Views\ZivotinjaForm.Designer.cs">
       <DependentUpon>ZivotinjaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\DetaljiOLijekuForm.resx">
+      <DependentUpon>DetaljiOLijekuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\GlavniForm.resx">
       <DependentUpon>GlavniForm.cs</DependentUpon>
     </EmbeddedResource>

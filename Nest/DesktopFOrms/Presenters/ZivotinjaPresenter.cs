@@ -29,6 +29,11 @@ namespace DesktopForms.Presenters
             _zivotinjaRepository.Stvori(zivotinja);
         }
 
+        public void UpdateVlasnik(Vlasnik vlasnik)
+        {
+            _vlasniciRepository.Azuriraj(vlasnik);
+        }
+
         public void UpdateVlasnikList(String nameLike)
         {
             _view.Vlasnici = _vlasniciRepository.DohvatiSve().Where(vlasnik => vlasnik.KorisnickoIme.Contains(nameLike)).ToList();

@@ -75,12 +75,16 @@ namespace DesktopForms.Views
             else label11.Text = " ";
             if (!valid) return;
 
+            Vlasnik vlasnik = (Vlasnik)comboBox1.SelectedItem;
+
             zivotinja.Ime = textBox1.Text;
             zivotinja.DatumRod = dateTimePicker1.Value;
             zivotinja.Napomena = textBox3.Text;
-            zivotinja.Vlasnik = (Vlasnik)comboBox1.SelectedItem;
+            zivotinja.Vlasnik = vlasnik;
             zivotinja.Napomena = textBox2.Text;
+            vlasnik.DodajZivotinju(zivotinja);
 
+            Presenter.UpdateVlasnik(vlasnik);
             Presenter.RegistrirajZivotinju(zivotinja);
 
             this.Close();

@@ -22,7 +22,12 @@ namespace Nest.Model.Domain {
         public virtual string Prezime { get; set; }
 
         public virtual DateTime? DatumRod { get; set; }
-        public virtual IEnumerable<Zivotinja> Zivotinjas { get; set; }
+        public virtual IList<Zivotinja> Zivotinjas { get; set; }
+
+        public virtual void DodajZivotinju(Zivotinja zivotinja)
+        {
+            this.Zivotinjas.Add(zivotinja);
+        }
 
     }
 }
