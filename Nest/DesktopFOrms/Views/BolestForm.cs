@@ -31,6 +31,7 @@ namespace DesktopFOrms.Views
             }
             set
             {
+                listView1.Items.Clear();
                 foreach (var bolest in value)
                 {
                     ListViewItem it = new ListViewItem(new string[] { bolest.Naziv, bolest.Opis });
@@ -47,7 +48,7 @@ namespace DesktopFOrms.Views
             Presenter.DetaljiBolest((Bolest)selected);
         }
 
-        void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo info = listView1.HitTest(e.X, e.Y);
             ListViewItem item = info.Item;
@@ -60,8 +61,13 @@ namespace DesktopFOrms.Views
             }
             else
             {
-                
+
             }
+        }
+
+        public void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Presenter.UpdateBolestiListView(textBox1.Text);
         }
     }
 }

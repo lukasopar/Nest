@@ -25,10 +25,10 @@ namespace DesktopFOrms.Presenters
             UpdateBolestiListView();
         }
 
-        private void UpdateBolestiListView()
+        public void UpdateBolestiListView(string query = "")
         {
             var bolesti = _repository.DohvatiSve();
-            _view.Bolesti = bolesti;
+            _view.Bolesti = bolesti.Where(x => x.Naziv.Contains(query)).ToList();
         }
         public void DetaljiBolest(Bolest bolest)
         {
@@ -39,5 +39,6 @@ namespace DesktopFOrms.Presenters
             //detalji.Bolest = bolest;
             detalji.ShowDialog();
         }
+        
     }
 }
