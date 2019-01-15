@@ -85,12 +85,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\BolestiPresenter.cs" />
     <Compile Include="Presenters\DetaljiOLijekuPresenter.cs" />
     <Compile Include="Presenters\LijekoviPresenter.cs" />
+    <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
+    <Compile Include="ViewInterfaces\IBolestiView.cs" />
     <Compile Include="Presenters\VlasnikPresenter.cs" />
     <Compile Include="Presenters\ZivotinjaPresenter.cs" />
     <Compile Include="ViewInterfaces\IDetaljiOLijekuView.cs" />
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
+    <Compile Include="Views\BolestDetaljiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BolestDetaljiForm.Designer.cs">
+      <DependentUpon>BolestDetaljiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BolestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BolestForm.Designer.cs">
+      <DependentUpon>BolestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewInterfaces\IVlasnikView.cs" />
     <Compile Include="ViewInterfaces\IZivotinjaView.cs" />
     <Compile Include="Views\DetaljiOLijekuForm.cs">
