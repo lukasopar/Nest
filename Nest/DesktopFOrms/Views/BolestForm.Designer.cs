@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Linq;
 
-namespace DesktopFOrms.Views
+namespace DesktopForms.Views
 {
     partial class BolestForm
     {

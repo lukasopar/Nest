@@ -14,7 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DesktopFOrms
+namespace DesktopForms
 {
     static class Program
     {
@@ -29,11 +29,9 @@ namespace DesktopFOrms
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            var repository = new BolestiRepository();
-            var view = new BolestForm();
-
-            var presenter = new BolestiPresenter(view, repository);
-            Application.Run(view);
+            GlavniForm form = new GlavniForm();
+            form.Show();
+            Application.Run();
         }
 
         

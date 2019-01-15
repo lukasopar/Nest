@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesktopFOrms.ViewInterfaces
+namespace DesktopForms.ViewInterfaces
 {
     public interface IBolestiView
     {

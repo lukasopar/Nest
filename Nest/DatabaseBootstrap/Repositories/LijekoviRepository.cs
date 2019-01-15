@@ -19,7 +19,7 @@ namespace DatabaseBootstrap.Repositories
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     Lijek query = session.Query<Lijek>().Where(lijek => lijek.Id == id).Fetch(lijek => lijek.Bolests)
-                        .Fetch(lijek => lijek.InterakcijaLijekovas1).Fetch(lijek => lijek.InterakcijaLijekovas2).FirstOrDefault();
+                        .Fetch(lijek => lijek.InterakcijaLijekovas2).Fetch(lijek => lijek.InterakcijaLijekovas1).FirstOrDefault();
                     return query;
                 }
             }
