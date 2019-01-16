@@ -17,14 +17,16 @@ namespace DesktopForms.Presenters
         private readonly IVlasnikRepository _repositoryVlasnik;
         private readonly IVeterinarRepository _repositoryVeterinar;
         private readonly IZivotinjaRepository _repositoryZiv;
-
-        public PridruziZivotinjuPresenter(IPridruziZivotinjuView view, IVlasnikRepository repositoryVlasnik, IVeterinarRepository repositoryVeterinar, IZivotinjaRepository repositoryZiv)
+        private readonly PostupakPresenter _presenter;
+        public PridruziZivotinjuPresenter(IPridruziZivotinjuView view, IVlasnikRepository repositoryVlasnik, IVeterinarRepository repositoryVeterinar, IZivotinjaRepository repositoryZiv, PostupakPresenter presenter)
         {
             _view = view;
             view.Presenter = this;
             _repositoryVeterinar = repositoryVeterinar;
             _repositoryVlasnik = repositoryVlasnik;
             _repositoryZiv = repositoryZiv;
+            _presenter = presenter;
+
             UpdateVlasnikListView();
         }
 
@@ -53,7 +55,9 @@ namespace DesktopForms.Presenters
                 //zivotinja.PridruziVrstuZivotinjeKodVeterinara(vrsta);
                 //_repositoryZiv.Azuriraj(zivotinja);
                 _repositoryZiv.AzurirajSNovomVrstom(zivotinja, vrsta);
+                
             }
+            _presenter.OdabranaZivotinja(zivotinja);
         }
     }
 }

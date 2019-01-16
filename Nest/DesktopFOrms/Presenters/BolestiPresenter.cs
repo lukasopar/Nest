@@ -14,14 +14,15 @@ namespace DesktopForms.Presenters
     {
         private readonly IBolestiView _view;
         private readonly IBolestiRepository _repository;
+        private readonly PostupakPresenter _presenterDijagnoza;
 
-
-        public BolestiPresenter(IBolestiView view, IBolestiRepository repository)
+        public BolestiPresenter(IBolestiView view, IBolestiRepository repository, PostupakPresenter postupakPresenter)
         {
             _view = view;
             view.Presenter = this;
             _repository = repository;
-
+            _presenterDijagnoza = postupakPresenter;
+            _view.Dijagnoza = postupakPresenter == null ? false : true;
             UpdateBolestiListView();
         }
 
@@ -39,6 +40,9 @@ namespace DesktopForms.Presenters
             //detalji.Bolest = bolest;
             detalji.ShowDialog();
         }
-        
+        public void DodanaDijagnoza(List<Bolest> bolesti)
+        {
+            _presenterDijagnoza.DodanaDijagnoza(bolesti);
+        }
     }
 }

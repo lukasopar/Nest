@@ -36,8 +36,8 @@ namespace DesktopForms.Presenters
             NHibernateService.PrijavljeniVeterinar = prijava;
             _view.CloseForm();
 
-            PridruziZivotinjuForm form = new PridruziZivotinjuForm();
-            PridruziZivotinjuPresenter presenter = new PridruziZivotinjuPresenter(form, new VlasnikRepository(), new VeterinarRepository(), new ZivotinjaRepository());
+            PostupakForm form = new PostupakForm();
+            PostupakPresenter presenter = new PostupakPresenter(form, new PostupakRepository(), new VeterinarRepository());
 
             form.Show();
 

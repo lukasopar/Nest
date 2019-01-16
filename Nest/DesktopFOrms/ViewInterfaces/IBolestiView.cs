@@ -11,5 +11,6 @@ namespace DesktopForms.ViewInterfaces
     {
         IList<Bolest> Bolesti { get; set; }
         Presenters.BolestiPresenter Presenter {  set; }
+        bool Dijagnoza { get; set; }
     }
 }

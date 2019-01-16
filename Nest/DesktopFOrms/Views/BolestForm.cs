@@ -41,12 +41,16 @@ namespace DesktopForms.Views
             }
         }
 
+        public bool Dijagnoza { get => button1.Visible; set { button1.Visible = value; button2.Visible = value; listView1.MultiSelect = value; } }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            var selected = listView1.SelectedItems[0].Tag;
-            if (selected == null) return;
-            Presenter.DetaljiBolest((Bolest)selected);
+            int number = listView1.SelectedItems.Count;
+            List<Bolest> lista = new List<Bolest>();
+            for (int i = 0; i < number; i++)
+                lista.Add((Bolest)listView1.SelectedItems[i].Tag);
+            Presenter.DodanaDijagnoza(lista);
+            MessageBox.Show("Dodano u dijagnozu.", "Dodano", MessageBoxButtons.OK);
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -69,6 +73,20 @@ namespace DesktopForms.Views
         public void textBox1_TextChanged(object sender, EventArgs e)
         {
             Presenter.UpdateBolestiListView(textBox1.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count == 0)
+            {
+                button1.Enabled = false;
+            }
+            button1.Enabled = true;
         }
     }
 }

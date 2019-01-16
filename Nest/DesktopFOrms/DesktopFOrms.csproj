@@ -92,6 +92,7 @@
     <Compile Include="Presenters\LijekoviPresenter.cs" />
     <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
+    <Compile Include="ViewInterfaces\IPostupakView.cs" />
     <Compile Include="ViewInterfaces\IPridruziZivotinjuView.cs" />
     <Compile Include="ViewInterfaces\IBolestiView.cs" />
     <Compile Include="Presenters\VlasnikPresenter.cs" />
@@ -163,6 +164,9 @@
     <Compile Include="Views\ZivotinjaForm.Designer.cs">
       <DependentUpon>ZivotinjaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\BolestForm.resx">
+      <DependentUpon>BolestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DetaljiOLijekuForm.resx">
       <DependentUpon>DetaljiOLijekuForm.cs</DependentUpon>
     </EmbeddedResource>

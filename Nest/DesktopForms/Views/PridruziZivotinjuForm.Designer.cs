@@ -268,7 +268,8 @@
             // 
             // buttonOdaberi
             // 
-            this.buttonOdaberi.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonOdaberi.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonOdaberi.Enabled = false;
             this.buttonOdaberi.Location = new System.Drawing.Point(163, 512);
             this.buttonOdaberi.Name = "buttonOdaberi";
             this.buttonOdaberi.Size = new System.Drawing.Size(140, 28);

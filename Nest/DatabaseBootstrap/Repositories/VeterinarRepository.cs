@@ -45,5 +45,16 @@ namespace DatabaseBootstrap.Repositories
                     return vrsta;
                 }            }
         }
+        public List<VrstaPostupka> DohvatiSvePostupke(int id)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var query = session.Query<VrstaPostupka>().Where(vrsta => vrsta.Veterinar.Id == id).ToList();
+                    return query;
+                }            }
+        }
+
     }
 }

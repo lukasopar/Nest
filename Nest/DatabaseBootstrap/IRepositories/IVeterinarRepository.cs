@@ -11,6 +11,6 @@ namespace DatabaseBootstrap.IRepositories
         Veterinar DohvatiVeterinaraPrijava(string username, string password);
         List<VrstaZivotinje> DohvatiSveVrsteVeterinar(int id);
         VrstaZivotinje DohvatiVrstuZivotinjeKodVeterinara(int idZivotinja, int idVeterinar);
-
+        List<VrstaPostupka> DohvatiSvePostupke(int id);
     }
 }
