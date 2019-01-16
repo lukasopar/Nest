@@ -88,12 +88,14 @@
     <Compile Include="Presenters\BolestiPresenter.cs" />
     <Compile Include="Presenters\DetaljiOLijekuPresenter.cs" />
     <Compile Include="Presenters\LijekoviPresenter.cs" />
+    <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
     <Compile Include="ViewInterfaces\IBolestiView.cs" />
     <Compile Include="Presenters\VlasnikPresenter.cs" />
     <Compile Include="Presenters\ZivotinjaPresenter.cs" />
     <Compile Include="ViewInterfaces\IDetaljiOLijekuView.cs" />
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
+    <Compile Include="ViewInterfaces\IPrijavaView.cs" />
     <Compile Include="Views\BolestDetaljiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +130,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\PostupakForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PostupakForm.Designer.cs">
+      <DependentUpon>PostupakForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrijavaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PrijavaForm.Designer.cs">
+      <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\VlasnikForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +172,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\PostupakForm.resx">
+      <DependentUpon>PostupakForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PrijavaForm.resx">
+      <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\VlasnikForm.resx">
       <DependentUpon>VlasnikForm.cs</DependentUpon>
     </EmbeddedResource>

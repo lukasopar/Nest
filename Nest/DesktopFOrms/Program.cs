@@ -18,6 +18,7 @@ namespace DesktopForms
 {
     static class Program
     {
+        public static Veterinar PrijavljeniVeterinar;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -29,7 +30,8 @@ namespace DesktopForms
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            GlavniForm form = new GlavniForm();
+            PrijavaForm form = new PrijavaForm();
+            PrijavaPresenter presenter = new PrijavaPresenter(form, new VeterinarRepository());
             form.Show();
             Application.Run();
         }
