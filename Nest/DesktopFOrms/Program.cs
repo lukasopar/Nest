@@ -18,7 +18,6 @@ namespace DesktopForms
 {
     static class Program
     {
-        public static Veterinar PrijavljeniVeterinar;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

@@ -9,5 +9,8 @@ namespace DatabaseBootstrap.IRepositories
     public interface IVeterinarRepository : IBasicRepository<Veterinar>
     {
         Veterinar DohvatiVeterinaraPrijava(string username, string password);
+        List<VrstaZivotinje> DohvatiSveVrsteVeterinar(int id);
+        VrstaZivotinje DohvatiVrstuZivotinjeKodVeterinara(int idZivotinja, int idVeterinar);
+
     }
 }

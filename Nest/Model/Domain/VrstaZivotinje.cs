@@ -15,7 +15,7 @@ namespace Nest.Model.Domain {
         public virtual Veterinar Veterinar { get; set; }
         [Required]
         public virtual string Vrsta { get; set; }
-        public virtual IEnumerable<Zivotinja> Zivotinjas { get; set; }
+        public virtual IList<Zivotinja> Zivotinjas { get; set; }
 
     }
 }

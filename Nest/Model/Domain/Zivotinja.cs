@@ -19,7 +19,11 @@ namespace Nest.Model.Domain {
         public virtual string Napomena { get; set; }
         public virtual IEnumerable<Postupak> Postupaks { get; set; }
 
-        public virtual IEnumerable<VrstaZivotinje> VrstaZivotinjes { get; set; }
+        public virtual IList<VrstaZivotinje> VrstaZivotinjes { get; set; }
 
+        public virtual void PridruziVrstuZivotinjeKodVeterinara(VrstaZivotinje vrsta)
+        {
+            VrstaZivotinjes.Add(vrsta);
+        }
     }
 }

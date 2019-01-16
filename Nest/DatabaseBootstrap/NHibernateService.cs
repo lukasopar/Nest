@@ -10,6 +10,8 @@ namespace DatabaseBootstrap
     public class NHibernateService
     {
         private static ISessionFactory _sessionFactory;
+        public static Veterinar PrijavljeniVeterinar;
+
         public static ISession OpenSession()
         {
             try

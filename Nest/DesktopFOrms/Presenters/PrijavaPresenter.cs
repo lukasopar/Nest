@@ -1,6 +1,9 @@
-﻿using DatabaseBootstrap.IRepositories;
+﻿using DatabaseBootstrap;
+using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using DesktopForms.Views;
+using DesktopFOrms.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +33,12 @@ namespace DesktopForms.Presenters
                 _view.Lozinka = "";
                 return;
             }
-            Program.PrijavljeniVeterinar = prijava;
+            NHibernateService.PrijavljeniVeterinar = prijava;
             _view.CloseForm();
 
-            GlavniForm form = new GlavniForm();
+            PridruziZivotinjuForm form = new PridruziZivotinjuForm();
+            PridruziZivotinjuPresenter presenter = new PridruziZivotinjuPresenter(form, new VlasnikRepository(), new VeterinarRepository(), new ZivotinjaRepository());
+
             form.Show();
 
         }

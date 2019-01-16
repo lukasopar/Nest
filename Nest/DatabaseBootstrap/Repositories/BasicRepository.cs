@@ -26,7 +26,7 @@ namespace DatabaseBootstrap.Repositories
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.Save(entity);
+                    session.Update(entity);
                     session.Transaction.Commit();
                 }
             }

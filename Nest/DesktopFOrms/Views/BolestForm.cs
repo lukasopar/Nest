@@ -43,6 +43,7 @@ namespace DesktopForms.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             var selected = listView1.SelectedItems[0].Tag;
             if (selected == null) return;
             Presenter.DetaljiBolest((Bolest)selected);

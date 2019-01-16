@@ -9,5 +9,6 @@ namespace DatabaseBootstrap.IRepositories
     public interface IVlasnikRepository : IBasicRepository<Vlasnik>
     {
         List<Vlasnik> DohvatiSveVlasnike();
+        IList<Zivotinja> DohvatiVlasnikaSaZivotinjom(int id);
     }
 }

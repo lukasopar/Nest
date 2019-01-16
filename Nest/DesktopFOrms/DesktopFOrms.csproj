@@ -85,11 +85,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\PostupakPresenter.cs" />
+    <Compile Include="Presenters\PridruziZivotinjuPresenter.cs" />
     <Compile Include="Presenters\BolestiPresenter.cs" />
     <Compile Include="Presenters\DetaljiOLijekuPresenter.cs" />
     <Compile Include="Presenters\LijekoviPresenter.cs" />
     <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
+    <Compile Include="ViewInterfaces\IPridruziZivotinjuView.cs" />
     <Compile Include="ViewInterfaces\IBolestiView.cs" />
     <Compile Include="Presenters\VlasnikPresenter.cs" />
     <Compile Include="Presenters\ZivotinjaPresenter.cs" />
@@ -136,6 +139,12 @@
     <Compile Include="Views\PostupakForm.Designer.cs">
       <DependentUpon>PostupakForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PridruziZivotinjuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PridruziZivotinjuForm.Designer.cs">
+      <DependentUpon>PridruziZivotinjuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PrijavaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +183,9 @@
     </Compile>
     <EmbeddedResource Include="Views\PostupakForm.resx">
       <DependentUpon>PostupakForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PridruziZivotinjuForm.resx">
+      <DependentUpon>PridruziZivotinjuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrijavaForm.resx">
       <DependentUpon>PrijavaForm.cs</DependentUpon>

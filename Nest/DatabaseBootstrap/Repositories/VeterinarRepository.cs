@@ -1,6 +1,7 @@
 ﻿using DatabaseBootstrap.IRepositories;
 using Nest.Model.Domain;
 using NHibernate;
+using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,29 @@ namespace DatabaseBootstrap.Repositories
                     return entity;
                 }
             }
+        }
+        public List<VrstaZivotinje> DohvatiSveVrsteVeterinar(int id)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    
+                    var entity = session.Query<VrstaZivotinje>().Where(x => x.Veterinar.Id == id).ToList();
+                    return entity;
+                }
+            }
+        }
+        public VrstaZivotinje DohvatiVrstuZivotinjeKodVeterinara(int idZivotinja, int idVeterinar)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var ziv = session.Query<Zivotinja>().Where(zivotinja => zivotinja.Id == idZivotinja).FetchMany(Zivotinja => Zivotinja.VrstaZivotinjes).ThenFetch(v => v.Veterinar).SingleOrDefault();
+                    var vrsta = ziv.VrstaZivotinjes.Where(v => v.Veterinar.Id == idVeterinar).SingleOrDefault();
+                    return vrsta;
+                }            }
         }
     }
 }
