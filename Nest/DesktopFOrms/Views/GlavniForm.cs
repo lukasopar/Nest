@@ -1,9 +1,9 @@
 ﻿using DatabaseBootstrap.Repositories;
-using DesktopFOrms.Presenters;
+using DesktopForms.Presenters;
 using System;
 using System.Windows.Forms;
 
-namespace DesktopFOrms.Views
+namespace DesktopForms.Views
 {
     public partial class GlavniForm : Form
     {
@@ -20,7 +20,27 @@ namespace DesktopFOrms.Views
 
             var presenter = new LijekoviPresenter(view, new LijekoviRepository());
 
+            view.Show();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
             this.Close();
+
+            VlasnikForm view = new VlasnikForm();
+
+            var presenter = new VlasnikPresenter(view, new VlasnikRepository());
+
+            view.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            ZivotinjaForm view = new ZivotinjaForm();
+
+            var presenter = new ZivotinjaPresenter(view, new ZivotinjaRepository(), new VlasnikRepository());
 
             view.Show();
         }

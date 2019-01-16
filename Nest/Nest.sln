@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{60CB5F47-78B4-43F0-B2DE-0CD01D6C3089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{60CB5F47-78B4-43F0-B2DE-0CD01D6C3089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopFOrms", "DesktopFOrms\DesktopFOrms.csproj", "{7EE9D7F2-637C-45CF-909C-CB03E507B23C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopForms", "DesktopFOrms\DesktopForms.csproj", "{7EE9D7F2-637C-45CF-909C-CB03E507B23C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseBootstrap", "DatabaseBootstrap\DatabaseBootstrap.csproj", "{FEE4D1DE-6086-434B-AAA7-7605D9C99533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseBootstrap", "DatabaseBootstrap\DatabaseBootstrap.csproj", "{FEE4D1DE-6086-434B-AAA7-7605D9C99533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

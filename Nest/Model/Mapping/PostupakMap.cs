@@ -11,7 +11,7 @@ namespace Nest.Desktop.Mapping {
         public PostupakMap() {
 			
 			Id(x => x.Id).GeneratedBy.Native();
-			Map(x => x.Opaska);
+            Map(x => x.Opaska);
             Map(x => x.Datum);
             References(x => x.Zivotinja).Cascade.SaveUpdate();
             References(x => x.VrstaPostupka).Cascade.SaveUpdate();

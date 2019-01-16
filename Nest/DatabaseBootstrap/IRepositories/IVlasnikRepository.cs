@@ -2,13 +2,12 @@
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace DatabaseBootstrap.IRepositories
 {
-    public interface ILijekoviRepository : IBasicRepository<Lijek>
+    public interface IVlasnikRepository : IBasicRepository<Vlasnik>
     {
-        Lijek DohvatiLijekPoId(int id);
+        List<Vlasnik> DohvatiSveVlasnike();
     }
 }

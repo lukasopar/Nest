@@ -11,7 +11,7 @@ namespace Nest.Desktop.Mapping {
         
         public VrstaZivotinjeMap() {
 			Id(x => x.Id).GeneratedBy.Native();
-			Map(x => x.Vrsta).Not.Nullable();
+            Map(x => x.Vrsta).Not.Nullable();
 			References(x => x.Veterinar).Cascade.None();
 
             HasManyToMany(x => x.Zivotinjas).Cascade.All().Table("VrstaZivotinjas");

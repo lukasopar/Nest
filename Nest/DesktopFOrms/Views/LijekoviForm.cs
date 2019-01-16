@@ -1,5 +1,6 @@
-﻿using DesktopFOrms.Presenters;
-using DesktopFOrms.ViewInterfaces;
+﻿using DatabaseBootstrap.Repositories;
+using DesktopForms.Presenters;
+using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DesktopFOrms.Views
+namespace DesktopForms.Views
 {
     public partial class LijekoviForm : Form, ILijekoviView
     {
@@ -47,9 +48,23 @@ namespace DesktopFOrms.Views
 
             GlavniForm view = new GlavniForm();
 
+            view.Show();
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
             this.Close();
 
+            ListView.SelectedListViewItemCollection items = listView1.SelectedItems;
+            ListViewItem lvItem = items[0];
+            Lijek lijek = (Lijek)lvItem.Tag;
+
+            DetaljiOLijekuForm view = new DetaljiOLijekuForm(lijek);
+
+            var presenter = new DetaljiOLijekuPresenter(view, new LijekoviRepository());
+
             view.Show();
+
         }
     }
 }

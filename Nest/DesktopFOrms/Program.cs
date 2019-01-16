@@ -1,8 +1,8 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.IRepositories;
 using DatabaseBootstrap.Repositories;
-using DesktopFOrms.Presenters;
-using DesktopFOrms.Views;
+using DesktopForms.Presenters;
+using DesktopForms.Views;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Nest.Model.Domain;
@@ -14,10 +14,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DesktopFOrms
+namespace DesktopForms
 {
     static class Program
     {
+        public static Veterinar PrijavljeniVeterinar;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -29,11 +30,10 @@ namespace DesktopFOrms
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            var repository = new BolestiRepository();
-            var view = new BolestForm();
-
-            var presenter = new BolestiPresenter(view, repository);
-            Application.Run(view);
+            PrijavaForm form = new PrijavaForm();
+            PrijavaPresenter presenter = new PrijavaPresenter(form, new VeterinarRepository());
+            form.Show();
+            Application.Run();
         }
 
         

@@ -71,6 +71,7 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -85,10 +86,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\BolestiPresenter.cs" />
+    <Compile Include="Presenters\DetaljiOLijekuPresenter.cs" />
     <Compile Include="Presenters\LijekoviPresenter.cs" />
+    <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
     <Compile Include="ViewInterfaces\IBolestiView.cs" />
+    <Compile Include="Presenters\VlasnikPresenter.cs" />
+    <Compile Include="Presenters\ZivotinjaPresenter.cs" />
+    <Compile Include="ViewInterfaces\IDetaljiOLijekuView.cs" />
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
+    <Compile Include="ViewInterfaces\IPrijavaView.cs" />
     <Compile Include="Views\BolestDetaljiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +107,14 @@
     </Compile>
     <Compile Include="Views\BolestForm.Designer.cs">
       <DependentUpon>BolestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInterfaces\IVlasnikView.cs" />
+    <Compile Include="ViewInterfaces\IZivotinjaView.cs" />
+    <Compile Include="Views\DetaljiOLijekuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DetaljiOLijekuForm.Designer.cs">
+      <DependentUpon>DetaljiOLijekuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\GlavniForm.cs">
       <SubType>Form</SubType>
@@ -115,11 +130,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Views\BolestDetaljiForm.resx">
-      <DependentUpon>BolestDetaljiForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\BolestForm.resx">
-      <DependentUpon>BolestForm.cs</DependentUpon>
+    <Compile Include="Views\PostupakForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PostupakForm.Designer.cs">
+      <DependentUpon>PostupakForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrijavaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PrijavaForm.Designer.cs">
+      <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VlasnikForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VlasnikForm.Designer.cs">
+      <DependentUpon>VlasnikForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZivotinjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ZivotinjaForm.Designer.cs">
+      <DependentUpon>ZivotinjaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\DetaljiOLijekuForm.resx">
+      <DependentUpon>DetaljiOLijekuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GlavniForm.resx">
       <DependentUpon>GlavniForm.cs</DependentUpon>
@@ -136,6 +172,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\PostupakForm.resx">
+      <DependentUpon>PostupakForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PrijavaForm.resx">
+      <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VlasnikForm.resx">
+      <DependentUpon>VlasnikForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ZivotinjaForm.resx">
+      <DependentUpon>ZivotinjaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,5 +1,5 @@
-﻿using DesktopFOrms.Presenters;
-using DesktopFOrms.ViewInterfaces;
+﻿using DesktopForms.Presenters;
+using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DesktopFOrms.Views
+namespace DesktopForms.Views
 {
     public partial class BolestDetaljiForm : Form, IBolestiDetaljiView
     {

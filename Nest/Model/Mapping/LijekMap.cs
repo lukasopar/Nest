@@ -10,7 +10,7 @@ namespace Nest.Desktop.Mapping {
         
         public LijekMap() {
 			Id(x => x.Id).GeneratedBy.Native();
-			Map(x => x.Naziv).Not.Nullable();
+            Map(x => x.Naziv).Not.Nullable();
 			Map(x => x.Opis);
 			HasMany(x => x.InterakcijaLijekovas1).Cascade.All();
             HasMany(x => x.InterakcijaLijekovas2).Cascade.All();

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DesktopFOrms.Properties
+namespace DesktopForms.Properties
 {
 
 
