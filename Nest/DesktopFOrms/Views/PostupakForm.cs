@@ -37,7 +37,7 @@ namespace DesktopForms.Views
         public PostupakPresenter Presenter { private get; set; }
         public List<VrstaPostupka> VrstePostupaka { get => (List<VrstaPostupka>)comboBoxVrstePostupaka.DataSource; set { comboBoxVrstePostupaka.DataSource = value; comboBoxVrstePostupaka.DisplayMember = "Naziv"; } }
 
-        public List<Bolest> Bolesti { get => (List<Bolest>)listBoxBolesti.DataSource; set { listBoxBolesti.DataSource = value; listBoxBolesti.DisplayMember = "Naziv"; } }
+        public List<Bolest> Bolesti { get => (List<Bolest>)listBoxBolesti.DataSource; set { listBoxBolesti.DisplayMember = "Naziv"; listBoxBolesti.DataSource = value;  } }
 
         private void buttonOdaberi_Click(object sender, EventArgs e)
         {

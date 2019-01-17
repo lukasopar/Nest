@@ -57,9 +57,9 @@ namespace DesktopForms.Presenters
         public void IzbrisiIzDijagnoze(Bolest bolest)
         {
             var stareBolesti = _view.Bolesti;
-            _view.Bolesti = null;
+            //_view.Bolesti = stareBolesti.Remove(bolest;
             stareBolesti.Remove(bolest);
-            _view.Bolesti = stareBolesti;
+            _view.Bolesti = stareBolesti.Distinct().ToList();
         }
     }
 }
