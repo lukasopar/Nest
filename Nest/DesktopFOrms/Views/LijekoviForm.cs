@@ -42,6 +42,8 @@ namespace DesktopForms.Views
             }
         }
 
+        public bool Terapija { get => buttonDodajTerapiju.Visible; set { buttonDodajTerapiju.Visible = value; buttonOdustani.Visible = value; listView1.MultiSelect = value; } }
+
         private void label3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -65,6 +67,32 @@ namespace DesktopForms.Views
 
             view.Show();
 
+        }
+
+        private void buttonOdustani_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonDodajTerapiju_Click(object sender, EventArgs e)
+        {
+            int number = listView1.SelectedItems.Count;
+            List<Lijek> lista = new List<Lijek>();
+            for (int i = 0; i < number; i++)
+                lista.Add((Lijek)listView1.SelectedItems[i].Tag);
+            Presenter.DodanaTerapija(lista);
+            Close();
+            MessageBox.Show("Dodano u terapiju.", "Dodano", MessageBoxButtons.OK);
+            
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                buttonDodajTerapiju.Enabled = false;
+            }
+            buttonDodajTerapiju.Enabled = true;
         }
     }
 }

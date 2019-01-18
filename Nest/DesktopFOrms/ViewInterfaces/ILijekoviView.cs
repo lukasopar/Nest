@@ -11,5 +11,7 @@ namespace DesktopForms.ViewInterfaces
     {
         IList<Lijek> Lijekovi { get; set; }
         Presenters.LijekoviPresenter Presenter {  set; }
+        bool Terapija { get; set; }
+
     }
 }

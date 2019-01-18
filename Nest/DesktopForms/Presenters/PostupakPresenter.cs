@@ -30,6 +30,7 @@ namespace DesktopForms.Presenters
             _view.Zivotinja = null;
             _view.VrstePostupaka = _repositoryVeterinar.DohvatiSvePostupke(NHibernateService.PrijavljeniVeterinar.Id);
             _view.Bolesti = new List<Bolest>();
+            _view.Lijekovi = new List<Lijek>();
         }
         public void OdaberiZivotinju()
         {
@@ -60,6 +61,25 @@ namespace DesktopForms.Presenters
             //_view.Bolesti = stareBolesti.Remove(bolest;
             stareBolesti.Remove(bolest);
             _view.Bolesti = stareBolesti.Distinct().ToList();
+        }
+        public void DodajTerapiju()
+        {
+            LijekoviForm form = new LijekoviForm();
+            LijekoviPresenter presenter = new LijekoviPresenter(form, new LijekoviRepository(), this);
+            form.Show();
+        }
+        public void DodanaTerapija(List<Lijek> lijekovi)
+        {
+            var stariLijekovi = _view.Lijekovi;
+            stariLijekovi.AddRange(lijekovi);
+            stariLijekovi = stariLijekovi.Distinct().ToList();
+            _view.Lijekovi = stariLijekovi;
+        }
+        public void IzbrisiIzTerapije(Lijek lijek)
+        {
+            var stariLijekovi = _view.Lijekovi;
+            stariLijekovi.Remove(lijek);
+            _view.Lijekovi = stariLijekovi.Distinct().ToList();
         }
     }
 }

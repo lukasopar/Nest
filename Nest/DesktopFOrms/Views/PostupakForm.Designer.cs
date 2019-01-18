@@ -48,9 +48,14 @@
             this.buttonObrisiBolest = new System.Windows.Forms.Button();
             this.buttonDodajBolest = new System.Windows.Forms.Button();
             this.listBoxBolesti = new System.Windows.Forms.ListBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonObrisiLijek = new System.Windows.Forms.Button();
+            this.buttonLijek = new System.Windows.Forms.Button();
+            this.listBoxLijekovi = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -221,9 +226,9 @@
             this.groupBox3.Controls.Add(this.buttonObrisiBolest);
             this.groupBox3.Controls.Add(this.buttonDodajBolest);
             this.groupBox3.Controls.Add(this.listBoxBolesti);
-            this.groupBox3.Location = new System.Drawing.Point(419, 323);
+            this.groupBox3.Location = new System.Drawing.Point(31, 310);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(347, 173);
+            this.groupBox3.Size = new System.Drawing.Size(360, 173);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dijagnoza";
@@ -259,11 +264,55 @@
             this.listBoxBolesti.TabIndex = 0;
             this.listBoxBolesti.SelectedIndexChanged += new System.EventHandler(this.listBoxBolesti_SelectedIndexChanged);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.buttonObrisiLijek);
+            this.groupBox4.Controls.Add(this.buttonLijek);
+            this.groupBox4.Controls.Add(this.listBoxLijekovi);
+            this.groupBox4.Location = new System.Drawing.Point(397, 310);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(362, 173);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Terapija";
+            // 
+            // buttonObrisiLijek
+            // 
+            this.buttonObrisiLijek.Enabled = false;
+            this.buttonObrisiLijek.Location = new System.Drawing.Point(235, 101);
+            this.buttonObrisiLijek.Name = "buttonObrisiLijek";
+            this.buttonObrisiLijek.Size = new System.Drawing.Size(112, 40);
+            this.buttonObrisiLijek.TabIndex = 2;
+            this.buttonObrisiLijek.Text = "Obriši";
+            this.buttonObrisiLijek.UseVisualStyleBackColor = true;
+            this.buttonObrisiLijek.Click += new System.EventHandler(this.buttonObrisiLijek_Click);
+            // 
+            // buttonLijek
+            // 
+            this.buttonLijek.Location = new System.Drawing.Point(238, 56);
+            this.buttonLijek.Name = "buttonLijek";
+            this.buttonLijek.Size = new System.Drawing.Size(109, 34);
+            this.buttonLijek.TabIndex = 1;
+            this.buttonLijek.Text = "Dodaj";
+            this.buttonLijek.UseVisualStyleBackColor = true;
+            this.buttonLijek.Click += new System.EventHandler(this.buttonLijek_Click);
+            // 
+            // listBoxLijekovi
+            // 
+            this.listBoxLijekovi.FormattingEnabled = true;
+            this.listBoxLijekovi.ItemHeight = 16;
+            this.listBoxLijekovi.Location = new System.Drawing.Point(9, 35);
+            this.listBoxLijekovi.Name = "listBoxLijekovi";
+            this.listBoxLijekovi.Size = new System.Drawing.Size(203, 100);
+            this.listBoxLijekovi.TabIndex = 0;
+            this.listBoxLijekovi.SelectedIndexChanged += new System.EventHandler(this.listBoxLijekovi_SelectedIndexChanged);
+            // 
             // PostupakForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 542);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -276,6 +325,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +353,9 @@
         private System.Windows.Forms.Button buttonObrisiBolest;
         private System.Windows.Forms.Button buttonDodajBolest;
         private System.Windows.Forms.ListBox listBoxBolesti;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button buttonObrisiLijek;
+        private System.Windows.Forms.Button buttonLijek;
+        private System.Windows.Forms.ListBox listBoxLijekovi;
     }
 }

@@ -13,6 +13,8 @@ namespace DesktopFOrms.ViewInterfaces
         Zivotinja Zivotinja { get; set; }
         List<VrstaPostupka> VrstePostupaka {get; set;}
         List<Bolest> Bolesti { get; set; }
+        List<Lijek> Lijekovi { get; set; }
+
         PostupakPresenter Presenter { set; }
     }
 }

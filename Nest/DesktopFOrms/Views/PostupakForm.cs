@@ -37,7 +37,8 @@ namespace DesktopForms.Views
         public PostupakPresenter Presenter { private get; set; }
         public List<VrstaPostupka> VrstePostupaka { get => (List<VrstaPostupka>)comboBoxVrstePostupaka.DataSource; set { comboBoxVrstePostupaka.DataSource = value; comboBoxVrstePostupaka.DisplayMember = "Naziv"; } }
 
-        public List<Bolest> Bolesti { get => (List<Bolest>)listBoxBolesti.DataSource; set { listBoxBolesti.DisplayMember = "Naziv"; listBoxBolesti.DataSource = value;  } }
+        public List<Bolest> Bolesti { get => (List<Bolest>)listBoxBolesti.DataSource; set { listBoxBolesti.DisplayMember = "Naziv"; listBoxBolesti.DataSource = value; buttonObrisiBolest.Enabled =!(value.Count == 0);  }}
+        public List<Lijek> Lijekovi { get => (List<Lijek>)listBoxLijekovi.DataSource; set { listBoxLijekovi.DisplayMember = "Naziv"; listBoxLijekovi.DataSource = value; buttonObrisiLijek.Enabled = !(value.Count == 0); } }
 
         private void buttonOdaberi_Click(object sender, EventArgs e)
         {
@@ -71,6 +72,28 @@ namespace DesktopForms.Views
             }
             buttonObrisiBolest.Enabled = true;
             
+        }
+
+        private void buttonLijek_Click(object sender, EventArgs e)
+        {
+            Presenter.DodajTerapiju();
+
+        }
+
+        private void buttonObrisiLijek_Click(object sender, EventArgs e)
+        {
+            var selected = (Lijek)listBoxLijekovi.SelectedItem;
+            Presenter.IzbrisiIzTerapije(selected);
+        }
+
+        private void listBoxLijekovi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxLijekovi.SelectedItems.Count == 0)
+            {
+                buttonObrisiLijek.Enabled = false;
+                return;
+            }
+            buttonObrisiLijek.Enabled = true;
         }
     }
 }
