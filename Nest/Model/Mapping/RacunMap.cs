@@ -12,7 +12,7 @@ namespace Nest.Desktop.Mapping {
 			
 			Id(x => x.Id).GeneratedBy.Native();
             Map(x => x.Datum).Not.Nullable();
-            HasManyToMany(x => x.LijekKodVeterinaras).Cascade.All().Table("LijekVetsRacuns");
+            HasMany(x => x.LijekStavkaRacunas).Cascade.All();
             HasMany(x => x.Postupaks).Cascade.SaveUpdate();
         }
     }

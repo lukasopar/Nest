@@ -9,13 +9,13 @@ namespace Nest.Model.Domain {
     
     public class Racun : EntityClass {
         public Racun() {
-            LijekKodVeterinaras = new List<LijekKodVeterinara>();
+            LijekStavkaRacunas = new List<LijekStavkaRacuna>();
             Postupaks = new List<Postupak>();
         }
         //public virtual System.Guid Id { get; set; }
         [Required]
         public virtual DateTime Datum { get; set; }
-        public virtual IEnumerable<LijekKodVeterinara> LijekKodVeterinaras { get; set; }
+        public virtual IEnumerable<LijekStavkaRacuna> LijekStavkaRacunas { get; set; }
         public virtual IEnumerable<Postupak> Postupaks { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace Nest.Model.Domain {
         public virtual string Opis { get; set; }
         [Required]
         public virtual decimal Cijena { get; set; }
+        public virtual bool Aktivno { get; set; }
         public virtual IEnumerable<Postupak> Postupaks { get; set; }
 
 

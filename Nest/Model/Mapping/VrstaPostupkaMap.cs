@@ -13,7 +13,9 @@ namespace Nest.Desktop.Mapping {
             Map(x => x.Naziv).Not.Nullable();
 			Map(x => x.Opis);
 			Map(x => x.Cijena).Not.Nullable();
-			References(x => x.Veterinar).Cascade.SaveUpdate();
+            Map(x => x.Aktivno);
+
+            References(x => x.Veterinar).Cascade.SaveUpdate();
 
 			HasMany(x => x.Postupaks);
         }
