@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -49,13 +50,19 @@
             this.buttonDodajBolest = new System.Windows.Forms.Button();
             this.listBoxBolesti = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.labelUpozorenje = new System.Windows.Forms.Label();
             this.buttonObrisiLijek = new System.Windows.Forms.Button();
             this.buttonLijek = new System.Windows.Forms.Button();
             this.listBoxLijekovi = new System.Windows.Forms.ListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -106,12 +113,14 @@
             // 
             // buttonPovijest
             // 
+            this.buttonPovijest.Enabled = false;
             this.buttonPovijest.Location = new System.Drawing.Point(158, 111);
             this.buttonPovijest.Name = "buttonPovijest";
             this.buttonPovijest.Size = new System.Drawing.Size(139, 32);
             this.buttonPovijest.TabIndex = 5;
             this.buttonPovijest.Text = "Povijest";
             this.buttonPovijest.UseVisualStyleBackColor = true;
+            this.buttonPovijest.Click += new System.EventHandler(this.buttonPovijest_Click);
             // 
             // buttonOdaberi
             // 
@@ -266,6 +275,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.labelUpozorenje);
             this.groupBox4.Controls.Add(this.buttonObrisiLijek);
             this.groupBox4.Controls.Add(this.buttonLijek);
             this.groupBox4.Controls.Add(this.listBoxLijekovi);
@@ -276,12 +286,23 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Terapija";
             // 
+            // labelUpozorenje
+            // 
+            this.labelUpozorenje.AutoSize = true;
+            this.labelUpozorenje.ForeColor = System.Drawing.Color.Red;
+            this.labelUpozorenje.Location = new System.Drawing.Point(6, 153);
+            this.labelUpozorenje.Name = "labelUpozorenje";
+            this.labelUpozorenje.Size = new System.Drawing.Size(223, 17);
+            this.labelUpozorenje.TabIndex = 3;
+            this.labelUpozorenje.Text = "Neki lijekovi međusobno reagiraju!";
+            this.labelUpozorenje.Visible = false;
+            // 
             // buttonObrisiLijek
             // 
             this.buttonObrisiLijek.Enabled = false;
-            this.buttonObrisiLijek.Location = new System.Drawing.Point(235, 101);
+            this.buttonObrisiLijek.Location = new System.Drawing.Point(238, 101);
             this.buttonObrisiLijek.Name = "buttonObrisiLijek";
-            this.buttonObrisiLijek.Size = new System.Drawing.Size(112, 40);
+            this.buttonObrisiLijek.Size = new System.Drawing.Size(109, 34);
             this.buttonObrisiLijek.TabIndex = 2;
             this.buttonObrisiLijek.Text = "Obriši";
             this.buttonObrisiLijek.UseVisualStyleBackColor = true;
@@ -307,11 +328,42 @@
             this.listBoxLijekovi.TabIndex = 0;
             this.listBoxLijekovi.SelectedIndexChanged += new System.EventHandler(this.listBoxLijekovi_SelectedIndexChanged);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.richTextBox1);
+            this.groupBox5.Location = new System.Drawing.Point(31, 496);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(728, 135);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Napomena";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(8, 26);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(714, 103);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(335, 655);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 39);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Spremi";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PostupakForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 542);
+            this.ClientSize = new System.Drawing.Size(814, 706);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -326,6 +378,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,5 +411,10 @@
         private System.Windows.Forms.Button buttonObrisiLijek;
         private System.Windows.Forms.Button buttonLijek;
         private System.Windows.Forms.ListBox listBoxLijekovi;
+        private System.Windows.Forms.Label labelUpozorenje;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

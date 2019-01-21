@@ -8,5 +8,7 @@ namespace DatabaseBootstrap.IRepositories
 {
     public interface IPostupakRepository : IBasicRepository<Postupak>
     {
+        List<Postupak> DohvatiSDetaljimaPostupakeZivotinja(int idZivotinja);
+
     }
 }

@@ -8,8 +8,8 @@ namespace Nest.Model.Domain {
     
     public class Postupak : EntityClass{
         public Postupak() {
-            Bolests = new List<Bolest>();
-            Lijeks = new List<Lijek>();
+            Bolests = new HashSet<Bolest>();
+            Lijeks = new HashSet<Lijek>();
             //PostupakNaRacunus = new List<PostupakNaRacunu>();
         }
         //public virtual System.Guid Id { get; set; }
@@ -18,8 +18,8 @@ namespace Nest.Model.Domain {
         public virtual VrstaPostupka VrstaPostupka { get; set; }
         public virtual string Opaska { get; set; }
         public virtual DateTime? Datum { get; set; }
-        public virtual IEnumerable<Bolest> Bolests { get; set; }
-        public virtual IEnumerable<Lijek> Lijeks { get; set; }
+        public virtual ISet<Bolest> Bolests { get; set; }
+        public virtual ISet<Lijek> Lijeks { get; set; }
         public virtual Racun Racun { get; set; }
         //public virtual IEnumerable<PostupakNaRacunu> PostupakNaRacunus { get; set; }
 

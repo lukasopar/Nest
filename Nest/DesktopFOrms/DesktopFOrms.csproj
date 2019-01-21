@@ -93,6 +93,7 @@
     <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
     <Compile Include="ViewInterfaces\IPostupakView.cs" />
+    <Compile Include="ViewInterfaces\IPovijestPregledaView.cs" />
     <Compile Include="ViewInterfaces\IPridruziZivotinjuView.cs" />
     <Compile Include="ViewInterfaces\IBolestiView.cs" />
     <Compile Include="Presenters\VlasnikPresenter.cs" />
@@ -140,6 +141,12 @@
     <Compile Include="Views\PostupakForm.Designer.cs">
       <DependentUpon>PostupakForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PovijestPregledaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PovijestPregledaForm.Designer.cs">
+      <DependentUpon>PovijestPregledaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PridruziZivotinjuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +158,12 @@
     </Compile>
     <Compile Include="Views\PrijavaForm.Designer.cs">
       <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RacunForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RacunForm.Designer.cs">
+      <DependentUpon>RacunForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\VlasnikForm.cs">
       <SubType>Form</SubType>
@@ -188,11 +201,17 @@
     <EmbeddedResource Include="Views\PostupakForm.resx">
       <DependentUpon>PostupakForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PovijestPregledaForm.resx">
+      <DependentUpon>PovijestPregledaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PridruziZivotinjuForm.resx">
       <DependentUpon>PridruziZivotinjuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrijavaForm.resx">
       <DependentUpon>PrijavaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RacunForm.resx">
+      <DependentUpon>RacunForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\VlasnikForm.resx">
       <DependentUpon>VlasnikForm.cs</DependentUpon>

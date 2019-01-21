@@ -32,6 +32,7 @@ namespace DesktopForms.Views
 
                 labelVlasnik.ForeColor = Color.Black;
                 labelZivotinja.ForeColor = Color.Black;
+                buttonPovijest.Enabled = true;
             }
         }
         public PostupakPresenter Presenter { private get; set; }
@@ -39,6 +40,18 @@ namespace DesktopForms.Views
 
         public List<Bolest> Bolesti { get => (List<Bolest>)listBoxBolesti.DataSource; set { listBoxBolesti.DisplayMember = "Naziv"; listBoxBolesti.DataSource = value; buttonObrisiBolest.Enabled =!(value.Count == 0);  }}
         public List<Lijek> Lijekovi { get => (List<Lijek>)listBoxLijekovi.DataSource; set { listBoxLijekovi.DisplayMember = "Naziv"; listBoxLijekovi.DataSource = value; buttonObrisiLijek.Enabled = !(value.Count == 0); } }
+
+        public string InterakcijaUpozorenje { get => "";
+            set
+            {
+                if (value.Length == 0)
+                {
+                    labelUpozorenje.Visible = false;
+                    return;
+                }
+                labelUpozorenje.Visible = true;
+                toolTip1.SetToolTip(labelUpozorenje, value);
+            } }
 
         private void buttonOdaberi_Click(object sender, EventArgs e)
         {
@@ -95,5 +108,35 @@ namespace DesktopForms.Views
             }
             buttonObrisiLijek.Enabled = true;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(Zivotinja == null)
+            {
+                var result = MessageBox.Show("Niste odabrali životinju. Morate odabrati životinju.", "Greška",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                    return;
+            }
+            if (labelUpozorenje.Visible)
+            {
+                var result = MessageBox.Show("Postoje interakcije među odabranim lijekovima.\nJeste li sigurni da želite odabrati te lijekove?", "Interakcije među lijekovima",
+                                 MessageBoxButtons.OKCancel,
+                                 MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel)
+                    return;
+            }
+            var vrsta = (VrstaPostupka)comboBoxVrstePostupaka.SelectedItem;
+            var napomena = richTextBox1.Text;
+            Presenter.NoviPostupak(Zivotinja, vrsta, Lijekovi, Bolesti, napomena);
+        }
+
+        private void buttonPovijest_Click(object sender, EventArgs e)
+        {
+            Presenter.PovijestZivotinje(Zivotinja);
+        }
+
+        
     }
 }

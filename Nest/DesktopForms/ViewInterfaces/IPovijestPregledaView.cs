@@ -8,13 +8,9 @@ using System.Threading.Tasks;
 
 namespace DesktopFOrms.ViewInterfaces
 {
-    public interface IPostupakView
+    public interface IPovijestPregledaView
     {
-        Zivotinja Zivotinja { get; set; }
-        List<VrstaPostupka> VrstePostupaka { get; set; }
-        List<Bolest> Bolesti { get; set; }
-        List<Lijek> Lijekovi { get; set; }
-        string InterakcijaUpozorenje { get; set; }
+        List<Postupak> Postupci { get; set; }
         PostupakPresenter Presenter { set; }
     }
 }

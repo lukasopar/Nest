@@ -37,7 +37,7 @@ namespace DesktopForms.Presenters
             _view.CloseForm();
 
             PostupakForm form = new PostupakForm();
-            PostupakPresenter presenter = new PostupakPresenter(form, new PostupakRepository(), new VeterinarRepository());
+            PostupakPresenter presenter = new PostupakPresenter(form, new PostupakRepository(), new VeterinarRepository(), new LijekoviRepository());
 
             form.Show();
 
