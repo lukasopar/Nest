@@ -55,6 +55,18 @@ namespace DatabaseBootstrap.Repositories
                     return query;
                 }            }
         }
+        public List<LijekKodVeterinara> DohvatiSveLijekoveKodVeterinara(int id)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var query = session.Query<LijekKodVeterinara>().Where(x => x.Veterinar.Id == id)
+                        .Fetch(x => x.Lijek)
+                        .ToList();
+                    return query;
+                }            }
+        }
 
     }
 }

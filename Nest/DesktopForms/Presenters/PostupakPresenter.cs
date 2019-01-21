@@ -130,7 +130,8 @@ namespace DesktopForms.Presenters
             var lista = _repository.DohvatiSDetaljimaPostupakeZivotinja(zivotinja.Id);
             PovijestPregledaForm form = new PovijestPregledaForm();
             form.Postupci = lista;
-            form.Presenter = this;
+            form.Presenter = null;
+            form.Dodavanje = false;
             form.Show();
         }
     }

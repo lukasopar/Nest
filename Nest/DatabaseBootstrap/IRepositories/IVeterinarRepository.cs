@@ -12,5 +12,7 @@ namespace DatabaseBootstrap.IRepositories
         List<VrstaZivotinje> DohvatiSveVrsteVeterinar(int id);
         VrstaZivotinje DohvatiVrstuZivotinjeKodVeterinara(int idZivotinja, int idVeterinar);
         List<VrstaPostupka> DohvatiSvePostupke(int id);
+        List<LijekKodVeterinara> DohvatiSveLijekoveKodVeterinara(int id);
+
     }
 }

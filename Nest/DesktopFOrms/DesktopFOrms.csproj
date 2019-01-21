@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\RacunPresenter.cs" />
     <Compile Include="Presenters\PostupakPresenter.cs" />
     <Compile Include="Presenters\PridruziZivotinjuPresenter.cs" />
     <Compile Include="Presenters\BolestiPresenter.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Presenters\LijekoviPresenter.cs" />
     <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
+    <Compile Include="ViewInterfaces\IRacunView.cs" />
     <Compile Include="ViewInterfaces\IPostupakView.cs" />
     <Compile Include="ViewInterfaces\IPovijestPregledaView.cs" />
     <Compile Include="ViewInterfaces\IPridruziZivotinjuView.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="ViewInterfaces\IDetaljiOLijekuView.cs" />
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
     <Compile Include="ViewInterfaces\IPrijavaView.cs" />
+    <Compile Include="ViewInterfaces\ILijekoviKodVeterinaraView.cs" />
     <Compile Include="Views\BolestDetaljiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +138,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\LijekoviKodVeterinaraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LijekoviKodVeterinaraForm.Designer.cs">
+      <DependentUpon>LijekoviKodVeterinaraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PostupakForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +207,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\LijekoviKodVeterinaraForm.resx">
+      <DependentUpon>LijekoviKodVeterinaraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PostupakForm.resx">
       <DependentUpon>PostupakForm.cs</DependentUpon>
     </EmbeddedResource>

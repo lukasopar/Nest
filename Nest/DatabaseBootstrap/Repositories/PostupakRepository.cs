@@ -27,5 +27,21 @@ namespace DatabaseBootstrap.Repositories
                 }
             }
         }
+        public List<Postupak> DohvatiSDetaljimaPostupakeNeplacene(int idVeterinar)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var lista = session.Query<Postupak>().Where(x => x.VrstaPostupka.Veterinar.Id == idVeterinar && x.Racun == null)
+                        .Fetch(x => x.Zivotinja)
+                        .Fetch(x => x.VrstaPostupka)
+                        .FetchMany(x => x.Lijeks)
+                        .FetchMany(x => x.Bolests)
+                        .ToList();
+                    return lista;
+                }
+            }
+        }
     }
 }

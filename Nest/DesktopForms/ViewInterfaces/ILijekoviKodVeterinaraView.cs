@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace DesktopFOrms.ViewInterfaces
 {
-    public interface IPovijestPregledaView
+    public interface ILijekoviKodVeterinaraView
     {
-        List<Postupak> Postupci { get; set; }
+        List<LijekKodVeterinara> Lijekovi { get; set; }
         RacunPresenter Presenter { set; }
-        bool Dodavanje { get; set; }
     }
 }

@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace DesktopFOrms.ViewInterfaces
 {
-    public interface IPovijestPregledaView
+    public interface IRacunView
     {
+        
+        List<LijekStavkaRacuna> Lijekovi { get; set; }
         List<Postupak> Postupci { get; set; }
         RacunPresenter Presenter { set; }
-        bool Dodavanje { get; set; }
     }
 }

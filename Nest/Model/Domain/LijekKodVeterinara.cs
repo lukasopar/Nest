@@ -14,7 +14,7 @@ namespace Nest.Model.Domain {
         public virtual Lijek Lijek { get; set; }
         public virtual Veterinar Veterinar { get; set; }
         [Required]
-        public virtual decimal Cijena { get; set; }
+        public virtual double Cijena { get; set; }
         public virtual string Napomena { get; set; }
         public virtual bool Aktivno { get; set; }
        

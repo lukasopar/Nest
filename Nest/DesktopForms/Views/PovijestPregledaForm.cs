@@ -31,16 +31,20 @@ namespace DesktopFOrms.Views
                 }
             } }
 
-        public PostupakPresenter Presenter { private get;  set; }
+        public RacunPresenter Presenter { private get; set; }
+        public bool Dodavanje { get => buttonDodaj.Visible; set => buttonDodaj.Visible = value; }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 0)
             {
                 groupBox1.Visible = false;
+                buttonDodaj.Enabled = false;
                 return;
             }
             groupBox1.Visible = true;
+            buttonDodaj.Enabled = true;
+
             var postupak = (Postupak)listView1.SelectedItems[0].Tag;
             labelZiv.Text = postupak.Zivotinja.Ime;
             labelZiv.Visible = true;
@@ -53,6 +57,17 @@ namespace DesktopFOrms.Views
             listBoxDijagnoza.DataSource = postupak.Bolests.ToList();
             listBoxDijagnoza.DisplayMember = "Naziv";
 
+        }
+
+        private void buttonDodaj_Click(object sender, EventArgs e)
+        {
+            int number = listView1.SelectedItems.Count;
+            List<Postupak> lista = new List<Postupak>();
+            for (int i = 0; i < number; i++)
+                lista.Add((Postupak)listView1.SelectedItems[i].Tag);
+            Presenter.DodaniPostupci(lista);
+            Close();
+            MessageBox.Show("Dodano na račun.", "Dodano", MessageBoxButtons.OK);
         }
     }
 }

@@ -34,18 +34,20 @@
             this.Životinja = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.listBoxTerapija = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.listBoxDijagnoza = new System.Windows.Forms.ListBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.labelZiv = new System.Windows.Forms.Label();
-            this.labelPostupak = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelPostupak = new System.Windows.Forms.Label();
+            this.labelZiv = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.listBoxDijagnoza = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listBoxTerapija = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonDodaj = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,109 +115,6 @@
             this.groupBox1.Text = "Detalji";
             this.groupBox1.Visible = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Životinja:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Postupak:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 173);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Napomena:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 283);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Terapija:";
-            // 
-            // listBoxTerapija
-            // 
-            this.listBoxTerapija.FormattingEnabled = true;
-            this.listBoxTerapija.ItemHeight = 16;
-            this.listBoxTerapija.Location = new System.Drawing.Point(19, 322);
-            this.listBoxTerapija.Name = "listBoxTerapija";
-            this.listBoxTerapija.Size = new System.Drawing.Size(130, 132);
-            this.listBoxTerapija.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(188, 283);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Dijagnoza";
-            // 
-            // listBoxDijagnoza
-            // 
-            this.listBoxDijagnoza.FormattingEnabled = true;
-            this.listBoxDijagnoza.ItemHeight = 16;
-            this.listBoxDijagnoza.Location = new System.Drawing.Point(191, 322);
-            this.listBoxDijagnoza.Name = "listBoxDijagnoza";
-            this.listBoxDijagnoza.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBoxDijagnoza.Size = new System.Drawing.Size(131, 132);
-            this.listBoxDijagnoza.TabIndex = 6;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(103, 176);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(207, 97);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
-            // 
-            // labelZiv
-            // 
-            this.labelZiv.AutoSize = true;
-            this.labelZiv.Location = new System.Drawing.Point(100, 39);
-            this.labelZiv.Name = "labelZiv";
-            this.labelZiv.Size = new System.Drawing.Size(46, 17);
-            this.labelZiv.TabIndex = 8;
-            this.labelZiv.Text = "label7";
-            this.labelZiv.Visible = false;
-            // 
-            // labelPostupak
-            // 
-            this.labelPostupak.AutoSize = true;
-            this.labelPostupak.Location = new System.Drawing.Point(100, 73);
-            this.labelPostupak.Name = "labelPostupak";
-            this.labelPostupak.Size = new System.Drawing.Size(46, 17);
-            this.labelPostupak.TabIndex = 9;
-            this.labelPostupak.Text = "label8";
-            this.labelPostupak.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 102);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 17);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Opis postupka:";
-            // 
             // richTextBox2
             // 
             this.richTextBox2.Enabled = false;
@@ -227,11 +126,137 @@
             this.richTextBox2.TabIndex = 11;
             this.richTextBox2.Text = "";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 102);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 17);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Opis postupka:";
+            // 
+            // labelPostupak
+            // 
+            this.labelPostupak.AutoSize = true;
+            this.labelPostupak.Location = new System.Drawing.Point(100, 73);
+            this.labelPostupak.Name = "labelPostupak";
+            this.labelPostupak.Size = new System.Drawing.Size(46, 17);
+            this.labelPostupak.TabIndex = 9;
+            this.labelPostupak.Text = "label8";
+            this.labelPostupak.Visible = false;
+            // 
+            // labelZiv
+            // 
+            this.labelZiv.AutoSize = true;
+            this.labelZiv.Location = new System.Drawing.Point(100, 39);
+            this.labelZiv.Name = "labelZiv";
+            this.labelZiv.Size = new System.Drawing.Size(46, 17);
+            this.labelZiv.TabIndex = 8;
+            this.labelZiv.Text = "label7";
+            this.labelZiv.Visible = false;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(103, 176);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(207, 97);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
+            // 
+            // listBoxDijagnoza
+            // 
+            this.listBoxDijagnoza.FormattingEnabled = true;
+            this.listBoxDijagnoza.ItemHeight = 16;
+            this.listBoxDijagnoza.Location = new System.Drawing.Point(191, 322);
+            this.listBoxDijagnoza.Name = "listBoxDijagnoza";
+            this.listBoxDijagnoza.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBoxDijagnoza.Size = new System.Drawing.Size(131, 132);
+            this.listBoxDijagnoza.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(188, 283);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 17);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Dijagnoza";
+            // 
+            // listBoxTerapija
+            // 
+            this.listBoxTerapija.FormattingEnabled = true;
+            this.listBoxTerapija.ItemHeight = 16;
+            this.listBoxTerapija.Location = new System.Drawing.Point(19, 322);
+            this.listBoxTerapija.Name = "listBoxTerapija";
+            this.listBoxTerapija.Size = new System.Drawing.Size(130, 132);
+            this.listBoxTerapija.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 283);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Terapija:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 173);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Napomena:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Postupak:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Životinja:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(680, 524);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 29);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Odustani";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // buttonDodaj
+            // 
+            this.buttonDodaj.Enabled = false;
+            this.buttonDodaj.Location = new System.Drawing.Point(572, 525);
+            this.buttonDodaj.Name = "buttonDodaj";
+            this.buttonDodaj.Size = new System.Drawing.Size(101, 28);
+            this.buttonDodaj.TabIndex = 4;
+            this.buttonDodaj.Text = "Dodaj";
+            this.buttonDodaj.UseVisualStyleBackColor = true;
+            this.buttonDodaj.Visible = false;
+            this.buttonDodaj.Click += new System.EventHandler(this.buttonDodaj_Click);
+            // 
             // PovijestPregledaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 517);
+            this.ClientSize = new System.Drawing.Size(800, 565);
+            this.Controls.Add(this.buttonDodaj);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
@@ -264,5 +289,7 @@
         private System.Windows.Forms.Label labelZiv;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonDodaj;
     }
 }
