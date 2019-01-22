@@ -1,4 +1,4 @@
-﻿namespace DesktopFOrms.Views
+﻿namespace DesktopForms.Views
 {
     partial class LijekoviKodVeterinaraForm
     {

@@ -2,15 +2,15 @@
 using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.Views;
-using DesktopFOrms.ViewInterfaces;
-using DesktopFOrms.Views;
+using DesktopForms.ViewInterfaces;
+using DesktopForms.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesktopFOrms.Presenters
+namespace DesktopForms.Presenters
 {
     public class GlavniPresenter
     {

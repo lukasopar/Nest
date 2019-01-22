@@ -1,5 +1,5 @@
 ﻿using DesktopForms.Presenters;
-using DesktopFOrms.ViewInterfaces;
+using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DesktopFOrms.Views
+namespace DesktopForms.Views
 {
     public partial class RacunForm : Form, IRacunView
     {

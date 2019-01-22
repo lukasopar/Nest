@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DesktopFOrms.Views
+namespace DesktopForms.Views
 {
     public partial class PridruziZivotinjuForm : Form, IPridruziZivotinjuView
     {
