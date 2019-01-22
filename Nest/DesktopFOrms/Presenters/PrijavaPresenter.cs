@@ -4,7 +4,6 @@ using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using DesktopForms.Views;
 using DesktopForms.Presenters;
-using DesktopForms.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

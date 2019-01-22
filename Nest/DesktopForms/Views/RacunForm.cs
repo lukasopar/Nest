@@ -37,7 +37,7 @@ namespace DesktopForms.Views
                     it.Tag = lijek;
                     listView1.Items.Add(it);
                 }
-                Racun.LijekStavkaRacunas = Lijekovi;
+                Racun.LijekStavkaRacunas = new HashSet<LijekStavkaRacuna>(Lijekovi);
                 labelUkupno.Text = Racun.IzracunajUkupnuCijenu() + " kn";
             }
         }
@@ -55,7 +55,7 @@ namespace DesktopForms.Views
                     it.Tag = postupak;
                     listView2.Items.Add(it);
                 }
-                Racun.Postupaks = Postupci;
+                Racun.Postupaks = new HashSet<Postupak>(Postupci);
                 labelUkupno.Text = Racun.IzracunajUkupnuCijenu() + " kn";
 
             }
@@ -99,6 +99,11 @@ namespace DesktopForms.Views
                 buttonObrisiLijek.Enabled = false;
             else
                 buttonObrisiLijek.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Presenter.NoviRacun(Racun);
         }
     }
 }

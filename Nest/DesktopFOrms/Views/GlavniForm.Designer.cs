@@ -326,6 +326,7 @@
             this.buttonRacunSkini.Size = new System.Drawing.Size(351, 84);
             this.buttonRacunSkini.TabIndex = 19;
             this.buttonRacunSkini.UseVisualStyleBackColor = false;
+            this.buttonRacunSkini.Click += new System.EventHandler(this.buttonRacunSkini_Click);
             // 
             // label8
             // 

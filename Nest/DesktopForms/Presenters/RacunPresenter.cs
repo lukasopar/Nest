@@ -6,7 +6,6 @@ using DatabaseBootstrap.IRepositories;
 using DatabaseBootstrap.Repositories;
 using DesktopForms.Views;
 using DesktopForms.ViewInterfaces;
-using DesktopForms.Views;
 using Nest.Model.Domain;
 
 namespace DesktopForms.Presenters
@@ -104,45 +103,11 @@ namespace DesktopForms.Presenters
             _view.Lijekovi = stavke;
 
         }
-        /**
-         public void DodajTerapiju()
-         {
-             LijekoviForm form = new LijekoviForm();
-             LijekoviPresenter presenter = new LijekoviPresenter(form, new LijekoviRepository(), this);
-             form.Show();
-         }
-         public void DodanaTerapija(List<Lijek> lijekovi)
-         {
-             var stariLijekovi = _view.Lijekovi;
-             stariLijekovi.AddRange(lijekovi);
-             stariLijekovi = stariLijekovi.Distinct().ToList();
-             _view.Lijekovi = stariLijekovi;
-             var s = SloziInterakcijuUpozorenje(stariLijekovi);
-             _view.InterakcijaUpozorenje = s;
-         }
-         public void IzbrisiIzTerapije(Lijek lijek)
-         {
-             var stariLijekovi = _view.Lijekovi;
-             stariLijekovi.Remove(lijek);
-             _view.Lijekovi = stariLijekovi.Distinct().ToList();
-             var s = SloziInterakcijuUpozorenje(stariLijekovi);
-             _view.InterakcijaUpozorenje = s;
-         }
-
-
-         public void NoviPostupak(Zivotinja zivotinja, VrstaPostupka vrsta, List<Lijek> lijekovi, List<Bolest> bolesti, String napomena)
-         {
-             Postupak novi = new Postupak
-             {
-                 Zivotinja = zivotinja,
-                 Lijeks = new HashSet<Lijek>(lijekovi),
-                 Bolests = new HashSet<Bolest>(bolesti),
-                 Opaska = napomena,
-                 VrstaPostupka = vrsta,
-                 Datum = DateTime.Now
-             };
-             _repository.Stvori(novi);
-         }
-         */
+        public void NoviRacun(Racun racun)
+        {
+            racun.Datum = DateTime.Now;
+            _repository.Stvori(racun);
+        }
+        
     }
 }

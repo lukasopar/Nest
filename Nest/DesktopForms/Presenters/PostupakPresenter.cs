@@ -6,7 +6,6 @@ using DatabaseBootstrap.IRepositories;
 using DatabaseBootstrap.Repositories;
 using DesktopForms.Views;
 using DesktopForms.ViewInterfaces;
-using DesktopForms.Views;
 using Nest.Model.Domain;
 
 namespace DesktopForms.Presenters

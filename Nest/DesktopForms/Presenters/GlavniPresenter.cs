@@ -3,7 +3,6 @@ using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.Views;
 using DesktopForms.ViewInterfaces;
-using DesktopForms.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,5 +55,12 @@ namespace DesktopForms.Presenters
             var presenter = new RacunPresenter(view, new RacunRepository(),new VeterinarRepository(), new PostupakRepository());
             view.Show();
         }
+        public void OtvoriPreuzimanjeRacuna()
+        {
+            PreuzimanjeRacunaForm view = new PreuzimanjeRacunaForm();
+            var presenter = new PreuzimanjeRacunaPresenter(view, new RacunRepository());
+            view.Show();
+        }
+
     }
 }

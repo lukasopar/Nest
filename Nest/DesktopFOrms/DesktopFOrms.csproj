@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\GlavniPresenter.cs" />
+    <Compile Include="Presenters\PreuzimanjeRacunaPresenter.cs" />
     <Compile Include="Presenters\RacunPresenter.cs" />
     <Compile Include="Presenters\PostupakPresenter.cs" />
     <Compile Include="Presenters\PridruziZivotinjuPresenter.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
     <Compile Include="ViewInterfaces\IGlavniView.cs" />
+    <Compile Include="ViewInterfaces\IPreuzimanjeRacunaView.cs" />
     <Compile Include="ViewInterfaces\IRacunView.cs" />
     <Compile Include="ViewInterfaces\IPostupakView.cs" />
     <Compile Include="ViewInterfaces\IPovijestPregledaView.cs" />
@@ -158,6 +160,12 @@
     <Compile Include="Views\PovijestPregledaForm.Designer.cs">
       <DependentUpon>PovijestPregledaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PreuzimanjeRacunaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PreuzimanjeRacunaForm.Designer.cs">
+      <DependentUpon>PreuzimanjeRacunaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PridruziZivotinjuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PovijestPregledaForm.resx">
       <DependentUpon>PovijestPregledaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PreuzimanjeRacunaForm.resx">
+      <DependentUpon>PreuzimanjeRacunaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PridruziZivotinjuForm.resx">
       <DependentUpon>PridruziZivotinjuForm.cs</DependentUpon>

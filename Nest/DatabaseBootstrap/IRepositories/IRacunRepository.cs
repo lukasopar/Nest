@@ -8,5 +8,7 @@ namespace DatabaseBootstrap.IRepositories
 {
     public interface IRacunRepository : IBasicRepository<Racun>
     {
+        List<Racun> DohvatiSveRacune(int id);
+
     }
 }

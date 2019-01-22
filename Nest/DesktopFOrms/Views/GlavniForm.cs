@@ -1,7 +1,6 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
-using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
 using System;
 using System.Windows.Forms;
@@ -58,6 +57,11 @@ namespace DesktopForms.Views
         {
             Presenter.OtvoriRegistracijuVlasnika();
 
+        }
+
+        private void buttonRacunSkini_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriPreuzimanjeRacuna();
         }
     }
 }
