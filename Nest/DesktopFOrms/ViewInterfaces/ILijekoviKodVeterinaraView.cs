@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace DesktopForms.ViewInterfaces
 {
-    public interface IRacunView
+    public interface ILijekoviKodVeterinaraView
     {
-        
-        List<LijekStavkaRacuna> Lijekovi { get; set; }
-        List<Postupak> Postupci { get; set; }
+        List<LijekKodVeterinara> Lijekovi { get; set; }
         RacunPresenter Presenter { set; }
     }
 }

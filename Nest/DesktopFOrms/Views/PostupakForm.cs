@@ -1,5 +1,5 @@
 ﻿using DesktopForms.Presenters;
-using DesktopFOrms.ViewInterfaces;
+using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;

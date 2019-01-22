@@ -1,8 +1,8 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
-using DesktopFOrms.Presenters;
-using DesktopFOrms.ViewInterfaces;
+using DesktopForms.Presenters;
+using DesktopForms.ViewInterfaces;
 using System;
 using System.Windows.Forms;
 
