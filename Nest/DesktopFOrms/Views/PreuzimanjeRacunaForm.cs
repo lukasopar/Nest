@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,7 @@ namespace DesktopForms.Views
             listView2.Items.Clear();
 
             var racun = (Racun)listView1.SelectedItems[0].Tag;
+            listView2.Tag = racun;
             foreach (var postupak in racun.Postupaks)
             {
                 ListViewItem it = new ListViewItem(new string[] { postupak.VrstaPostupka.Naziv, postupak.VrstaPostupka.Cijena+ "", "1" });
@@ -59,6 +61,23 @@ namespace DesktopForms.Views
                 listView2.Items.Add(it);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var racun = (Racun)listView2.Tag;
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.InitialDirectory = @"C:\";
+            sfd.RestoreDirectory = true;
+            sfd.FileName = "racun-"+ racun.Datum.ToString("dd.MM.yyyy HH-mm-ss")+".pdf";
+            sfd.DefaultExt = "pdf";
+            sfd.Filter = "pdf files (*.pdf)|*.pdf";
+            if(sfd.ShowDialog() == DialogResult.OK)
+            {
+                var path = Path.GetFullPath(sfd.FileName);
+                Presenter.PreuzmiPDF(racun, path);
+            }
+            
         }
     }
 }

@@ -33,11 +33,11 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Količina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +89,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalji";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(14, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 33);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Preuzmi PDF";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -116,23 +126,14 @@
             // 
             this.Količina.Text = "Količina";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(14, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 33);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Preuzmi PDF";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // PreuzimanjeRacuna
+            // PreuzimanjeRacunaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 499);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "PreuzimanjeRacuna";
+            this.Name = "PreuzimanjeRacunaForm";
             this.Text = "PreuzimanjeRacuna";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
