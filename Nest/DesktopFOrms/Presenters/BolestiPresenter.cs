@@ -29,7 +29,7 @@ namespace DesktopForms.Presenters
         public void UpdateBolestiListView(string query = "")
         {
             var bolesti = _repository.DohvatiSve();
-            _view.Bolesti = bolesti.Where(x => x.Naziv.Contains(query)).ToList();
+            _view.Bolesti = bolesti.Where(x => x.Naziv.ToLower().Contains(query.ToLower())).ToList();
         }
         public void DetaljiBolest(Bolest bolest)
         {

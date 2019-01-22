@@ -19,6 +19,8 @@ namespace DesktopForms.Views
         public LijekoviForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
 
         }
 
@@ -39,23 +41,18 @@ namespace DesktopForms.Views
                     it.Tag = lijek;
                     listView1.Items.Add(it);
                 }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
 
-        public bool Terapija { get => buttonDodajTerapiju.Visible; set { buttonDodajTerapiju.Visible = value; buttonOdustani.Visible = value; listView1.MultiSelect = value; } }
+        public bool Terapija { get => buttonDodajTerapiju.Visible; set { buttonDodajTerapiju.Visible = value; listView1.MultiSelect = value; } }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-            GlavniForm view = new GlavniForm();
-
-            view.Show();
-        }
+       
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
 
             ListView.SelectedListViewItemCollection items = listView1.SelectedItems;
             ListViewItem lvItem = items[0];

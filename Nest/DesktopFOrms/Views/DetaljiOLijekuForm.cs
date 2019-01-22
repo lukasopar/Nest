@@ -17,12 +17,13 @@ namespace DesktopForms.Views
     public partial class DetaljiOLijekuForm : Form, IDetaljiOLijekuView
     {
 
-        private readonly string DEFAULT_TEXT = "Podaci o lijeku: ";
+        private readonly string DEFAULT_TEXT = "Detalji o lijeku: ";
         private Lijek _lijek;
 
         public DetaljiOLijekuForm(Lijek lijek)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             Lijek = lijek;
         }
 
@@ -43,6 +44,8 @@ namespace DesktopForms.Views
                     it.Tag = bolest;
                     listView2.Items.Add(it);
                 }
+                listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
         public IList<InterakcijaLijekova> Interakcije
@@ -71,6 +74,8 @@ namespace DesktopForms.Views
                     }
                     listView1.Items.Add(it);
                 }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
 
@@ -79,7 +84,7 @@ namespace DesktopForms.Views
             set
             {
                 _lijek = value;
-                label1.Text = DEFAULT_TEXT + _lijek.Naziv;
+                label4.Text = DEFAULT_TEXT + " " + _lijek.Naziv;
             }
         }
 
@@ -113,6 +118,11 @@ namespace DesktopForms.Views
             Lijek lijek = (Lijek)lvItem.Tag;
 
             Presenter.UpdateLijek(lijek);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

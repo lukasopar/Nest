@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PostupakForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -58,20 +59,25 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(22, 27);
+            this.label1.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(75, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 32);
+            this.label1.Size = new System.Drawing.Size(218, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Novi postupak";
             // 
@@ -85,7 +91,8 @@
             this.groupBox1.Controls.Add(this.labelVlasnik);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(28, 82);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox1.Location = new System.Drawing.Point(30, 109);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(738, 149);
             this.groupBox1.TabIndex = 1;
@@ -98,7 +105,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(280, 68);
             this.textBox1.TabIndex = 7;
             // 
@@ -107,7 +114,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(366, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Napomena";
             // 
@@ -128,7 +135,7 @@
             this.buttonOdaberi.Name = "buttonOdaberi";
             this.buttonOdaberi.Size = new System.Drawing.Size(134, 32);
             this.buttonOdaberi.TabIndex = 4;
-            this.buttonOdaberi.Text = "Odaberi životinju";
+            this.buttonOdaberi.Text = "Odaberi ";
             this.buttonOdaberi.UseVisualStyleBackColor = true;
             this.buttonOdaberi.Click += new System.EventHandler(this.buttonOdaberi_Click);
             // 
@@ -138,7 +145,7 @@
             this.labelZivotinja.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.labelZivotinja.Location = new System.Drawing.Point(117, 65);
             this.labelZivotinja.Name = "labelZivotinja";
-            this.labelZivotinja.Size = new System.Drawing.Size(150, 17);
+            this.labelZivotinja.Size = new System.Drawing.Size(168, 17);
             this.labelZivotinja.TabIndex = 3;
             this.labelZivotinja.Text = "Niste odabrali životinju";
             // 
@@ -148,7 +155,7 @@
             this.labelVlasnik.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.labelVlasnik.Location = new System.Drawing.Point(117, 33);
             this.labelVlasnik.Name = "labelVlasnik";
-            this.labelVlasnik.Size = new System.Drawing.Size(150, 17);
+            this.labelVlasnik.Size = new System.Drawing.Size(168, 17);
             this.labelVlasnik.TabIndex = 2;
             this.labelVlasnik.Text = "Niste odabrali životinju";
             // 
@@ -157,7 +164,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 17);
+            this.label3.Size = new System.Drawing.Size(98, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Ime životinje";
             // 
@@ -166,7 +173,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Vlasnik";
             // 
@@ -177,9 +184,9 @@
             this.groupBox2.Controls.Add(this.labelCIjena);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.comboBoxVrstePostupaka);
-            this.groupBox2.Location = new System.Drawing.Point(31, 240);
+            this.groupBox2.Location = new System.Drawing.Point(30, 267);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(735, 64);
+            this.groupBox2.Size = new System.Drawing.Size(738, 64);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vrsta postupka";
@@ -189,7 +196,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(403, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 17);
+            this.label6.Size = new System.Drawing.Size(39, 17);
             this.label6.TabIndex = 4;
             this.label6.Text = "Opis";
             // 
@@ -199,6 +206,7 @@
             this.textBoxOpisPostupka.Multiline = true;
             this.textBoxOpisPostupka.Name = "textBoxOpisPostupka";
             this.textBoxOpisPostupka.ReadOnly = true;
+            this.textBoxOpisPostupka.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxOpisPostupka.Size = new System.Drawing.Size(268, 39);
             this.textBoxOpisPostupka.TabIndex = 3;
             // 
@@ -207,7 +215,7 @@
             this.labelCIjena.AutoSize = true;
             this.labelCIjena.Location = new System.Drawing.Point(301, 24);
             this.labelCIjena.Name = "labelCIjena";
-            this.labelCIjena.Size = new System.Drawing.Size(46, 17);
+            this.labelCIjena.Size = new System.Drawing.Size(48, 17);
             this.labelCIjena.TabIndex = 2;
             this.labelCIjena.Text = "label6";
             // 
@@ -216,7 +224,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(248, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 1;
             this.label5.Text = "Cijena";
             // 
@@ -224,20 +232,21 @@
             // 
             this.comboBoxVrstePostupaka.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVrstePostupaka.FormattingEnabled = true;
-            this.comboBoxVrstePostupaka.Location = new System.Drawing.Point(6, 21);
+            this.comboBoxVrstePostupaka.Location = new System.Drawing.Point(9, 21);
             this.comboBoxVrstePostupaka.Name = "comboBoxVrstePostupaka";
-            this.comboBoxVrstePostupaka.Size = new System.Drawing.Size(200, 24);
+            this.comboBoxVrstePostupaka.Size = new System.Drawing.Size(197, 24);
             this.comboBoxVrstePostupaka.TabIndex = 0;
             this.comboBoxVrstePostupaka.SelectedIndexChanged += new System.EventHandler(this.comboBoxVrstePostupaka_SelectedIndexChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.buttonObrisiBolest);
-            this.groupBox3.Controls.Add(this.buttonDodajBolest);
             this.groupBox3.Controls.Add(this.listBoxBolesti);
-            this.groupBox3.Location = new System.Drawing.Point(31, 310);
+            this.groupBox3.Controls.Add(this.buttonDodajBolest);
+            this.groupBox3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox3.Location = new System.Drawing.Point(30, 337);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 173);
+            this.groupBox3.Size = new System.Drawing.Size(363, 173);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dijagnoza";
@@ -247,7 +256,7 @@
             this.buttonObrisiBolest.Enabled = false;
             this.buttonObrisiBolest.Location = new System.Drawing.Point(206, 105);
             this.buttonObrisiBolest.Name = "buttonObrisiBolest";
-            this.buttonObrisiBolest.Size = new System.Drawing.Size(119, 37);
+            this.buttonObrisiBolest.Size = new System.Drawing.Size(119, 34);
             this.buttonObrisiBolest.TabIndex = 2;
             this.buttonObrisiBolest.Text = "Obriši";
             this.buttonObrisiBolest.UseVisualStyleBackColor = true;
@@ -267,21 +276,21 @@
             // 
             this.listBoxBolesti.FormattingEnabled = true;
             this.listBoxBolesti.ItemHeight = 16;
-            this.listBoxBolesti.Location = new System.Drawing.Point(12, 35);
+            this.listBoxBolesti.Location = new System.Drawing.Point(11, 35);
             this.listBoxBolesti.Name = "listBoxBolesti";
-            this.listBoxBolesti.Size = new System.Drawing.Size(176, 116);
+            this.listBoxBolesti.Size = new System.Drawing.Size(161, 116);
             this.listBoxBolesti.TabIndex = 0;
             this.listBoxBolesti.SelectedIndexChanged += new System.EventHandler(this.listBoxBolesti_SelectedIndexChanged);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.labelUpozorenje);
+            this.groupBox4.Controls.Add(this.listBoxLijekovi);
             this.groupBox4.Controls.Add(this.buttonObrisiLijek);
             this.groupBox4.Controls.Add(this.buttonLijek);
-            this.groupBox4.Controls.Add(this.listBoxLijekovi);
-            this.groupBox4.Location = new System.Drawing.Point(397, 310);
+            this.groupBox4.Location = new System.Drawing.Point(399, 337);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(362, 173);
+            this.groupBox4.Size = new System.Drawing.Size(369, 173);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Terapija";
@@ -292,7 +301,7 @@
             this.labelUpozorenje.ForeColor = System.Drawing.Color.Red;
             this.labelUpozorenje.Location = new System.Drawing.Point(6, 153);
             this.labelUpozorenje.Name = "labelUpozorenje";
-            this.labelUpozorenje.Size = new System.Drawing.Size(223, 17);
+            this.labelUpozorenje.Size = new System.Drawing.Size(250, 17);
             this.labelUpozorenje.TabIndex = 3;
             this.labelUpozorenje.Text = "Neki lijekovi međusobno reagiraju!";
             this.labelUpozorenje.Visible = false;
@@ -300,9 +309,9 @@
             // buttonObrisiLijek
             // 
             this.buttonObrisiLijek.Enabled = false;
-            this.buttonObrisiLijek.Location = new System.Drawing.Point(238, 101);
+            this.buttonObrisiLijek.Location = new System.Drawing.Point(212, 105);
             this.buttonObrisiLijek.Name = "buttonObrisiLijek";
-            this.buttonObrisiLijek.Size = new System.Drawing.Size(109, 34);
+            this.buttonObrisiLijek.Size = new System.Drawing.Size(119, 34);
             this.buttonObrisiLijek.TabIndex = 2;
             this.buttonObrisiLijek.Text = "Obriši";
             this.buttonObrisiLijek.UseVisualStyleBackColor = true;
@@ -310,9 +319,9 @@
             // 
             // buttonLijek
             // 
-            this.buttonLijek.Location = new System.Drawing.Point(238, 56);
+            this.buttonLijek.Location = new System.Drawing.Point(212, 56);
             this.buttonLijek.Name = "buttonLijek";
-            this.buttonLijek.Size = new System.Drawing.Size(109, 34);
+            this.buttonLijek.Size = new System.Drawing.Size(119, 34);
             this.buttonLijek.TabIndex = 1;
             this.buttonLijek.Text = "Dodaj";
             this.buttonLijek.UseVisualStyleBackColor = true;
@@ -322,18 +331,19 @@
             // 
             this.listBoxLijekovi.FormattingEnabled = true;
             this.listBoxLijekovi.ItemHeight = 16;
-            this.listBoxLijekovi.Location = new System.Drawing.Point(9, 35);
+            this.listBoxLijekovi.Location = new System.Drawing.Point(9, 34);
             this.listBoxLijekovi.Name = "listBoxLijekovi";
-            this.listBoxLijekovi.Size = new System.Drawing.Size(203, 100);
+            this.listBoxLijekovi.Size = new System.Drawing.Size(161, 116);
             this.listBoxLijekovi.TabIndex = 0;
             this.listBoxLijekovi.SelectedIndexChanged += new System.EventHandler(this.listBoxLijekovi_SelectedIndexChanged);
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.richTextBox1);
-            this.groupBox5.Location = new System.Drawing.Point(31, 496);
+            this.groupBox5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox5.Location = new System.Drawing.Point(30, 523);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(728, 135);
+            this.groupBox5.Size = new System.Drawing.Size(738, 135);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Napomena";
@@ -349,7 +359,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(335, 655);
+            this.button1.Location = new System.Drawing.Point(508, 682);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 39);
             this.button1.TabIndex = 6;
@@ -357,21 +367,57 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Beige;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(825, 81);
+            this.panel1.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.Location = new System.Drawing.Point(645, 682);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 39);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Zatvori";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DesktopForms.Properties.Resources.stethoscope;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // PostupakForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 706);
+            this.ClientSize = new System.Drawing.Size(828, 756);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "PostupakForm";
-            this.Text = "Postupak";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "VetMan - novi postupak";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -380,8 +426,10 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -416,5 +464,8 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

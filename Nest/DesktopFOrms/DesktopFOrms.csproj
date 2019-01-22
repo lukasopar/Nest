@@ -199,6 +199,9 @@
     <Compile Include="Views\ZivotinjaForm.Designer.cs">
       <DependentUpon>ZivotinjaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\BolestDetaljiForm.resx">
+      <DependentUpon>BolestDetaljiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\BolestForm.resx">
       <DependentUpon>BolestForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -17,6 +17,8 @@ namespace DesktopForms.Views
         public PrijavaForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         public string KorisnickoIme { get => textBoxUsername.Text; set => textBoxUsername.Text = value; }
@@ -29,5 +31,7 @@ namespace DesktopForms.Views
             Presenter.PokusajPrijave();
             Cursor.Current = Cursors.Arrow;
         }
+
+       
     }
 }

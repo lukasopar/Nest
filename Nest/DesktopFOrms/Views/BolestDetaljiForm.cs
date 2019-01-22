@@ -18,6 +18,8 @@ namespace DesktopForms.Views
         public BolestDetaljiForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         public Bolest Bolest { get => (Bolest)label2.Tag;
@@ -36,8 +38,15 @@ namespace DesktopForms.Views
                     item.Tag = lijek;
                     listView1.Items.Add(item);
                 }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
         public BolestiPresenter Presenter { private get; set; }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

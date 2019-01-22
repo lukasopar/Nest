@@ -18,6 +18,8 @@ namespace DesktopForms.Views
         public PostupakForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         public Zivotinja Zivotinja { get => (Zivotinja)groupBox1.Tag;
@@ -119,6 +121,17 @@ namespace DesktopForms.Views
                 if (result == DialogResult.OK)
                     return;
             }
+            var vrsta = (VrstaPostupka)comboBoxVrstePostupaka.SelectedItem;
+
+            if (vrsta == null)
+            {
+                var result = MessageBox.Show("Nemate dodane vrste postupaka koje obavljate. Dodajte nove vrste prije obavljanja postupka.", "Greška",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Warning);
+                if (result == DialogResult.OK)
+                    return;
+            }
+
             if (labelUpozorenje.Visible)
             {
                 var result = MessageBox.Show("Postoje interakcije među odabranim lijekovima.\nJeste li sigurni da želite odabrati te lijekove?", "Interakcije među lijekovima",
@@ -127,9 +140,11 @@ namespace DesktopForms.Views
                 if (result == DialogResult.Cancel)
                     return;
             }
-            var vrsta = (VrstaPostupka)comboBoxVrstePostupaka.SelectedItem;
+//            var vrsta = (VrstaPostupka)comboBoxVrstePostupaka.SelectedItem;
             var napomena = richTextBox1.Text;
             Presenter.NoviPostupak(Zivotinja, vrsta, Lijekovi, Bolesti, napomena);
+            this.Close();
+            MessageBox.Show("Postupak dodan.", "Postupak dodan", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonPovijest_Click(object sender, EventArgs e)
@@ -137,6 +152,9 @@ namespace DesktopForms.Views
             Presenter.PovijestZivotinje(Zivotinja);
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

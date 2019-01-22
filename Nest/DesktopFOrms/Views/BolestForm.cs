@@ -18,6 +18,8 @@ namespace DesktopForms.Views
         public BolestForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
             //button1.Enabled = false;
         }
         public BolestiPresenter Presenter { private get; set; }
@@ -38,10 +40,13 @@ namespace DesktopForms.Views
                     it.Tag = bolest;
                     listView1.Items.Add(it);
                 }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
             }
         }
 
-        public bool Dijagnoza { get => button1.Visible; set { button1.Visible = value; button2.Visible = value; listView1.MultiSelect = value; } }
+        public bool Dijagnoza { get => button1.Visible; set { button1.Visible = value;  listView1.MultiSelect = value; } }
 
         private void button1_Click(object sender, EventArgs e)
         {

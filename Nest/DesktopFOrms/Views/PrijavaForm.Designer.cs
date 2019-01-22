@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrijavaForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +45,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(348, 68);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Dobrodošli u aplikaciju za veterinare!\r\n\r\nZa nastavak, molimo da se prijavite pod" +
-    "acima koje ste\r\ndobili prilikom  bla bla";
+            this.label1.Text = "Dobrodošli u aplikaciju VetMan!\r\n\r\nZa nastavak, molimo da se prijavite podacima k" +
+    "oje ste\r\ndobili prilikom nabave aplikacije.";
             // 
             // label2
             // 
@@ -113,8 +114,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "PrijavaForm";
-            this.Text = "PrijavaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "VetMan - prijava";
             this.ResumeLayout(false);
             this.PerformLayout();
 
