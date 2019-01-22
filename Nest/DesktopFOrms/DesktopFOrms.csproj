@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\GlavniPresenter.cs" />
     <Compile Include="Presenters\RacunPresenter.cs" />
     <Compile Include="Presenters\PostupakPresenter.cs" />
     <Compile Include="Presenters\PridruziZivotinjuPresenter.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Presenters\LijekoviPresenter.cs" />
     <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
+    <Compile Include="ViewInterfaces\IGlavniView.cs" />
     <Compile Include="ViewInterfaces\IRacunView.cs" />
     <Compile Include="ViewInterfaces\IPostupakView.cs" />
     <Compile Include="ViewInterfaces\IPovijestPregledaView.cs" />
@@ -206,6 +208,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\LijekoviKodVeterinaraForm.resx">
       <DependentUpon>LijekoviKodVeterinaraForm.cs</DependentUpon>
@@ -255,7 +258,51 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Slike\output-onlinepngtools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\user1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\user-male-circle-filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\administracija.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\stethoscope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\racun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\bolest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\lijek.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\izvjestaj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\vetmanslika.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\vetman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Slike\vetman.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

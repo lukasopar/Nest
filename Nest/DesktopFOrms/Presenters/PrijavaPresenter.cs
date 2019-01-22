@@ -3,6 +3,7 @@ using DatabaseBootstrap.IRepositories;
 using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using DesktopForms.Views;
+using DesktopFOrms.Presenters;
 using DesktopFOrms.Views;
 using System;
 using System.Collections.Generic;
@@ -36,9 +37,8 @@ namespace DesktopForms.Presenters
             NHibernateService.PrijavljeniVeterinar = prijava;
             _view.CloseForm();
 
-            RacunForm form = new RacunForm();
-            RacunPresenter presenter = new RacunPresenter(form, new RacunRepository(), new VeterinarRepository(), new PostupakRepository());
-
+            GlavniForm form = new GlavniForm();
+            GlavniPresenter presenter = new GlavniPresenter(form);
             form.Show();
 
         }

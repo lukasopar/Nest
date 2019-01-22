@@ -1,48 +1,63 @@
-﻿using DatabaseBootstrap.Repositories;
+﻿using DatabaseBootstrap;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
+using DesktopFOrms.Presenters;
+using DesktopFOrms.ViewInterfaces;
 using System;
 using System.Windows.Forms;
 
 namespace DesktopForms.Views
 {
-    public partial class GlavniForm : Form
+    public partial class GlavniForm : Form, IGlavniView
     {
         public GlavniForm()
         {
             InitializeComponent();
+            var vet = NHibernateService.PrijavljeniVeterinar;
+            labelImeVet.Text = vet.Ime + " " + vet.Prezime;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        public GlavniPresenter Presenter { private get; set; }
+
+        private void buttonRegistracijaVlasnik_Click(object sender, EventArgs e)
         {
-            this.Close();
-
-            LijekoviForm view = new LijekoviForm();
-
-            var presenter = new LijekoviPresenter(view, new LijekoviRepository());
-
-            view.Show();
+            Presenter.OtvoriRegistracijuVlasnika();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void buttonRegistracijaZivotinje_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Presenter.OtvoriRegistracijuZivotinje();
 
-            VlasnikForm view = new VlasnikForm();
-
-            var presenter = new VlasnikPresenter(view, new VlasnikRepository());
-
-            view.Show();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void buttonBolesti_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Presenter.OtvoriBolesti();
 
-            ZivotinjaForm view = new ZivotinjaForm();
+        }
 
-            var presenter = new ZivotinjaPresenter(view, new ZivotinjaRepository(), new VlasnikRepository());
+        private void buttonLijekovi_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriLijekovi();
 
-            view.Show();
+        }
+
+        private void buttonRacunNovi_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriNoviRacun();
+        }
+
+        private void buttonPostupak_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriNoviPostupak();
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            Presenter.OtvoriRegistracijuVlasnika();
+
         }
     }
 }
