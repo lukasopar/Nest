@@ -10,5 +10,7 @@ namespace DatabaseBootstrap.IRepositories
     {
         List<Vlasnik> DohvatiSveVlasnike();
         IList<Zivotinja> DohvatiVlasnikaSaZivotinjom(int id);
+        Vlasnik DohvatiVlasnikaPrijava(string username, string password);
+
     }
 }

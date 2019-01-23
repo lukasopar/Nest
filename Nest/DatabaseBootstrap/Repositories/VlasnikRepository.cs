@@ -33,5 +33,16 @@ namespace DatabaseBootstrap.Repositories
                 }            }
             
         }
+        public Vlasnik DohvatiVlasnikaPrijava(string username, string password)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Vlasnik entity = session.Query<Vlasnik>().Where(x => x.KorisnickoIme.Equals(username) && x.Lozinka.Equals(password)).SingleOrDefault();
+                    return entity;
+                }
+            }
+        }
     }
 }
