@@ -1,0 +1,39 @@
+﻿@using Nest.Model.Domain
+@model Bolest
+@{
+    ViewData["Title"] = "Bolest: " + Model.Naziv;
+}
+<h3>@ViewData["Title"]</h3>
+
+<div>
+    <b>Opis bolesti:</b>
+    <br />
+    <p class="col-md-4">@Model.Opis</p>
+</div>
+<br />
+<hr />
+<h5>Lijekovi koji pomažu:</h5>
+<hr />
+@if (Model.Lijeks == null || Model.Lijeks.Count() == 0)
+{
+    <p>Ova bolest nema posebno registrirane lijekove.</p>
+
+}
+else
+{
+    
+        
+    <ul>
+        @foreach (var lijek in Model.Lijeks)
+        {
+            <li><a asp-action="Lijek" asp-route-id="@lijek.Id">@lijek.Naziv</a></li>
+
+        }
+    </ul>
+
+
+    
+
+
+
+}

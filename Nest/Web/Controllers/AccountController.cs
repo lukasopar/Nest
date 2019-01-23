@@ -87,8 +87,8 @@ namespace Web.Controllers
                 }
                 else
                 {
-                    TempData["NeuspjeliLogin"] = "Niste se uspjeli prijaviti. Pokušajte ponovno.";
-                    
+                    ModelState.AddModelError("KorisnickoIme", "Podaci za prijavu nisu točni.");
+
                     return View(model);
                 }
             }
@@ -176,6 +176,12 @@ namespace Web.Controllers
             }
             else
                 return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login");
         }
     }
 

@@ -1,0 +1,62 @@
+﻿@using Nest.Model.Domain
+@model Lijek
+@{
+    ViewData["Title"] = "Lijek: " + Model.Naziv;
+}
+<h3>@ViewData["Title"]</h3>
+
+<div>
+    <b>Opis lijeka:</b>
+    <br />
+    <p class="col-md-4">@Model.Opis</p>
+</div>
+<br />
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <b>Bolesti koje ublažava: </b>
+        @if (Model.Bolests == null || Model.Bolests.Count() == 0)
+        {
+            <p>Ovaj lijek nema posebno registrirane bolesti.</p>
+
+        }
+        else
+        {
+
+
+            <ul>
+                @foreach (var bolest in Model.Bolests)
+                {
+                    <li><a asp-action="Bolest" asp-route-id="@bolest.Id">@bolest.Naziv</a></li>
+
+                }
+            </ul>
+
+        }
+    </div>
+    <div class="col-md-4">
+        <b>Lijekovi s kojima ima interakciju: </b>
+        @if ((Model.InterakcijaLijekovas1 == null && Model.InterakcijaLijekovas2 == null) || (Model.InterakcijaLijekovas1.Count() == 0 && Model.InterakcijaLijekovas2.Count==0))
+        {
+            <p>Ovaj lijek nema interakcije s drugim lijekovima.</p>
+
+        }
+        else
+        {
+            <ul>
+                @foreach (var lijek in Model.InterakcijaLijekovas1)
+                {
+                    <li><a asp-action="Lijek" asp-route-id="@lijek.Lijek2.Id">@lijek.Lijek2.Naziv</a></li>
+
+                }
+                @foreach (var lijek in Model.InterakcijaLijekovas2)
+                {
+                    <li><a asp-action="Lijek" asp-route-id="@lijek.Lijek1.Id">@lijek.Lijek1.Naziv</a></li>
+
+                }
+            </ul>
+
+        }
+    </div>
+</div>

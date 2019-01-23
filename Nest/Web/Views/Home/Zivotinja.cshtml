@@ -1,0 +1,90 @@
+﻿@using Nest.Model.Domain
+@model Zivotinja
+@{
+    ViewData["Title"] = "Životinja " + Model.Ime;
+}
+<h3>@ViewData["Title"]</h3>
+
+<div>
+    <span>
+        <b>Datum rođenja:</b>
+        @if (Model.DatumRod.HasValue)
+        {@Model.DatumRod.Value.ToString("dd.MM.yyyy")}
+    else
+    { <text>Nepoznat</text>}
+    </span>
+    <br /><br />
+    <b>Napomena:</b> <p>@Model.Napomena</p>
+    
+</div>
+<br />
+<hr />
+<h4>Postupci</h4>
+<hr />
+@if (Model.Postupaks == null || Model.Postupaks.Count() == 0)
+{
+    <p>Ova životinja nikad nije obavljala postupak kod veterinara.</p>
+
+}
+else
+{
+    foreach(var postupak in Model.Postupaks)
+    {
+        <p><button id="@postupak.Id button" class="btn btn-info btn-sm" onclick="detalji(@postupak.Id)">Detalji</button>  <b>Naziv postupka:</b> @postupak.VrstaPostupka.Naziv </p>
+        <div id="@postupak.Id div" style="visibility:hidden" >
+            <p><b>Opis postupka:</b> @postupak.VrstaPostupka.Opis</p>
+            <p><b>Cijena postupka:</b> @postupak.VrstaPostupka.Cijena</p>
+            <p><b>Veterinar:</b> <a asp-action="Veterinar" asp-route-id="@postupak.VrstaPostupka.Veterinar.Id">@postupak.VrstaPostupka.Veterinar.Ime @postupak.VrstaPostupka.Veterinar.Prezime</a></p>
+            <div class="row">
+                <div class="col-md-3">
+                    <b>Dijagnoza:</b>
+                    @if (postupak.Bolests == null || postupak.Bolests.Count() == 0)
+                    {<text>-</text>}
+                else
+                {
+                    <ul>
+                        @foreach (var bolest in postupak.Bolests)
+                        {
+                            <li><a asp-action="Bolest" asp-route-id="@bolest.Id">@bolest.Naziv</a></li>
+
+                        }
+                    </ul>
+                }
+                </div>
+                <div class="col-md-4">
+                    <b>Terapija:</b>
+                    @if (postupak.Lijeks == null || postupak.Lijeks.Count() == 0)
+                    {<text>-</text>}
+                else
+                {
+                    <ul>
+                        @foreach (var lijek in postupak.Lijeks)
+                        {
+                        <li><a>@lijek.Naziv</a></li>
+
+                        }
+                    </ul>
+                }
+                </div>
+            </div>
+        
+        </div>
+
+
+    }
+
+
+
+}
+@section Scripts{ 
+        <script>
+            function detalji(id) {
+                var x = document.getElementById(id + " div");
+                if (x.style.visibility === 'hidden') {
+                    x.style.visibility = 'visible';
+                } else {
+                    x.style.visibility = 'hidden';
+                }
+            }
+        </script>
+}

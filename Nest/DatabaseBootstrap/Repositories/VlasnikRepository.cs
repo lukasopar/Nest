@@ -20,17 +20,20 @@ namespace DatabaseBootstrap.Repositories
                 {
                     IQueryable<Vlasnik> query = session.Query<Vlasnik>().Fetch(vlasnik => vlasnik.Zivotinjas).AsQueryable();
                     return query.ToList();
-                }            }        }
+                }
+            }
+        }
 
-        public IList<Zivotinja> DohvatiVlasnikaSaZivotinjom(int id)
+        public List<Zivotinja> DohvatiVlasnikaSaZivotinjom(int id)
         {
             using (ISession session = NHibernateService.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     var query = session.Query<Vlasnik>().Where(vlasnik => vlasnik.Id == id).FetchMany(vlasnik => vlasnik.Zivotinjas).SingleOrDefault();
-                    return query.Zivotinjas;
-                }            }
+                    return query.Zivotinjas.ToList();
+                }
+            }
             
         }
         public Vlasnik DohvatiVlasnikaPrijava(string username, string password)
@@ -54,6 +57,10 @@ namespace DatabaseBootstrap.Repositories
                     return entity;
                 }
             }
+        }
+        public List<Zivotinja> DohvatiVlasnikoveZivotinje(int id)
+        {
+            return null;
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿
+@model RegistracijaZivotinjeViewModel;
+@{
+    ViewData["Title"] = "Registracija životinje";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Registrirajte svoju životinju.</p>
+
+<form asp-action="NovaZivotinja" method="post">
+    <div class="row">
+        <div class="form-group col-md-4 " style="margin-left:50px">
+            <label>Ime</label>
+            <input asp-for="Ime" class="form-control" />
+            <span asp-validation-for="Ime" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4" style="margin-left:50px">
+                <label asp-for="DatumRodenja">Datum rođenja</label>
+                <input type="date" asp-for="DatumRodenja" class="form-control" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group col-md-4 " style="margin-left:50px">
+            <label>Napomena</label>
+            <textarea asp-for="Napomena" class="form-control" ></textarea>
+        </div>
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary mb-2" id="send" style="margin-left:50px">Registracija</button>
+</form>
+

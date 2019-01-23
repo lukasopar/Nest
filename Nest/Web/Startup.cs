@@ -32,7 +32,11 @@ namespace Web
                 }
                 );
             services.AddSingleton<IVlasnikRepository, VlasnikRepository>();
-
+            services.AddSingleton<IZivotinjaRepository, ZivotinjaRepository>();
+            services.AddSingleton<IBolestiRepository, BolestiRepository>();
+            services.AddSingleton<ILijekoviRepository, LijekoviRepository>();
+            services.AddSingleton<IVeterinarRepository, VeterinarRepository>();
+            
             services.AddMvc();
             
         }
