@@ -44,5 +44,16 @@ namespace DatabaseBootstrap.Repositories
                 }
             }
         }
+        public Vlasnik DohvatiVlasnikaKorisnickoIme(string username)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Vlasnik entity = session.Query<Vlasnik>().Where(x => x.KorisnickoIme.Equals(username)).SingleOrDefault();
+                    return entity;
+                }
+            }
+        }
     }
 }
