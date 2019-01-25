@@ -46,7 +46,7 @@ namespace DesktopForms.Presenters
         public void OtvoriRegistracijuZivotinje()
         {
             ZivotinjaForm view = new ZivotinjaForm();
-            var presenter = new ZivotinjaPresenter(view, new ZivotinjaRepository(), new VlasnikRepository());
+            var presenter = new ZivotinjaPresenter(view, new ZivotinjaRepository(), new VrstaRepository() , new VlasnikRepository());
             view.Show();
         }
         public void OtvoriNoviRacun()
@@ -55,6 +55,14 @@ namespace DesktopForms.Presenters
             var presenter = new RacunPresenter(view, new RacunRepository(),new VeterinarRepository(), new PostupakRepository());
             view.Show();
         }
+
+        internal void OtvoriAdministraciju()
+        {
+            AdministracijaForm view = new AdministracijaForm();
+            var presenter = new AdministracijaPresenter(view, new VrstaPostupkaRepository(), new VrstaRepository());
+            view.Show();
+        }
+
         public void OtvoriPreuzimanjeRacuna()
         {
             PreuzimanjeRacunaForm view = new PreuzimanjeRacunaForm();

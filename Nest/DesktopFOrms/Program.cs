@@ -32,6 +32,7 @@ namespace DesktopForms
             PrijavaForm form = new PrijavaForm();
             PrijavaPresenter presenter = new PrijavaPresenter(form, new VeterinarRepository());
             form.Show();
+
             Application.Run();
         }
 

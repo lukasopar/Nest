@@ -63,5 +63,10 @@ namespace DesktopForms.Views
         {
             Presenter.OtvoriPreuzimanjeRacuna();
         }
+
+        private void buttonAdministracija_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriAdministraciju();
+        }
     }
 }

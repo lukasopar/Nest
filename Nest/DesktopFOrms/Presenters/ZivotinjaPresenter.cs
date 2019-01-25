@@ -1,4 +1,5 @@
-﻿using DatabaseBootstrap.IRepositories;
+﻿using DatabaseBootstrap;
+using DatabaseBootstrap.IRepositories;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
@@ -12,15 +13,19 @@ namespace DesktopForms.Presenters
     public class ZivotinjaPresenter
     {
         private readonly IZivotinjaView _view;
+        private readonly IVrstaRepository _vrstaRepository;
         private readonly IZivotinjaRepository _zivotinjaRepository;
         private readonly IVlasnikRepository _vlasniciRepository;
 
-        public ZivotinjaPresenter(IZivotinjaView view, IZivotinjaRepository repository, IVlasnikRepository vlasnici_repository)
+        public ZivotinjaPresenter(IZivotinjaView view, IZivotinjaRepository repository, IVrstaRepository vrstaRepository, 
+            IVlasnikRepository vlasnici_repository)
         {
             _view = view;
             view.Presenter = this;
             _zivotinjaRepository = repository;
             _vlasniciRepository = vlasnici_repository;
+            _vrstaRepository = vrstaRepository;
+            _view.VrsteZivotinja = vrstaRepository.DohvatiVrsteVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
             _view.Vlasnici = vlasnici_repository.DohvatiSveVlasnike();
         }
 

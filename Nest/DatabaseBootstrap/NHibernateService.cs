@@ -50,7 +50,7 @@ namespace DatabaseBootstrap
             .BuildConfiguration();
             var sessionFactory = nhConfig.BuildSessionFactory();
             ISession sess = sessionFactory.OpenSession();
-             //var schemaExport = new SchemaExport(nhConfig);
+            //var schemaExport = new SchemaExport(nhConfig);
             //schemaExport.Create(false, true);
             return sessionFactory;
         }

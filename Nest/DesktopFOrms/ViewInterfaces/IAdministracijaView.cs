@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace DesktopForms.ViewInterfaces
 {
-    public interface IZivotinjaView
+    public interface IAdministracijaView
     {
-        IList<Vlasnik> Vlasnici { get; set; }
-
-        IList<VrstaZivotinje> VrsteZivotinja { set; }
-        Presenters.ZivotinjaPresenter Presenter { set; }
+        IList<VrstaZivotinje> Vrste { set; }
+        IList<VrstaPostupka> Postupci { set; }
+        Presenters.AdministracijaPresenter Presenter { set; }
     }
 }

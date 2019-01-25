@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\AdministracijaPresenter.cs" />
     <Compile Include="Presenters\GlavniPresenter.cs" />
     <Compile Include="Presenters\PreuzimanjeRacunaPresenter.cs" />
     <Compile Include="Presenters\RacunPresenter.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Presenters\DetaljiOLijekuPresenter.cs" />
     <Compile Include="Presenters\LijekoviPresenter.cs" />
     <Compile Include="Presenters\PrijavaPresenter.cs" />
+    <Compile Include="ViewInterfaces\IAdministracijaView.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
     <Compile Include="ViewInterfaces\IGlavniView.cs" />
     <Compile Include="ViewInterfaces\IPreuzimanjeRacunaView.cs" />
@@ -111,6 +113,12 @@
     <Compile Include="ViewInterfaces\ILijekoviView.cs" />
     <Compile Include="ViewInterfaces\IPrijavaView.cs" />
     <Compile Include="ViewInterfaces\ILijekoviKodVeterinaraView.cs" />
+    <Compile Include="Views\AdministracijaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AdministracijaForm.Designer.cs">
+      <DependentUpon>AdministracijaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\BolestDetaljiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +207,9 @@
     <Compile Include="Views\ZivotinjaForm.Designer.cs">
       <DependentUpon>ZivotinjaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AdministracijaForm.resx">
+      <DependentUpon>AdministracijaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\BolestDetaljiForm.resx">
       <DependentUpon>BolestDetaljiForm.cs</DependentUpon>
     </EmbeddedResource>

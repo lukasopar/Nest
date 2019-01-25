@@ -32,6 +32,13 @@ namespace DesktopForms.Views
                 comboBox1.DisplayMember = "KorisnickoIme";
             }
         }
+
+        public IList<VrstaZivotinje> VrsteZivotinja { set{
+                comboBox2.DataSource = value;
+                comboBox2.DisplayMember = "Vrsta";
+
+            } }
+
         public ZivotinjaForm()
         {
             InitializeComponent();
@@ -66,7 +73,7 @@ namespace DesktopForms.Views
                 valid = false;
             }
             else label8.Text = " ";
-            if (comboBox2.SelectedIndex != -1)
+            if (comboBox2.SelectedIndex == -1)
             {
                 label11.Text = "Ovo polje je obavezno";
                 valid = false;
@@ -81,23 +88,19 @@ namespace DesktopForms.Views
             zivotinja.Napomena = textBox3.Text;
             zivotinja.Vlasnik = vlasnik;
             zivotinja.Napomena = textBox2.Text;
+            zivotinja.VrstaZivotinjes = new List<VrstaZivotinje>();
+            zivotinja.PridruziVrstuZivotinjeKodVeterinara((VrstaZivotinje)comboBox2.SelectedItem);
             vlasnik.DodajZivotinju(zivotinja);
 
             Presenter.UpdateVlasnik(vlasnik);
             Presenter.RegistrirajZivotinju(zivotinja);
 
             this.Close();
-
-            GlavniForm form = new GlavniForm();
-            form.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-
-            GlavniForm form = new GlavniForm();
-            form.Show();
         }
     }
 }

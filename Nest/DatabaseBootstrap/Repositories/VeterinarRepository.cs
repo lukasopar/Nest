@@ -51,7 +51,7 @@ namespace DatabaseBootstrap.Repositories
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var query = session.Query<VrstaPostupka>().Where(vrsta => vrsta.Veterinar.Id == id).ToList();
+                    var query = session.Query<VrstaPostupka>().Where(vrsta => vrsta.Veterinar.Id == id && vrsta.Aktivno == true).ToList();
                     return query;
                 }            }
         }
