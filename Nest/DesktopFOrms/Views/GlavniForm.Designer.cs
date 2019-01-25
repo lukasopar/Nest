@@ -62,6 +62,7 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -157,7 +158,6 @@
             this.buttonRegistracijaVlasnik.TabIndex = 3;
             this.buttonRegistracijaVlasnik.UseVisualStyleBackColor = false;
             this.buttonRegistracijaVlasnik.Click += new System.EventHandler(this.buttonRegistracijaVlasnik_Click);
-            this.buttonRegistracijaVlasnik.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
             // 
             // label1
             // 
@@ -170,7 +170,7 @@
             this.label1.Size = new System.Drawing.Size(220, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Registracija vlasnika";
-            this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -182,7 +182,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
+            this.pictureBox2.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonRegistracijaZivotinje
             // 
@@ -206,6 +206,7 @@
             this.label4.Size = new System.Drawing.Size(224, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "Registracija životinje";
+            this.label4.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox3
             // 
@@ -217,6 +218,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // buttonAdministracija
             // 
@@ -271,6 +273,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 14;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // label6
             // 
@@ -283,6 +286,7 @@
             this.label6.Size = new System.Drawing.Size(155, 25);
             this.label6.TabIndex = 15;
             this.label6.Text = "Novi postupak";
+            this.label6.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // buttonRacunNovi
             // 
@@ -306,6 +310,7 @@
             this.label7.Size = new System.Drawing.Size(175, 25);
             this.label7.TabIndex = 17;
             this.label7.Text = "Izdavanje račun";
+            this.label7.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox6
             // 
@@ -317,6 +322,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 18;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // buttonRacunSkini
             // 
@@ -339,6 +345,7 @@
             this.label8.Size = new System.Drawing.Size(214, 25);
             this.label8.TabIndex = 20;
             this.label8.Text = "Preuzimanje računa";
+            this.label8.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox7
             // 
@@ -350,6 +357,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 21;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // buttonBolesti
             // 
@@ -379,6 +387,7 @@
             this.buttonIzvjestaji.Size = new System.Drawing.Size(351, 84);
             this.buttonIzvjestaji.TabIndex = 24;
             this.buttonIzvjestaji.UseVisualStyleBackColor = false;
+            this.buttonIzvjestaji.Click += new System.EventHandler(this.buttonIzvjestaji_Click);
             // 
             // label9
             // 
@@ -391,6 +400,7 @@
             this.label9.Size = new System.Drawing.Size(137, 25);
             this.label9.TabIndex = 25;
             this.label9.Text = "Popis bolesti";
+            this.label9.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // label10
             // 
@@ -403,6 +413,7 @@
             this.label10.Size = new System.Drawing.Size(150, 25);
             this.label10.TabIndex = 26;
             this.label10.Text = "Popis lijekova";
+            this.label10.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // label11
             // 
@@ -415,6 +426,7 @@
             this.label11.Size = new System.Drawing.Size(181, 25);
             this.label11.TabIndex = 27;
             this.label11.Text = "Dnevni izvještaji";
+            this.label11.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // pictureBox8
             // 
@@ -426,6 +438,7 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 28;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox9
             // 
@@ -437,6 +450,7 @@
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 29;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // pictureBox10
             // 
@@ -448,6 +462,7 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 30;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // GlavniForm
             // 
@@ -541,5 +556,6 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonOdjava;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

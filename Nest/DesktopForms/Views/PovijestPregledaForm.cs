@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +19,16 @@ namespace DesktopForms.Views
         public PovijestPregledaForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
-        public List<Postupak> Postupci { get => null;
+        public List<Postupak> Postupci { get => (List<Postupak>)listView1.Tag;
             set
             {
+                groupBox1.Visible = false;
+                listView1.Items.Clear();
+                listView1.Tag = value;
                 foreach(var postupak in value)
                 {
                     ListViewItem it = new ListViewItem(new string[] {postupak.Datum.Value.ToString("dd/MM/yyyy HH:ss"), postupak.VrstaPostupka.Naziv, postupak.Zivotinja.Ime });
@@ -32,8 +38,9 @@ namespace DesktopForms.Views
             } }
 
         public RacunPresenter Presenter { private get; set; }
+        public IzvjestajiPresenter PresenterIzvjestaji { private get; set; }
         public bool Dodavanje { get => buttonDodaj.Visible; set => buttonDodaj.Visible = value; }
-
+        public bool Izvjestaj { get => buttonIzvjestaj.Visible; set { buttonIzvjestaj.Visible = value; ; dateTimePicker1.Visible = value; } }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 0)
@@ -68,6 +75,32 @@ namespace DesktopForms.Views
             Presenter.DodaniPostupci(lista);
             Close();
             MessageBox.Show("Dodano na račun.", "Dodano", MessageBoxButtons.OK);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            PresenterIzvjestaji.NapuniView(dateTimePicker1.Value);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonIzvjestaj_Click(object sender, EventArgs e)
+        {
+            var datum = dateTimePicker1.Value;
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.InitialDirectory = @"C:\";
+            sfd.RestoreDirectory = true;
+            sfd.FileName = "izvjestaj-" + datum.ToString("dd.MM.yyyy") + ".pdf";
+            sfd.DefaultExt = "pdf";
+            sfd.Filter = "pdf files (*.pdf)|*.pdf";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                var path = Path.GetFullPath(sfd.FileName);
+                PresenterIzvjestaji.Izvjestaj((List<Postupak>)listView1.Tag, datum ,path);
+            }
         }
     }
 }

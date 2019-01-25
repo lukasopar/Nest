@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\GlavniPresenter.cs" />
+    <Compile Include="Presenters\IzvjestajiPresenter.cs" />
     <Compile Include="Presenters\PreuzimanjeRacunaPresenter.cs" />
     <Compile Include="Presenters\RacunPresenter.cs" />
     <Compile Include="Presenters\PostupakPresenter.cs" />

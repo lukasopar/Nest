@@ -61,6 +61,11 @@ namespace DesktopForms.Presenters
             var presenter = new PreuzimanjeRacunaPresenter(view, new RacunRepository());
             view.Show();
         }
-
+        public void OtvoriIzvjestaje()
+        {
+            PovijestPregledaForm view = new PovijestPregledaForm();
+            var presenter = new IzvjestajiPresenter(view, new PostupakRepository(), new VeterinarRepository());
+            view.Show();
+        }
     }
 }
