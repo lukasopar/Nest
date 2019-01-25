@@ -1,0 +1,52 @@
+﻿
+@model RegistracijaVlasnikaViewModel;
+@{
+    ViewData["Title"] = "Registracija vlasnika";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Registrirajte se sa svojim podacima</p>
+
+<form asp-action="Register" method="post">
+    <div class="row">
+        <div class="form-group col-md-4 " style="margin-left:50px">
+            <label>Ime</label>
+            <input asp-for="Ime" class="form-control" />
+            <span asp-validation-for="Ime" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4 " style="margin-left:50px">
+            <label>Prezime</label>
+            <input asp-for="Prezime" class="form-control" />
+            <span asp-validation-for="Prezime" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4" style="margin-left:50px">
+            <label >Datum rođenja</label>
+            <input type="date" asp-for="DatumRodenja" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4 " style="margin-left:50px">
+            <label>Korisničko ime</label>
+            <input asp-for="KorisnickoIme" class="form-control" />
+            <span asp-validation-for="KorisnickoIme" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4 " style="margin-left:50px">
+            <label>Lozinka</label>
+            <input asp-for="Lozinka" type="password" class="form-control" />
+            <span asp-validation-for="Lozinka" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4 " style="margin-left:50px">
+            <label>Ponovite lozinku</label>
+            <input asp-for="PonovljenaLozinka" type="password" class="form-control" />
+            <span asp-validation-for="PonovljenaLozinka" class="text-danger"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2" id="send" style="margin-left:50px">Registracija</button>
+</form>
+

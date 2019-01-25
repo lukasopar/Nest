@@ -43,7 +43,8 @@ namespace DatabaseBootstrap.Repositories
                     var ziv = session.Query<Zivotinja>().Where(zivotinja => zivotinja.Id == idZivotinja).FetchMany(Zivotinja => Zivotinja.VrstaZivotinjes).ThenFetch(v => v.Veterinar).SingleOrDefault();
                     var vrsta = ziv.VrstaZivotinjes.Where(v => v.Veterinar.Id == idVeterinar).SingleOrDefault();
                     return vrsta;
-                }            }
+                }
+            }
         }
         public List<VrstaPostupka> DohvatiSvePostupke(int id)
         {
@@ -53,7 +54,8 @@ namespace DatabaseBootstrap.Repositories
                 {
                     var query = session.Query<VrstaPostupka>().Where(vrsta => vrsta.Veterinar.Id == id && vrsta.Aktivno == true).ToList();
                     return query;
-                }            }
+                }
+            }
         }
         public List<LijekKodVeterinara> DohvatiSveLijekoveKodVeterinara(int id)
         {
@@ -65,7 +67,8 @@ namespace DatabaseBootstrap.Repositories
                         .Fetch(x => x.Lijek)
                         .ToList();
                     return query;
-                }            }
+                }
+            }
         }
 
     }

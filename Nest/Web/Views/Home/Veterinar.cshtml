@@ -1,0 +1,81 @@
+﻿@using Nest.Model.Domain
+@model Veterinar
+@{
+    ViewData["Title"] = "Veterinar: " + Model.Ime + " " + Model.Prezime;
+}
+<h3>@ViewData["Title"]</h3>
+
+<div class="row">
+    <div class="col-md-3"><b>Ime: </b> @Model.Ime</div>
+    <div class="col-md-3"><b>Prezime: </b> @Model.Prezime</div>
+</div>
+<div>
+    <p><b>Datum licence: </b> @Model.DatumLicence.Value.ToString("dd.MM.yyyy")</p>
+</div>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <p><b>Vrste životinja koje pregledava:</b></p>
+        @if (Model.VrstaZivotinjes == null || Model.VrstaZivotinjes.Count() == 0)
+        {<text>Nema uneseno koje vrste pregledava.</text>}
+    else
+    {
+        <ul>
+            @foreach (var vrsta in Model.VrstaZivotinjes)
+            {
+                <li>
+                    @vrsta.Vrsta
+                </li>
+
+            }
+        </ul>
+
+    }
+    </div>
+    <div class="col-md-4">
+        <p><b>Vrste postupaka koje nudi:</b></p>
+        @if (Model.VrstaPostupkas == null || Model.VrstaPostupkas.Count() == 0)
+        {<text>Nema uneseno koje vrste postupaka nudi.</text>}
+    else
+    {
+        <ul>
+            @foreach (var vrsta in Model.VrstaPostupkas)
+            {
+                <li>
+                    <p><b>Naziv: </b>@vrsta.Naziv</p>
+                    <p><b>Cijena: </b>@vrsta.Cijena</p>
+                    <p><b>Opis:</b></p>
+                    @vrsta.Opis
+                </li>
+                <br />
+            }
+        </ul>
+
+    }
+    </div>
+
+
+
+    <div class="col-md-4">
+        <p><b>Lijekovi koje možete kupiti kod ovog veterinara:</b></p>
+        @if (Model.LijekKodVeterinaras == null || Model.LijekKodVeterinaras.Count() == 0)
+        {<text>Nema uneseno koje lijekove prodaje.</text>}
+    else
+    {
+        <ul>
+            @foreach (var vrsta in Model.LijekKodVeterinaras)
+            {
+                <li>
+                    <p><a asp-action="Lijek" asp-route-id="@vrsta.Lijek.Id">@vrsta.Lijek.Naziv</a></p>
+                    <p><b>Cijena: </b>@vrsta.Cijena</p>
+                    <p><b>Napomena:</b></p>
+                    @vrsta.Napomena
+                </li>
+                <br />
+            }
+        </ul>
+
+    }
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model IndexViewModel;
+@{
+    ViewData["Title"] = "Početna";
+}
+
+<h2>VetMan</h2>
+<br />
+<div>Dobrodošli u Web sučelje aplikacije VetMan. U nastavku možete pronaći popis vaših životinja. Pritiskom na poveznicu dobit ćete više podataka o njima.<br />
+    Pritiskom na svoje ime, možete promijeniti lozinku.
+    </div>
+<hr />
+<div><b>Vaše životinje:</b></div>
+<br />
+<div>
+    @if(Model.Zivotinje.Count == 0)
+    {
+        <p>Nemate registriranih životinja.</p>
+        <a asp-action="NovaZivotinja">Registriraj životinju.</a>
+    }
+    <ul>
+        @foreach (var zivotinja in Model.Zivotinje)
+        {
+            <li><a asp-action="Zivotinja" asp-route-id="@zivotinja.Id">@zivotinja.Ime</a></li>
+        }
+    </ul>
+
+</div>

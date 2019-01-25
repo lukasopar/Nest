@@ -20,18 +20,47 @@ namespace DatabaseBootstrap.Repositories
                 {
                     IQueryable<Vlasnik> query = session.Query<Vlasnik>().Fetch(vlasnik => vlasnik.Zivotinjas).AsQueryable();
                     return query.ToList();
-                }            }        }
+                }
+            }
+        }
 
-        public IList<Zivotinja> DohvatiVlasnikaSaZivotinjom(int id)
+        public List<Zivotinja> DohvatiVlasnikaSaZivotinjom(int id)
         {
             using (ISession session = NHibernateService.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     var query = session.Query<Vlasnik>().Where(vlasnik => vlasnik.Id == id).FetchMany(vlasnik => vlasnik.Zivotinjas).SingleOrDefault();
-                    return query.Zivotinjas;
-                }            }
+                    return query.Zivotinjas.ToList();
+                }
+            }
             
+        }
+        public Vlasnik DohvatiVlasnikaPrijava(string username, string password)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Vlasnik entity = session.Query<Vlasnik>().Where(x => x.KorisnickoIme.Equals(username) && x.Lozinka.Equals(password)).SingleOrDefault();
+                    return entity;
+                }
+            }
+        }
+        public Vlasnik DohvatiVlasnikaKorisnickoIme(string username)
+        {
+            using (ISession session = NHibernateService.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Vlasnik entity = session.Query<Vlasnik>().Where(x => x.KorisnickoIme.Equals(username)).SingleOrDefault();
+                    return entity;
+                }
+            }
+        }
+        public List<Zivotinja> DohvatiVlasnikoveZivotinje(int id)
+        {
+            return null;
         }
     }
 }
