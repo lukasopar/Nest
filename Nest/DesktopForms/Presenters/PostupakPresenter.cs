@@ -126,11 +126,12 @@ namespace DesktopForms.Presenters
         }
         public void PovijestZivotinje(Zivotinja zivotinja)
         {
-            var lista = _repository.DohvatiSDetaljimaPostupakeZivotinja(zivotinja.Id);
+            var lista = _repository.DohvatiSDetaljimaPostupkeZivotinja(zivotinja.Id);
             PovijestPregledaForm form = new PovijestPregledaForm();
             form.Postupci = lista;
             form.Presenter = null;
             form.Dodavanje = false;
+            form.Izvjestaj = false;
             form.Show();
         }
     }

@@ -53,15 +53,56 @@ namespace DesktopForms.Views
             Presenter.OtvoriNoviPostupak();
         }
 
-        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
-        {
-            Presenter.OtvoriRegistracijuVlasnika();
-
-        }
+       
 
         private void buttonRacunSkini_Click(object sender, EventArgs e)
         {
             Presenter.OtvoriPreuzimanjeRacuna();
+        }
+
+        private void buttonIzvjestaji_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriIzvjestaje();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriRegistracijuVlasnika();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriRegistracijuZivotinje();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriBolesti();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriIzvjestaje();
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriLijekovi();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriPreuzimanjeRacuna();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriNoviRacun();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriNoviPostupak();
         }
 
         private void buttonAdministracija_Click(object sender, EventArgs e)

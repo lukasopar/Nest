@@ -13,5 +13,7 @@ namespace DesktopForms.ViewInterfaces
         List<Postupak> Postupci { get; set; }
         RacunPresenter Presenter { set; }
         bool Dodavanje { get; set; }
+        IzvjestajiPresenter PresenterIzvjestaji { set; }
+        bool Izvjestaj { get; set; }
     }
 }

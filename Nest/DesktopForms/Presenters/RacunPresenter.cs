@@ -36,9 +36,10 @@ namespace DesktopForms.Presenters
         public void DodajPostupak()
         {
             PovijestPregledaForm form = new PovijestPregledaForm();
-            form.Postupci = _repositoryPostupak.DohvatiSDetaljimaPostupakeNeplacene(NHibernateService.PrijavljeniVeterinar.Id);
+            form.Postupci = _repositoryPostupak.DohvatiSDetaljimaPostupkeNeplacene(NHibernateService.PrijavljeniVeterinar.Id);
             form.Presenter = this;
             form.Dodavanje = true;
+            form.Izvjestaj = false;
             form.Show();
         }
         
