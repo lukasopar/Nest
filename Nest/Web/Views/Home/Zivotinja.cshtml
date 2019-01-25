@@ -15,7 +15,7 @@
     </span>
     <br /><br />
     <b>Napomena:</b> <p>@Model.Napomena</p>
-    
+
 </div>
 <br />
 <hr />
@@ -28,10 +28,10 @@
 }
 else
 {
-    foreach(var postupak in Model.Postupaks)
+    foreach (var postupak in Model.Postupaks)
     {
         <p><button id="@postupak.Id button" class="btn btn-info btn-sm" onclick="detalji(@postupak.Id)">Detalji</button>  <b>Naziv postupka:</b> @postupak.VrstaPostupka.Naziv </p>
-        <div id="@postupak.Id div" style="visibility:hidden" >
+        <div id="@postupak.Id div" style="display:none">
             <p><b>Opis postupka:</b> @postupak.VrstaPostupka.Opis</p>
             <p><b>Cijena postupka:</b> @postupak.VrstaPostupka.Cijena</p>
             <p><b>Veterinar:</b> <a asp-action="Veterinar" asp-route-id="@postupak.VrstaPostupka.Veterinar.Id">@postupak.VrstaPostupka.Veterinar.Ime @postupak.VrstaPostupka.Veterinar.Prezime</a></p>
@@ -60,15 +60,16 @@ else
                     <ul>
                         @foreach (var lijek in postupak.Lijeks)
                         {
-                        <li><a>@lijek.Naziv</a></li>
+                            <li><a asp-action="Lijek" asp-route-id="@lijek.Id">@lijek.Naziv</a></li>
 
                         }
                     </ul>
                 }
                 </div>
             </div>
-        
+
         </div>
+        <hr/>
 
 
     }
@@ -76,15 +77,15 @@ else
 
 
 }
-@section Scripts{ 
-        <script>
-            function detalji(id) {
-                var x = document.getElementById(id + " div");
-                if (x.style.visibility === 'hidden') {
-                    x.style.visibility = 'visible';
-                } else {
-                    x.style.visibility = 'hidden';
-                }
+@section Scripts{
+    <script>
+        function detalji(id) {
+            var x = document.getElementById(id + " div");
+            if (x.style.display === 'none') {
+                x.style.display = 'inline';
+            } else {
+                x.style.display = 'none';
             }
-        </script>
+        }
+    </script>
 }

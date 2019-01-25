@@ -12,19 +12,22 @@
 <hr />
 
 <form asp-controller="Account" asp-action="Login" method="post">
-    <div class="form-group">
-        <label>Korisničko ime</label>
-        <input asp-for="KorisnickoIme" class="form-control" placeholder="Unesite korisničko ime">
-        <span asp-validation-for="KorisnickoIme" class="text-danger"></span>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Korisničko ime</label>
+            <input asp-for="KorisnickoIme" class="form-control" placeholder="Unesite korisničko ime">
+            <span asp-validation-for="KorisnickoIme" class="text-danger"></span>
 
+        </div>
     </div>
-    <div class="form-group">
-        <label>Lozinka</label>
-        <input asp-for="Password" type="password" class="form-control" placeholder="Lozinka">
-        <span asp-validation-for="Password" class="text-danger"></span>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Lozinka</label>
+            <input asp-for="Password" type="password" class="form-control" placeholder="Lozinka">
+            <span asp-validation-for="Password" class="text-danger"></span>
 
+        </div>
     </div>
-
     <button type="submit" class="btn btn-primary">Prijava</button>
 </form>
 

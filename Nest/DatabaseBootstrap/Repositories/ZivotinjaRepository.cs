@@ -36,6 +36,7 @@ namespace DatabaseBootstrap.Repositories
                         .ThenFetch(p => p.Veterinar)
                         .Fetch(p => p.Bolests)
                         .Fetch(p => p.Lijeks)
+                        .OrderByDescending(p => p.Datum)
                         .ToList();
                     return query;
                    
