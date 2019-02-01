@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopForms", "DesktopFOrm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseBootstrap", "DatabaseBootstrap\DatabaseBootstrap.csproj", "{FEE4D1DE-6086-434B-AAA7-7605D9C99533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{C1AC57AC-444F-4851-AD20-DBCAA98CD05B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{C1AC57AC-444F-4851-AD20-DBCAA98CD05B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{1780F9F6-D900-400C-850D-10E07A3C9019}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,22 @@ Global
 		{C1AC57AC-444F-4851-AD20-DBCAA98CD05B}.Release|x64.Build.0 = Release|Any CPU
 		{C1AC57AC-444F-4851-AD20-DBCAA98CD05B}.Release|x86.ActiveCfg = Release|Any CPU
 		{C1AC57AC-444F-4851-AD20-DBCAA98CD05B}.Release|x86.Build.0 = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|ARM.Build.0 = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|x64.Build.0 = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Debug|x86.Build.0 = Debug|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|ARM.Build.0 = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|x64.ActiveCfg = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|x64.Build.0 = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|x86.ActiveCfg = Release|Any CPU
+		{1780F9F6-D900-400C-850D-10E07A3C9019}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

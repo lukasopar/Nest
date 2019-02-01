@@ -32,6 +32,7 @@ namespace Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            
             var userId = Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
             var zivotinje = _repository.DohvatiVlasnikaSaZivotinjom(userId);
             //var user = _repository.DohvatiPrekoID(Int32.Parse(userId));
@@ -55,9 +56,11 @@ namespace Web.Controllers
                 {
                     Ime = model.Ime,
                     Napomena = model.Napomena,
-                    DatumRod = DateTime.Parse(model.DatumRodenja),
                     Vlasnik = vlasnik
                 };
+                if (model.DatumRodenja != null)
+                    zivotinja.DatumRod = DateTime.Parse(model.DatumRodenja);
+
                 _repositoryZivotinja.Stvori(zivotinja);
 
                

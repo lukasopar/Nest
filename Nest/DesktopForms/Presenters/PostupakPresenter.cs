@@ -12,10 +12,10 @@ namespace DesktopForms.Presenters
 {
     public class PostupakPresenter
     {
-        IPostupakView _view;
-        IPostupakRepository _repository;
-        IVeterinarRepository _repositoryVeterinar;
-        ILijekoviRepository _repositoryLijekovi;
+        private IPostupakView _view;
+        private IPostupakRepository _repository;
+        private IVeterinarRepository _repositoryVeterinar;
+        private ILijekoviRepository _repositoryLijekovi;
         public PostupakPresenter(IPostupakView view, IPostupakRepository repository, IVeterinarRepository veterinarRepository, ILijekoviRepository lijekoviRepository)
         {
             _view = view;
@@ -83,7 +83,7 @@ namespace DesktopForms.Presenters
             var stariLijekovi = _view.Lijekovi;
             stariLijekovi.Remove(lijek);
             _view.Lijekovi = stariLijekovi.Distinct().ToList();
-            var s = SloziInterakcijuUpozorenje(stariLijekovi);
+            var s = SloziInterakcijuUpozorenje(_view.Lijekovi);
             _view.InterakcijaUpozorenje = s;
         }
         private string SloziInterakcijuUpozorenje(List<Lijek> lijekovi)
