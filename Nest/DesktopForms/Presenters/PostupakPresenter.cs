@@ -36,7 +36,7 @@ namespace DesktopForms.Presenters
         public void OdaberiZivotinju()
         {
             PridruziZivotinjuForm form = new PridruziZivotinjuForm();
-            PridruziZivotinjuPresenter presenter = new PridruziZivotinjuPresenter(form, new VlasnikRepository(), new VeterinarRepository(), new ZivotinjaRepository(), this);
+            PridruziZivotinjuPresenter presenter = new PridruziZivotinjuPresenter(form, new VlasnikRepository(NHibernateService.OpenSession()), new VeterinarRepository(NHibernateService.OpenSession()), new ZivotinjaRepository(NHibernateService.OpenSession()), this);
             form.Show();
         }
         public void OdabranaZivotinja(Zivotinja zivotinja)
@@ -53,7 +53,7 @@ namespace DesktopForms.Presenters
         public void DodajDijagnozu()
         {
             BolestForm form = new BolestForm();
-            BolestiPresenter presenter = new BolestiPresenter(form, new BolestiRepository(), this);
+            BolestiPresenter presenter = new BolestiPresenter(form, new BolestiRepository(NHibernateService.OpenSession()), this);
             form.Show();
         }
         public void IzbrisiIzDijagnoze(Bolest bolest)
@@ -66,7 +66,7 @@ namespace DesktopForms.Presenters
         public void DodajTerapiju()
         {
             LijekoviForm form = new LijekoviForm();
-            LijekoviPresenter presenter = new LijekoviPresenter(form, new LijekoviRepository(), this);
+            LijekoviPresenter presenter = new LijekoviPresenter(form, new LijekoviRepository(NHibernateService.OpenSession()), this);
             form.Show();
         }
         public void DodanaTerapija(List<Lijek> lijekovi)

@@ -1,4 +1,5 @@
-﻿using DatabaseBootstrap.Repositories;
+﻿using DatabaseBootstrap;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
@@ -60,7 +61,7 @@ namespace DesktopForms.Views
 
             DetaljiOLijekuForm view = new DetaljiOLijekuForm(lijek);
 
-            var presenter = new DetaljiOLijekuPresenter(view, new LijekoviRepository());
+            var presenter = new DetaljiOLijekuPresenter(view, new LijekoviRepository(NHibernateService.OpenSession()));
 
             view.Show();
 

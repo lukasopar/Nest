@@ -3,7 +3,7 @@ using FluentNHibernate.Mapping;
 using Nest.Model.Domain;
 
 
-namespace Nest.Model.Mapping {
+namespace Nest.DatabaseBootstrap.Mapping {
     
     
     public class BolestMap : ClassMap<Bolest> {

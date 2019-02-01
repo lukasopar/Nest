@@ -3,9 +3,10 @@ using FluentNHibernate.Mapping;
 using Nest.Model.Domain;
 
 
-namespace Nest.Desktop.Mapping {
-    
-    
+namespace Nest.DatabaseBootstrap.Mapping
+{
+
+
     public class LijekKodVeterinaraMap : ClassMap<LijekKodVeterinara> {
         
         public LijekKodVeterinaraMap() {

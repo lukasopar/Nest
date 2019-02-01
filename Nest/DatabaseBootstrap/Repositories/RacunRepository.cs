@@ -11,13 +11,15 @@ namespace DatabaseBootstrap.Repositories
 {
     public class RacunRepository : BasicRepository<Racun>, IRacunRepository
     {
+        public RacunRepository(ISession session) : base(session)
+        {
+        }
         public List<Racun> DohvatiSveRacune(int id)
         {
-            using (ISession session = NHibernateService.OpenSession())
-            {
-                using (ITransaction transaction = session.BeginTransaction())
+            
+                using (ITransaction transaction = _session.BeginTransaction())
                 {
-                    var query = session.Query<Racun>()
+                    var query = _session.Query<Racun>()
                         .Where(r => r.LijekStavkaRacunas.Select(l => l.LijekKodVeterinara.Veterinar.Id).FirstOrDefault() == id || r.Postupaks.Select(p => p.VrstaPostupka.Veterinar.Id).FirstOrDefault() == id)
                         .FetchMany(r => r.LijekStavkaRacunas)
                         .ThenFetch(r => r.LijekKodVeterinara)
@@ -26,7 +28,7 @@ namespace DatabaseBootstrap.Repositories
                         .ThenFetch(r => r.VrstaPostupka)
                         .ToList();
                     return query;
-                }            }
+                }            
         }
     }
 }

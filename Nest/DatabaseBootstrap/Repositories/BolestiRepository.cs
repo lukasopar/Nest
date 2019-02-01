@@ -11,16 +11,19 @@ namespace DatabaseBootstrap.Repositories
 {
     public class BolestiRepository : BasicRepository<Bolest>, IBolestiRepository
     {
+
+        public BolestiRepository(ISession session) : base(session)
+        {  
+        }
         public Bolest DohvatiPrekoIDSLijekovima(int id)
         {
-            using (ISession session = NHibernateService.OpenSession())
+            
+            using (ITransaction transaction = _session.BeginTransaction())
             {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    var entity = session.Query<Bolest>().Where(x => x.Id == id).Fetch(x => x.Lijeks);
-                    return entity.FirstOrDefault();
-                }
+                var entity = _session.Query<Bolest>().Where(x => x.Id == id).Fetch(x => x.Lijeks);
+                return entity.FirstOrDefault();
             }
+            
             
         }
 

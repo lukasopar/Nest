@@ -30,7 +30,7 @@ namespace DesktopForms
 
 
             PrijavaForm form = new PrijavaForm();
-            PrijavaPresenter presenter = new PrijavaPresenter(form, new VeterinarRepository());
+            PrijavaPresenter presenter = new PrijavaPresenter(form, new VeterinarRepository(NHibernateService.OpenSession()));
             form.Show();
 
             Application.Run();

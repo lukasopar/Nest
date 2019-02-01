@@ -12,25 +12,28 @@ namespace DatabaseBootstrap.Repositories
 {
     public class LijekoviRepository : BasicRepository<Lijek>, ILijekoviRepository
     {
+        public LijekoviRepository(ISession session) : base(session)
+        {
+        }
         public Lijek DohvatiLijekPoId(int id)
         {
-            using (ISession session = NHibernateService.OpenSession())
+
+            
+            using (ITransaction transaction = _session.BeginTransaction())
             {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    Lijek query = session.Query<Lijek>().Where(lijek => lijek.Id == id).Fetch(lijek => lijek.Bolests)
-                        .FetchMany(lijek => lijek.InterakcijaLijekovas2)
-                        .ThenFetch(lijek => lijek.Lijek1)
-                        .FetchMany(lijek => lijek.InterakcijaLijekovas2)
-                        .ThenFetch(lijek => lijek.Lijek2)
-                        .FetchMany(lijek => lijek.InterakcijaLijekovas1)
-                        .ThenFetch(lijek => lijek.Lijek1)
-                        .FetchMany(lijek => lijek.InterakcijaLijekovas1)
-                        .ThenFetch(lijek => lijek.Lijek2)
-                        .FirstOrDefault();
-                    return query;
-                }
+                Lijek query = _session.Query<Lijek>().Where(lijek => lijek.Id == id).Fetch(lijek => lijek.Bolests)
+                    .FetchMany(lijek => lijek.InterakcijaLijekovas2)
+                    .ThenFetch(lijek => lijek.Lijek1)
+                    .FetchMany(lijek => lijek.InterakcijaLijekovas2)
+                    .ThenFetch(lijek => lijek.Lijek2)
+                    .FetchMany(lijek => lijek.InterakcijaLijekovas1)
+                    .ThenFetch(lijek => lijek.Lijek1)
+                    .FetchMany(lijek => lijek.InterakcijaLijekovas1)
+                    .ThenFetch(lijek => lijek.Lijek2)
+                    .FirstOrDefault();
+                return query;
             }
+            
         }
     }
 }

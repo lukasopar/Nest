@@ -104,11 +104,11 @@ namespace DesktopForms.Views
         {
             this.Close();
 
-            LijekoviForm view = new LijekoviForm();
+           // LijekoviForm view = new LijekoviForm();
 
-            var presenter = new LijekoviPresenter(view, new LijekoviRepository());
+          //  var presenter = new LijekoviPresenter(view, new LijekoviRepository());
 
-            view.Show();
+           // view.Show();
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)

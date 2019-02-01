@@ -11,37 +11,39 @@ namespace DatabaseBootstrap.Repositories
 {
     public class ZivotinjaRepository : BasicRepository<Zivotinja>, IZivotinjaRepository
     {
+        public ZivotinjaRepository(ISession session) : base(session)
+        {
+
+        }
         public void AzurirajSNovomVrstom(Zivotinja entity, VrstaZivotinje vrsta)
         {
-            using (ISession session = NHibernateService.OpenSession())
+            
+            using (ITransaction transaction = _session.BeginTransaction())
             {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
                     
-                    session.Update(entity);
-                    entity.PridruziVrstuZivotinjeKodVeterinara(vrsta);
-                    session.Transaction.Commit();
-                }
+                _session.Update(entity);
+                entity.PridruziVrstuZivotinjeKodVeterinara(vrsta);
+                _session.Transaction.Commit();
             }
+            
         }
         public List<Postupak> DohvatiZivotinjaPostupke(int id)
         {
-            using (ISession session = NHibernateService.OpenSession())
+           
+            using (ITransaction transaction = _session.BeginTransaction())
             {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
 
-                    var query = session.Query<Postupak>().Where(p => p.Zivotinja.Id == id)
-                        .Fetch(p => p.VrstaPostupka)
-                        .ThenFetch(p => p.Veterinar)
-                        .Fetch(p => p.Bolests)
-                        .Fetch(p => p.Lijeks)
-                        .OrderByDescending(p => p.Datum)
-                        .ToList();
-                    return query;
+                var query = _session.Query<Postupak>().Where(p => p.Zivotinja.Id == id)
+                    .Fetch(p => p.VrstaPostupka)
+                    .ThenFetch(p => p.Veterinar)
+                    .Fetch(p => p.Bolests)
+                    .Fetch(p => p.Lijeks)
+                    .OrderByDescending(p => p.Datum)
+                    .ToList();
+                return query;
                    
-                }
             }
+            
         }
     }
 }

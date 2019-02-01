@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using Nest.DatabaseBootstrap.Mapping;
 using Nest.Model.Domain;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
@@ -36,17 +37,17 @@ namespace DatabaseBootstrap
             .ConnectionString("Data Source=c:\\Objektno\\Veterinari.db;Version=3;BinaryGUID=False")
             .AdoNetBatchSize(100))
             .Mappings(mappings => mappings.FluentMappings
-                .AddFromAssemblyOf<Bolest>()
-                .AddFromAssemblyOf<InterakcijaLijekova>()
-                .AddFromAssemblyOf<Lijek>()
-                .AddFromAssemblyOf<LijekKodVeterinara>()
-                .AddFromAssemblyOf<Postupak>()
-                .AddFromAssemblyOf<Racun>()
-                .AddFromAssemblyOf<Veterinar>()
-                .AddFromAssemblyOf<Vlasnik>()
-                .AddFromAssemblyOf<VrstaPostupka>()
-                .AddFromAssemblyOf<VrstaZivotinje>()
-                .AddFromAssemblyOf<Zivotinja>())
+                .AddFromAssemblyOf<BolestMap>()
+                .AddFromAssemblyOf<InterakcijaLijekovaMap>()
+                .AddFromAssemblyOf<LijekMap>()
+                .AddFromAssemblyOf<LijekKodVeterinaraMap>()
+                .AddFromAssemblyOf<PostupakMap>()
+                .AddFromAssemblyOf<RacunMap>()
+                .AddFromAssemblyOf<VeterinarMap>()
+                .AddFromAssemblyOf<VlasnikMap>()
+                .AddFromAssemblyOf<VrstaPostupkaMap>()
+                .AddFromAssemblyOf<VrstaZivotinjeMap>()
+                .AddFromAssemblyOf<ZivotinjaMap>())
             .BuildConfiguration();
             var sessionFactory = nhConfig.BuildSessionFactory();
             ISession sess = sessionFactory.OpenSession();

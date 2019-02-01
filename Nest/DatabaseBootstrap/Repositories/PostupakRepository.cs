@@ -11,29 +11,30 @@ namespace DatabaseBootstrap.Repositories
 {
     public class PostupakRepository : BasicRepository<Postupak>, IPostupakRepository
     {
+        public PostupakRepository(ISession session) : base(session)
+        {
+        }
         public List<Postupak> DohvatiSDetaljimaPostupkeZivotinja(int idZivotinja)
         {
-            using (ISession session = NHibernateService.OpenSession())
+           
+            using (ITransaction transaction = _session.BeginTransaction())
             {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    var lista = session.Query<Postupak>().Where(x => x.Zivotinja.Id == idZivotinja)
-                        .Fetch(x => x.Zivotinja)
-                        .Fetch(x => x.VrstaPostupka)
-                        .FetchMany(x => x.Lijeks)
-                        .FetchMany(x => x.Bolests)
-                        .ToList();
-                    return lista;
-                }
+                var lista = _session.Query<Postupak>().Where(x => x.Zivotinja.Id == idZivotinja)
+                    .Fetch(x => x.Zivotinja)
+                    .Fetch(x => x.VrstaPostupka)
+                    .FetchMany(x => x.Lijeks)
+                    .FetchMany(x => x.Bolests)
+                    .ToList();
+                return lista;
             }
+            
         }
         public List<Postupak> DohvatiSDetaljimaPostupkeNeplacene(int idVeterinar)
         {
-            using (ISession session = NHibernateService.OpenSession())
-            {
-                using (ITransaction transaction = session.BeginTransaction())
+            
+                using (ITransaction transaction = _session.BeginTransaction())
                 {
-                    var lista = session.Query<Postupak>().Where(x => x.VrstaPostupka.Veterinar.Id == idVeterinar && x.Racun == null)
+                    var lista = _session.Query<Postupak>().Where(x => x.VrstaPostupka.Veterinar.Id == idVeterinar && x.Racun == null)
                         .Fetch(x => x.Zivotinja)
                         .Fetch(x => x.VrstaPostupka)
                         .FetchMany(x => x.Lijeks)
@@ -41,7 +42,7 @@ namespace DatabaseBootstrap.Repositories
                         .ToList();
                     return lista;
                 }
-            }
+            
         }
         public List<Postupak> DohvatiSDetaljimaPostupkePoDatumu(int idVeterinar, DateTime datum)
         {

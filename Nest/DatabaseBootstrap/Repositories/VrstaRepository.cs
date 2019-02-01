@@ -12,16 +12,18 @@ namespace DatabaseBootstrap.Repositories
 {
     public class VrstaRepository : BasicRepository<VrstaZivotinje>, IVrstaRepository
     {
+        public VrstaRepository(ISession session) : base(session)
+        {
+        }
         public List<VrstaZivotinje> DohvatiVrsteVeterinara(int idVeterinara)
         {
-            using (ISession session = NHibernateService.OpenSession())
+            
+            using (ITransaction transaction = _session.BeginTransaction())
             {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    IQueryable<VrstaZivotinje> query = session.Query<VrstaZivotinje>().Where(item => item.Veterinar.Id == idVeterinara && item.Aktivno == true)
-                        .AsQueryable();
-                    return query.ToList();
-                }            }
+                IQueryable<VrstaZivotinje> query = _session.Query<VrstaZivotinje>().Where(item => item.Veterinar.Id == idVeterinara && item.Aktivno == true)
+                    .AsQueryable();
+                return query.ToList();
+            }            
         }
     }
 }
