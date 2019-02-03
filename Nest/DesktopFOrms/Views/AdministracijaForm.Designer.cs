@@ -148,7 +148,7 @@
             this.textBox4.Location = new System.Drawing.Point(145, 34);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(225, 23);
+            this.textBox4.Size = new System.Drawing.Size(225, 22);
             this.textBox4.TabIndex = 11;
             // 
             // button2
@@ -232,7 +232,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(688, 517);
+            this.label8.Location = new System.Drawing.Point(403, 39);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 17);
@@ -242,7 +242,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.DarkRed;
-            this.label9.Location = new System.Drawing.Point(671, 582);
+            this.label9.Location = new System.Drawing.Point(403, 145);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 17);
@@ -253,7 +253,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.DarkRed;
-            this.label10.Location = new System.Drawing.Point(721, 691);
+            this.label10.Location = new System.Drawing.Point(403, 187);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 17);
@@ -279,8 +279,11 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Location = new System.Drawing.Point(0, 309);
@@ -343,12 +346,11 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox3.Location = new System.Drawing.Point(559, 111);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(483, 583);
+            this.groupBox3.Size = new System.Drawing.Size(483, 587);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Vrste životinja";
@@ -368,9 +370,9 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Location = new System.Drawing.Point(0, 336);
+            this.groupBox4.Location = new System.Drawing.Point(559, 432);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(483, 247);
+            this.groupBox4.Size = new System.Drawing.Size(483, 266);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Nova vrsta";
@@ -409,12 +411,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 765);
+            this.ClientSize = new System.Drawing.Size(1395, 765);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.groupBox3);
@@ -435,7 +435,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
