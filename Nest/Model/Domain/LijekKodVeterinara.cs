@@ -7,8 +7,14 @@ using System.ComponentModel.DataAnnotations;
 namespace Nest.Model.Domain {
     
     public class LijekKodVeterinara : EntityClass {
-        public LijekKodVeterinara() {
+        public LijekKodVeterinara() { }
+        public LijekKodVeterinara(Lijek lijek, Veterinar veterinar, double cijena, bool aktivno, string napomena) {
             Stavkas = new List<LijekStavkaRacuna>();
+            Lijek = lijek;
+            Veterinar = veterinar;
+            Cijena = cijena;
+            Aktivno = aktivno;
+            Napomena = napomena;
         }
         //public virtual System.Guid Id { get; set; }
         public virtual Lijek Lijek { get; set; }

@@ -2,6 +2,7 @@
 using DatabaseBootstrap.IRepositories;
 using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
+using Model;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -39,11 +40,7 @@ namespace DesktopForms.Presenters
 
         internal void DodajVrstu(string text)
         {
-            VrstaZivotinje vrsta = new VrstaZivotinje();
-            vrsta.Aktivno = true;
-            vrsta.Veterinar = NHibernateService.PrijavljeniVeterinar;
-            vrsta.Vrsta = text;
-            vrsta.Zivotinjas = new List<Zivotinja>();
+            VrstaZivotinje vrsta = ModelFactory.CreateVrstaZivotinje(NHibernateService.PrijavljeniVeterinar, text, true);
             _unit.VrstaRepository.Stvori(vrsta);
             UpdateVrste();
         }
@@ -57,13 +54,7 @@ namespace DesktopForms.Presenters
 
         internal void DodajVrstuPostupka(string naziv, string opis, double cijena)
         {
-            VrstaPostupka vrsta = new VrstaPostupka();
-            vrsta.Naziv = naziv;
-            vrsta.Opis = opis;
-            vrsta.Cijena = cijena;
-            vrsta.Aktivno = true;
-            vrsta.Veterinar = NHibernateService.PrijavljeniVeterinar;
-            vrsta.Postupaks = new List<Postupak>();
+            VrstaPostupka vrsta = ModelFactory.CreateVrstaPostupka(NHibernateService.PrijavljeniVeterinar, naziv, opis, cijena, true);
             _unit.VrstaPostupkaRepository.Stvori(vrsta);
             UpdatePostupke();
         }

@@ -7,6 +7,7 @@ using DatabaseBootstrap.Repositories;
 using DesktopForms.Views;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
+using Model;
 
 namespace DesktopForms.Presenters
 {
@@ -109,15 +110,7 @@ namespace DesktopForms.Presenters
 
         public void NoviPostupak(Zivotinja zivotinja, VrstaPostupka vrsta, List<Lijek> lijekovi, List<Bolest> bolesti, String napomena)
         {
-            Postupak novi = new Postupak
-            {
-                Zivotinja = zivotinja,
-                Lijeks = new HashSet<Lijek>(lijekovi),
-                Bolests = new HashSet<Bolest>(bolesti),
-                Opaska = napomena,
-                VrstaPostupka = vrsta,
-                Datum = DateTime.Now
-            };
+            Postupak novi = ModelFactory.CreatePostupak(zivotinja, vrsta, napomena, DateTime.Now, null);
             _unit.PostupakRepository.Stvori(novi);
         }
         public void PovijestZivotinje(Zivotinja zivotinja)

@@ -7,6 +7,7 @@ using DatabaseBootstrap.Repositories;
 using DesktopForms.Views;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
+using Model;
 
 namespace DesktopForms.Presenters
 {
@@ -73,11 +74,7 @@ namespace DesktopForms.Presenters
                 }
                 else
                 {
-                    LijekStavkaRacuna stavka = new LijekStavkaRacuna()
-                    {
-                        Kolicina = 1,
-                        LijekKodVeterinara = lijek
-                    };
+                    LijekStavkaRacuna stavka = ModelFactory.CreateLijekStavkaRacuna(1, lijek, null);
                     stavke.Add(stavka);
                 }
             }

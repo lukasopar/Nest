@@ -20,7 +20,7 @@ namespace DesktopForms.Views
             InitializeComponent();
         }
 
-        private Racun Racun { get; set; } = new Racun() { };
+        private Racun Racun { get; set; } = new Racun(DateTime.Now) { };
 
         public List<LijekStavkaRacuna> Lijekovi
         {

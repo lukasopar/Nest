@@ -7,12 +7,19 @@ using System.ComponentModel.DataAnnotations;
 namespace Nest.Model.Domain {
 
     public class Veterinar : EntityClass {
-        public Veterinar()
+        public Veterinar() { }
+        public Veterinar(string korisnickoIme, string lozinka, string ime, string prezime, DateTime? datumRod, DateTime? datumLicence)
         {
             LijekKodVeterinaras = new List<LijekKodVeterinara>();
            // Postupaks = new List<Postupak>();
             VrstaPostupkas = new List<VrstaPostupka>();
             VrstaZivotinjes = new List<VrstaZivotinje>();
+            KorisnickoIme = korisnickoIme;
+            Lozinka = lozinka;
+            Ime = ime;
+            Prezime = prezime;
+            DatumRod = datumRod;
+            DatumLicence = datumLicence;
            // VrstaZivotinjeKodVeterinaras = new List<VrstaZivotinjeKodVeterinara>();
         }
      //   public virtual System.Guid Id { get; set; }

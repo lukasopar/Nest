@@ -29,9 +29,15 @@ namespace DesktopForms.Presenters
             _unit.ZivotinjaRepository.Stvori(zivotinja);
         }
 
-        public void UpdateVlasnik(Vlasnik vlasnik)
+        public void UpdateVlasnik(Vlasnik vlasnik, Zivotinja zivotinja)
         {
+            vlasnik.DodajZivotinju(zivotinja);
             _unit.VlasnikRepository.Azuriraj(vlasnik);
+        }
+
+        public void PridruziVrstuZivotinjeKodVeterinara(Zivotinja zivotinja, VrstaZivotinje vrsta)
+        {
+            zivotinja.PridruziVrstuZivotinjeKodVeterinara(vrsta);
         }
 
         public void InitListe()

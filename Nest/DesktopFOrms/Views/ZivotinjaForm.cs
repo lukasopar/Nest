@@ -1,6 +1,7 @@
 ﻿using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
+using Model;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -54,7 +55,6 @@ namespace DesktopForms.Views
         private void button1_Click(object sender, EventArgs e)
         {
             Boolean valid = true;
-            var zivotinja = new Zivotinja();
             if (textBox1.Text.Equals(""))
             {
                 label9.Text = "Ovo polje je obavezno";
@@ -82,17 +82,9 @@ namespace DesktopForms.Views
             if (!valid) return;
 
             Vlasnik vlasnik = (Vlasnik)comboBox1.SelectedItem;
-
-            zivotinja.Ime = textBox1.Text;
-            zivotinja.DatumRod = dateTimePicker1.Value;
-            zivotinja.Napomena = textBox3.Text;
-            zivotinja.Vlasnik = vlasnik;
-            zivotinja.Napomena = textBox2.Text;
-            zivotinja.VrstaZivotinjes = new List<VrstaZivotinje>();
-            zivotinja.PridruziVrstuZivotinjeKodVeterinara((VrstaZivotinje)comboBox2.SelectedItem);
-            vlasnik.DodajZivotinju(zivotinja);
-
-            Presenter.UpdateVlasnik(vlasnik);
+            Zivotinja zivotinja = ModelFactory.CreateZivotinja(vlasnik, textBox1.Text, dateTimePicker1.Value, textBox2.Text);
+            
+            Presenter.UpdateVlasnik(vlasnik, zivotinja);
             Presenter.RegistrirajZivotinju(zivotinja);
 
             Presenter.CloseUnitOfWork();

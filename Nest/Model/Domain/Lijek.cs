@@ -6,12 +6,15 @@ using System.ComponentModel.DataAnnotations;
 namespace Nest.Model.Domain {
     
     public class Lijek : EntityClass{
-        public Lijek() {
+        public Lijek() { }
+        public Lijek(string naziv, string opis) {
             InterakcijaLijekovas1 = new HashSet<InterakcijaLijekova>();
             InterakcijaLijekovas2 = new HashSet<InterakcijaLijekova>();
             LijekKodVeterinaras = new List<LijekKodVeterinara>();
             Bolests = new List<Bolest>();
             Postupaks = new List<Postupak>();
+            Naziv = naziv;
+            Opis = opis;
         }
         //public virtual System.Guid Id { get; set; }
         [Required]

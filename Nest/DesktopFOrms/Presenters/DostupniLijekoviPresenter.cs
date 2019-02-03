@@ -2,6 +2,7 @@
 using DatabaseBootstrap.IRepositories;
 using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
+using Model;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -35,12 +36,7 @@ namespace DesktopForms.Presenters
 
         internal void DodajLijekVeterinaru(Lijek lijek, double number, string text)
         {
-            LijekKodVeterinara lijekKodVeterinara = new LijekKodVeterinara();
-            lijekKodVeterinara.Lijek = lijek;
-            lijekKodVeterinara.Napomena = text;
-            lijekKodVeterinara.Cijena = number;
-            lijekKodVeterinara.Aktivno = true;
-            lijekKodVeterinara.Veterinar = NHibernateService.PrijavljeniVeterinar;
+            LijekKodVeterinara lijekKodVeterinara = ModelFactory.CreateLijekKodVeterinara(lijek, NHibernateService.PrijavljeniVeterinar, number, true, text);
             _unit.VeterinarLijekRepository.Stvori(lijekKodVeterinara);
             AzurirajLijekoveVeterinara();
         }
