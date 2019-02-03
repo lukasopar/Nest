@@ -13,10 +13,10 @@ namespace DesktopForms.Presenters
     public class VlasnikPresenter
     {
         private readonly IVlasnikView _view;
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
 
 
-        public VlasnikPresenter(IVlasnikView view, UnitOfWork unit)
+        public VlasnikPresenter(IVlasnikView view, IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;

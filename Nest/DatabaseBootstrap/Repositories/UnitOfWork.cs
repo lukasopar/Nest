@@ -10,7 +10,7 @@ using System.Text;
 
 namespace DatabaseBootstrap.Repositories
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable, IUnitOfWork
     {
         private readonly ISession _session = NHibernateService.OpenSession();
         private ILijekoviRepository _lijekoviRepository;

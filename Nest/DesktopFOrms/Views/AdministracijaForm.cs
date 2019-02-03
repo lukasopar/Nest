@@ -97,7 +97,7 @@ namespace DesktopForms.Views
                 try
                 {
                     cijena = Double.Parse(textBox3.Text);
-                } catch(FormatException exc)
+                } catch(FormatException)
                 {
                     label10.Text = "Cijena je broj.";
                     valid = false;

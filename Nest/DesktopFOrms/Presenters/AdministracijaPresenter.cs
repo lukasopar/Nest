@@ -14,10 +14,10 @@ namespace DesktopForms.Presenters
 {
     public class AdministracijaPresenter
     {
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
         private readonly IAdministracijaView _view;
 
-        public AdministracijaPresenter(IAdministracijaView view, UnitOfWork unit)
+        public AdministracijaPresenter(IAdministracijaView view, IUnitOfWork unit)
         {
             _view = view;
             _view.Presenter = this;

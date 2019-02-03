@@ -13,9 +13,9 @@ namespace DesktopForms.Presenters
     public class DetaljiOLijekuPresenter
     {
         private readonly IDetaljiOLijekuView _view;
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
 
-        public DetaljiOLijekuPresenter(IDetaljiOLijekuView view, UnitOfWork unit)
+        public DetaljiOLijekuPresenter(IDetaljiOLijekuView view, IUnitOfWork unit)
         {
             _view = view;
             _view.Presenter = this;

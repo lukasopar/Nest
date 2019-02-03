@@ -14,11 +14,10 @@ namespace DesktopForms.Presenters
     public class LijekoviPresenter
     {
         private readonly ILijekoviView _view;
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
         private readonly PostupakPresenter _postupakPresenter;
-        private LijekoviForm view;
 
-        public LijekoviPresenter(ILijekoviView view, UnitOfWork unit, PostupakPresenter postupakPresenter = null)
+        public LijekoviPresenter(ILijekoviView view, IUnitOfWork unit, PostupakPresenter postupakPresenter = null)
         {
             _view = view;
             view.Presenter = this;

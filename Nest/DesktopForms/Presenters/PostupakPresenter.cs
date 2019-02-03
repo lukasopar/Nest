@@ -14,8 +14,8 @@ namespace DesktopForms.Presenters
     public class PostupakPresenter
     {
         private IPostupakView _view;
-        private UnitOfWork _unit;
-        public PostupakPresenter(IPostupakView view, UnitOfWork unit)
+        private IUnitOfWork _unit;
+        public PostupakPresenter(IPostupakView view, IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;

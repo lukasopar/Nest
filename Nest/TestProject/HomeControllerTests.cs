@@ -1,4 +1,5 @@
 ﻿using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -20,23 +21,30 @@ namespace TestProject
         private readonly Mock<IZivotinjaRepository> mockZivotinjaRepository;
         private readonly Mock<ILijekoviRepository> mockLijekoviRepository;
         private readonly Mock<IVeterinarRepository> mockVeterinarRepository;
+        private readonly Mock<IUnitOfWork> mockUOW;
 
         private readonly HomeController controller;
         public HomeControllerTests()
         {
+            mockUOW = new Mock<IUnitOfWork>();
 
-            mockBolestiRepository = new Mock<IBolestiRepository>();
+             mockBolestiRepository = new Mock<IBolestiRepository>();
             mockVlasnikRepository = new Mock<IVlasnikRepository>();
             mockLijekoviRepository = new Mock<ILijekoviRepository>();
             mockZivotinjaRepository = new Mock<IZivotinjaRepository>();
             mockVeterinarRepository = new Mock<IVeterinarRepository>();
 
-            //mockBolestiRepository.Setup(x => x.DohvatiSve()).Returns(stubList);
+            mockUOW.Setup(x => x.BolestiRepository).Returns(mockBolestiRepository.Object);
+            mockUOW.Setup(x => x.VlasnikRepository).Returns(mockVlasnikRepository.Object);
+            mockUOW.Setup(x => x.LijekoviRepository).Returns(mockLijekoviRepository.Object);
+            mockUOW.Setup(x => x.ZivotinjaRepository).Returns(mockZivotinjaRepository.Object);
+            mockUOW.Setup(x => x.VeterinarRepository).Returns(mockVeterinarRepository.Object);
+
             var cp = new Mock<ClaimsPrincipal>();
             cp.Setup(m => m.FindFirst(ClaimTypes.NameIdentifier)).Returns(new Claim(ClaimTypes.NameIdentifier, "1"));
             
 
-            controller = new HomeController(mockVlasnikRepository.Object, mockZivotinjaRepository.Object, mockBolestiRepository.Object, mockLijekoviRepository.Object, mockVeterinarRepository.Object);
+            controller = new HomeController(mockUOW.Object);
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
             controller.ControllerContext.HttpContext.User = cp.Object;
         }

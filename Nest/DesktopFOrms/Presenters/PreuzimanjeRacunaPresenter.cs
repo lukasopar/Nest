@@ -16,10 +16,10 @@ namespace DesktopForms.Presenters
 {
     public class PreuzimanjeRacunaPresenter
     {
-        IPreuzimanjeRacunaView _view;
-        private readonly UnitOfWork _unit;
+        private readonly IPreuzimanjeRacunaView _view;
+        private readonly IUnitOfWork _unit;
         
-        public PreuzimanjeRacunaPresenter(IPreuzimanjeRacunaView view, UnitOfWork unit)
+        public PreuzimanjeRacunaPresenter(IPreuzimanjeRacunaView view, IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;

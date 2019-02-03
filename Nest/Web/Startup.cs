@@ -31,12 +31,8 @@ namespace Web
                     options.LoginPath = "/Account/Login/";
                 }
                 );
-            services.AddSingleton<IVlasnikRepository, VlasnikRepository>();
-            services.AddSingleton<IZivotinjaRepository, ZivotinjaRepository>();
-            services.AddSingleton<IBolestiRepository, BolestiRepository>();
-            services.AddSingleton<ILijekoviRepository, LijekoviRepository>();
-            services.AddSingleton<IVeterinarRepository, VeterinarRepository>();
-            
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+           
             services.AddMvc();
             
         }

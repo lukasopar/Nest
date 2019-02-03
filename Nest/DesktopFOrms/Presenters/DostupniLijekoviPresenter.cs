@@ -15,9 +15,9 @@ namespace DesktopForms.Presenters
     public class DostupniLijekoviPresenter
     {
         private readonly IDostupniLijekovi _view;
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
 
-        public DostupniLijekoviPresenter(IDostupniLijekovi view, UnitOfWork unit)
+        public DostupniLijekoviPresenter(IDostupniLijekovi view, IUnitOfWork unit)
         {
             _view = view;
             _view.Presenter = this;

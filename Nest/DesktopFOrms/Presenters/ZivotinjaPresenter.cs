@@ -14,9 +14,9 @@ namespace DesktopForms.Presenters
     public class ZivotinjaPresenter
     {
         private readonly IZivotinjaView _view;
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
 
-        public ZivotinjaPresenter(IZivotinjaView view, UnitOfWork unit)
+        public ZivotinjaPresenter(IZivotinjaView view, IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;

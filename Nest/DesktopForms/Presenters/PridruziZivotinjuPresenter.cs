@@ -15,9 +15,9 @@ namespace DesktopForms.Presenters
     public class PridruziZivotinjuPresenter
     {
         private readonly IPridruziZivotinjuView _view;
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
         private readonly PostupakPresenter _presenter;
-        public PridruziZivotinjuPresenter(IPridruziZivotinjuView view, UnitOfWork unit, PostupakPresenter presenter)
+        public PridruziZivotinjuPresenter(IPridruziZivotinjuView view, IUnitOfWork unit, PostupakPresenter presenter)
         {
             _view = view;
             view.Presenter = this;

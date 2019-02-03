@@ -16,8 +16,8 @@ namespace DesktopForms.Presenters
     public class PrijavaPresenter
     {
         private readonly IPrijavaView _view;
-        private readonly UnitOfWork _unit;
-        public PrijavaPresenter(IPrijavaView view,UnitOfWork unit)
+        private readonly IUnitOfWork _unit;
+        public PrijavaPresenter(IPrijavaView view,IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;

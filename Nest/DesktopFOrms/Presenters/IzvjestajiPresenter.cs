@@ -16,8 +16,8 @@ namespace DesktopForms.Presenters
     public class IzvjestajiPresenter
     {
         IPovijestPregledaView _view;
-        private readonly UnitOfWork _unit;
-        public IzvjestajiPresenter(IPovijestPregledaView view, UnitOfWork unit)
+        private readonly IUnitOfWork _unit;
+        public IzvjestajiPresenter(IPovijestPregledaView view, IUnitOfWork unit)
         {
             _view = view;
             view.PresenterIzvjestaji = this;

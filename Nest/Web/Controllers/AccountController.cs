@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -16,10 +17,12 @@ namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        IVlasnikRepository _repository;
-        public AccountController(IVlasnikRepository repository)
+        private readonly IVlasnikRepository _repository;
+        private readonly IUnitOfWork _unit;
+        public AccountController(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _repository = unitOfWork.VlasnikRepository;
+            _unit = unitOfWork;
         }
 
         [HttpGet]

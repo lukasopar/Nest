@@ -14,11 +14,11 @@ namespace DesktopForms.Presenters
     public class BolestiPresenter
     {
         private readonly IBolestiView _view;
-        private readonly UnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
         private readonly PostupakPresenter _presenterDijagnoza;
         
 
-        public BolestiPresenter(IBolestiView view, UnitOfWork unitOfWork, PostupakPresenter postupakPresenter)
+        public BolestiPresenter(IBolestiView view, IUnitOfWork unitOfWork, PostupakPresenter postupakPresenter)
         {
             _view = view;
             view.Presenter = this;

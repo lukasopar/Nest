@@ -62,7 +62,7 @@ namespace DesktopForms.Views
             {
                 number = Math.Round(Double.Parse(textBox1.Text), 2);
             }
-            catch (FormatException exc)
+            catch (FormatException)
             {
                 label10.Text = "Cijena lijeka je obavezna!";
                 return;

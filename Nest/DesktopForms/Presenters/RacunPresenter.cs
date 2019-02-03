@@ -13,9 +13,9 @@ namespace DesktopForms.Presenters
 {
     public class RacunPresenter
     {
-        IRacunView _view;
-        UnitOfWork _unit;
-        public RacunPresenter(IRacunView view,  UnitOfWork unit)
+        private IRacunView _view;
+        private IUnitOfWork _unit;
+        public RacunPresenter(IRacunView view,  IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;
