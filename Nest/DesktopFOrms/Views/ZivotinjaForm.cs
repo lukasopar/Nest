@@ -43,6 +43,8 @@ namespace DesktopForms.Views
         public ZivotinjaForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
 

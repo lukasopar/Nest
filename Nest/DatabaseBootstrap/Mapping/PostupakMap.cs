@@ -17,8 +17,8 @@ namespace Nest.DatabaseBootstrap.Mapping
             References(x => x.Zivotinja).Cascade.SaveUpdate();
             References(x => x.VrstaPostupka).Cascade.SaveUpdate();
             References(x => x.Racun).Cascade.SaveUpdate();
-            HasManyToMany(x => x.Bolests).Cascade.All().Table("BolestsPostupaks");
-            HasManyToMany(x => x.Lijeks).Cascade.All().Table("LijeksPostupaks");
+            HasManyToMany(x => x.Bolests).Cascade.SaveUpdate().Table("BolestsPostupaks");
+            HasManyToMany(x => x.Lijeks).Cascade.SaveUpdate().Table("LijeksPostupaks");
 
         }
     }

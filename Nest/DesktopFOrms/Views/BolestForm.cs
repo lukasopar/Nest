@@ -55,7 +55,7 @@ namespace DesktopForms.Views
             for (int i = 0; i < number; i++)
                 lista.Add((Bolest)listView1.SelectedItems[i].Tag);
             Presenter.DodanaDijagnoza(lista);
-            Presenter.CloseUnitOfWork();
+            //Presenter.CloseUnitOfWork();
             Close();
             MessageBox.Show("Dodano u dijagnozu.", "Dodano", MessageBoxButtons.OK);
 

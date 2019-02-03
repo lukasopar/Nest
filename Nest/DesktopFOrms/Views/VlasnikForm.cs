@@ -24,6 +24,8 @@ namespace DesktopForms.Views
         public VlasnikForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void button1_Click(object sender, EventArgs e)

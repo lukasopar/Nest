@@ -18,6 +18,8 @@ namespace DesktopForms.Views
         public RacunForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private Racun Racun { get; set; } = new Racun(DateTime.Now) { };
@@ -104,6 +106,12 @@ namespace DesktopForms.Views
         private void button1_Click(object sender, EventArgs e)
         {
             Presenter.NoviRacun(Racun);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Presenter.CloseUnitOfWork();
+            this.Close();
         }
     }
 }

@@ -115,16 +115,17 @@ namespace DesktopForms.Views
             Presenter.OtvoriDostupneLijekove();
         }
 
-        private void pictureBox11_Click(object sender, EventArgs e)
-        {
-            Presenter.OtvoriDostupneLijekove();
-        }
+ 
 
         protected override void OnClosed(EventArgs e)
         {
             Application.Exit();
         }
 
-        
+        private void pictureBox11_MouseClick(object sender, MouseEventArgs e)
+        {
+            Presenter.OtvoriDostupneLijekove();
+
+        }
     }
 }
