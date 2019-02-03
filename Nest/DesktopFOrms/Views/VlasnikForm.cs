@@ -64,9 +64,6 @@ namespace DesktopForms.Views
             Presenter.registrirajVlasnika(vlasnik);
 
             this.Close();
-
-            GlavniForm form = new GlavniForm();
-            form.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -109,5 +109,22 @@ namespace DesktopForms.Views
         {
             Presenter.OtvoriAdministraciju();
         }
+
+        private void buttonDostupniLijekovi_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriDostupneLijekove();
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            Presenter.OtvoriDostupneLijekove();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        
     }
 }

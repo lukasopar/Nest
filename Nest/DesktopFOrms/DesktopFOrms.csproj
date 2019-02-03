@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\AdministracijaPresenter.cs" />
+    <Compile Include="Presenters\DostupniLijekoviPresenter.cs" />
     <Compile Include="Presenters\GlavniPresenter.cs" />
     <Compile Include="Presenters\IzvjestajiPresenter.cs" />
     <Compile Include="Presenters\PreuzimanjeRacunaPresenter.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Presenters\PrijavaPresenter.cs" />
     <Compile Include="ViewInterfaces\IAdministracijaView.cs" />
     <Compile Include="ViewInterfaces\IBolestiDetaljiView.cs" />
+    <Compile Include="ViewInterfaces\IDostupniLijekovi.cs" />
     <Compile Include="ViewInterfaces\IGlavniView.cs" />
     <Compile Include="ViewInterfaces\IPreuzimanjeRacunaView.cs" />
     <Compile Include="ViewInterfaces\IRacunView.cs" />
@@ -139,6 +141,12 @@
     </Compile>
     <Compile Include="Views\DetaljiOLijekuForm.Designer.cs">
       <DependentUpon>DetaljiOLijekuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DostupniLijekoviForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DostupniLijekoviForm.Designer.cs">
+      <DependentUpon>DostupniLijekoviForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\GlavniForm.cs">
       <SubType>Form</SubType>
@@ -219,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetaljiOLijekuForm.resx">
       <DependentUpon>DetaljiOLijekuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DostupniLijekoviForm.resx">
+      <DependentUpon>DostupniLijekoviForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GlavniForm.resx">
       <DependentUpon>GlavniForm.cs</DependentUpon>

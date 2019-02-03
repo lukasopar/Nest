@@ -32,6 +32,6 @@ namespace DesktopForms.Views
             Cursor.Current = Cursors.Arrow;
         }
 
-       
+
     }
 }

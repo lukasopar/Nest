@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseBootstrap;
+using Nest.Model.Domain;
 
 namespace DesktopForms.Presenters
 {
@@ -74,6 +75,13 @@ namespace DesktopForms.Presenters
         {
             PovijestPregledaForm view = new PovijestPregledaForm();
             var presenter = new IzvjestajiPresenter(view, new PostupakRepository(NHibernateService.OpenSession()), new VeterinarRepository(NHibernateService.OpenSession()));
+            view.Show();
+        }
+
+        internal void OtvoriDostupneLijekove()
+        {
+            DostupniLijekoviForm view = new DostupniLijekoviForm();
+            var presenter = new DostupniLijekoviPresenter(view, new LijekKodVeterinaraRepository(NHibernateService.OpenSession()), new LijekoviRepository(NHibernateService.OpenSession()));
             view.Show();
         }
     }
