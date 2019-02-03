@@ -90,5 +90,51 @@ namespace DesktopForms.Views
             Presenter.CloseUnitOfWork();
             this.Close();
         }
+
+        public void Update(Lijek entity, bool state)
+        {
+            if (state == true)
+            {
+                ListViewItem it = new ListViewItem(new string[] { entity.Naziv, entity.Opis });
+                it.Tag = entity;
+                listView1.Items.Add(it);
+            }
+            else
+            {
+                int i = 0;
+                for (i = 0; i < listView1.Items.Count; i++)
+                {
+                    if (listView1.Items[i].Tag.Equals(entity)) break;
+                }
+                if (i == listView1.Items.Count) ;
+                else
+                {
+                    listView1.Items.RemoveAt(i);
+                }
+            }
+        }
+
+        public void Update(LijekKodVeterinara entity, bool state)
+        {
+            if (state == true)
+            {
+                ListViewItem it = new ListViewItem(new string[] { entity.Lijek.Naziv, entity.Lijek.Opis, entity.Cijena.ToString() });
+                it.Tag = entity;
+                listView2.Items.Add(it);
+            }
+            else
+            {
+                int i = 0;
+                for (i = 0; i < listView2.Items.Count; i++)
+                {
+                    if (listView2.Items[i].Tag.Equals(entity)) break;
+                }
+                if (i == listView2.Items.Count) ;
+                else
+                {
+                    listView2.Items.RemoveAt(i);
+                }
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
-using System;
 using System.Collections.Generic;
+using DatabaseBootstrap.Observer;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System;
 
 namespace DesktopForms.Views
 {
@@ -124,27 +125,52 @@ namespace DesktopForms.Views
         private void button3_Click(object sender, EventArgs e)
         {
             _presenter.CloseUnitOfWork();
+
             this.Close();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        public void Update(VrstaZivotinje entity, bool state)
         {
-
+            if(state == true)
+            {
+                ListViewItem it = new ListViewItem(new string[] { entity.Vrsta });
+                it.Tag = entity;
+                listView2.Items.Add(it);
+            } else
+            {
+                int i = 0;
+                for (i = 0; i < listView2.Items.Count; i++)
+                {
+                    if (listView2.Items[i].Tag.Equals(entity)) break;
+                }
+                if (i == listView2.Items.Count);
+                else
+                {
+                    listView2.Items.RemoveAt(i);
+                }
+            }
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        public void Update(VrstaPostupka entity, bool state)
         {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            if(state == true)
+            {
+                ListViewItem it = new ListViewItem(new string[] { entity.Naziv, entity.Opis, entity.Cijena.ToString() });
+                it.Tag = entity;
+                listView1.Items.Add(it);
+            } else
+            {
+                int i = 0;
+                for (i = 0; i < listView1.Items.Count; i++)
+                {
+                    if (listView1.Items[i].Tag.Equals(entity)) break;
+                }
+                if (i == listView1.Items.Count) ;
+                else
+                {
+                    listView1.Items.RemoveAt(i);
+                }
+            }
         }
     }
 }

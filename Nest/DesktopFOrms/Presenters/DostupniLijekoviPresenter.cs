@@ -22,6 +22,8 @@ namespace DesktopForms.Presenters
             _view = view;
             _view.Presenter = this;
             _unit = unit;
+            _unit.LijekoviRepository.Attach(_view);
+            _unit.VeterinarLijekRepository.Attach(_view);
             UpdateLijekovi();
         }
 
@@ -49,6 +51,8 @@ namespace DesktopForms.Presenters
 
         public void CloseUnitOfWork()
         {
+            _unit.LijekoviRepository.Detach(_view);
+            _unit.VeterinarLijekRepository.Detach(_view);
             this._unit.Dispose();
         }
 
