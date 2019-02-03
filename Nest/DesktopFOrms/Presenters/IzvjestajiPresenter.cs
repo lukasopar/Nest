@@ -16,22 +16,20 @@ namespace DesktopForms.Presenters
     public class IzvjestajiPresenter
     {
         IPovijestPregledaView _view;
-        IPostupakRepository _repository;
-        IVeterinarRepository _repositoryVeterinar;
-        public IzvjestajiPresenter(IPovijestPregledaView view, IPostupakRepository repository, IVeterinarRepository veterinarRepository)
+        private readonly UnitOfWork _unit;
+        public IzvjestajiPresenter(IPovijestPregledaView view, UnitOfWork unit)
         {
             _view = view;
             view.PresenterIzvjestaji = this;
             view.Izvjestaj = true;
             view.Dodavanje = false;
-            _repository = repository;
-            _repositoryVeterinar = veterinarRepository;
+            _unit = unit;
             NapuniView(DateTime.Now);
         }
 
         public void NapuniView(DateTime datum)
         {
-            _view.Postupci = _repository.DohvatiSDetaljimaPostupkePoDatumu(NHibernateService.PrijavljeniVeterinar.Id, datum);
+            _view.Postupci = _unit.PostupakRepository.DohvatiSDetaljimaPostupkePoDatumu(NHibernateService.PrijavljeniVeterinar.Id, datum);
         }
         public void Izvjestaj(List<Postupak> postupci, DateTime datum, string path)
         {
@@ -121,6 +119,11 @@ namespace DesktopForms.Presenters
             doc.Add(table);
             
             doc.Close();
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
         }
     }
 }

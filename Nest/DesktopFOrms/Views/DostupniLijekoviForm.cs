@@ -1,4 +1,5 @@
-﻿using DesktopForms.Presenters;
+﻿using DatabaseBootstrap.Repositories;
+using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
@@ -23,11 +24,12 @@ namespace DesktopForms.Views
         public IList<LijekKodVeterinara> LijekoviKodVeterinara {
             set
             {
+                listView2.Items.Clear();
                 foreach (var dostupniLijek in value)
                 {
-                    ListViewItem it = new ListViewItem(new string[] { dostupniLijek.Lijek.Naziv, dostupniLijek.Lijek.Opis });
+                    ListViewItem it = new ListViewItem(new string[] { dostupniLijek.Lijek.Naziv, dostupniLijek.Lijek.Opis, dostupniLijek.Cijena.ToString() });
                     it.Tag = dostupniLijek;
-                    listView1.Items.Add(it);
+                    listView2.Items.Add(it);
                 }
                 listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -36,6 +38,7 @@ namespace DesktopForms.Views
 
 
         public IList<Lijek> Lijekovi { set {
+                listView1.Items.Clear();
                 foreach (var lijek in value)
                 {
                     ListViewItem it = new ListViewItem(new string[] { lijek.Naziv, lijek.Opis });
@@ -71,6 +74,12 @@ namespace DesktopForms.Views
 
         private void button3_Click(object sender, EventArgs e)
         {
+            ListView.SelectedListViewItemCollection items = listView2.SelectedItems;
+            if (items.Count == 0) return;
+            ListViewItem lvItem = items[0];
+            LijekKodVeterinara lijek = (LijekKodVeterinara)lvItem.Tag;
+
+            Presenter.IzbrisiLijekKodVeterinara(lijek);
 
         }
 

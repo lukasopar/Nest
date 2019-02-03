@@ -13,23 +13,21 @@ namespace DesktopForms.Presenters
 {
     public class DostupniLijekoviPresenter
     {
-        private readonly ILijekKodVeterinaraRepository _veterinarLijekRepository;
-        private readonly ILijekoviRepository _lijekRepository;
         private readonly IDostupniLijekovi _view;
+        private readonly UnitOfWork _unit;
 
-        public DostupniLijekoviPresenter(IDostupniLijekovi view, ILijekKodVeterinaraRepository veterinarLijekRepository, ILijekoviRepository lijekRepository)
+        public DostupniLijekoviPresenter(IDostupniLijekovi view, UnitOfWork unit)
         {
             _view = view;
             _view.Presenter = this;
-            _lijekRepository = lijekRepository;
-            _veterinarLijekRepository = veterinarLijekRepository;
+            _unit = unit;
             UpdateLijekovi();
         }
 
         private void UpdateLijekovi()
         {
-            List<Lijek> lijekovi = _lijekRepository.DohvatiSve().ToList();
-            List<LijekKodVeterinara> lijekoviVeterinara = _veterinarLijekRepository.DohvatiLijekoveVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
+            List<Lijek> lijekovi = _unit.LijekoviRepository.DohvatiSve().ToList();
+            List<LijekKodVeterinara> lijekoviVeterinara = _unit.VeterinarLijekRepository.DohvatiLijekoveVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
             _view.Lijekovi = lijekovi;
             _view.LijekoviKodVeterinara = lijekoviVeterinara;
         }
@@ -43,14 +41,26 @@ namespace DesktopForms.Presenters
             lijekKodVeterinara.Cijena = number;
             lijekKodVeterinara.Aktivno = true;
             lijekKodVeterinara.Veterinar = NHibernateService.PrijavljeniVeterinar;
-            _veterinarLijekRepository.Stvori(lijekKodVeterinara);
+            _unit.VeterinarLijekRepository.Stvori(lijekKodVeterinara);
             AzurirajLijekoveVeterinara();
         }
 
         private void AzurirajLijekoveVeterinara()
         {
-            List<LijekKodVeterinara> lijekoviVeterinara = _veterinarLijekRepository.DohvatiLijekoveVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
+            List<LijekKodVeterinara> lijekoviVeterinara = _unit.VeterinarLijekRepository.DohvatiLijekoveVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
             _view.LijekoviKodVeterinara = lijekoviVeterinara;
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
+        }
+
+        internal void IzbrisiLijekKodVeterinara(LijekKodVeterinara lijek)
+        {
+            lijek.Aktivno = false;
+            _unit.VeterinarLijekRepository.Azuriraj(lijek);
+            AzurirajLijekoveVeterinara();
         }
     }
 }

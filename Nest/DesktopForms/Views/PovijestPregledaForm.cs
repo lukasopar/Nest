@@ -73,6 +73,7 @@ namespace DesktopForms.Views
             for (int i = 0; i < number; i++)
                 lista.Add((Postupak)listView1.SelectedItems[i].Tag);
             Presenter.DodaniPostupci(lista);
+            Presenter.CloseUnitOfWork();
             Close();
             MessageBox.Show("Dodano na račun.", "Dodano", MessageBoxButtons.OK);
         }
@@ -84,6 +85,8 @@ namespace DesktopForms.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Presenter != null) Presenter.CloseUnitOfWork();
+            if (PresenterIzvjestaji != null) PresenterIzvjestaji.CloseUnitOfWork();
             Close();
         }
 

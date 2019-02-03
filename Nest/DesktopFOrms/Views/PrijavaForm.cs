@@ -25,7 +25,7 @@ namespace DesktopForms.Views
         public string Lozinka { get => textBoxPassword.Text; set => textBoxPassword.Text = value; }
         public PrijavaPresenter Presenter { private get; set; }
         public bool PogrešnaPrijava { get => labelKrivaPrijava.Visible; set => labelKrivaPrijava.Visible = value; }
-        public void CloseForm() => this.Close();
+        public void CloseForm() => Close();
         private void button1_Click(object sender, EventArgs e){
             Cursor.Current = Cursors.WaitCursor;
             Presenter.PokusajPrijave();

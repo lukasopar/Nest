@@ -143,6 +143,7 @@ namespace DesktopForms.Views
 //            var vrsta = (VrstaPostupka)comboBoxVrstePostupaka.SelectedItem;
             var napomena = richTextBox1.Text;
             Presenter.NoviPostupak(Zivotinja, vrsta, Lijekovi, Bolesti, napomena);
+            Presenter.CloseUnitOfWork();
             this.Close();
             MessageBox.Show("Postupak dodan.", "Postupak dodan", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -154,6 +155,7 @@ namespace DesktopForms.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             Close();
         }
     }

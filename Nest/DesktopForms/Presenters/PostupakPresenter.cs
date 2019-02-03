@@ -13,30 +13,26 @@ namespace DesktopForms.Presenters
     public class PostupakPresenter
     {
         private IPostupakView _view;
-        private IPostupakRepository _repository;
-        private IVeterinarRepository _repositoryVeterinar;
-        private ILijekoviRepository _repositoryLijekovi;
-        public PostupakPresenter(IPostupakView view, IPostupakRepository repository, IVeterinarRepository veterinarRepository, ILijekoviRepository lijekoviRepository)
+        private UnitOfWork _unit;
+        public PostupakPresenter(IPostupakView view, UnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;
-            _repository = repository;
-            _repositoryVeterinar = veterinarRepository;
-            _repositoryLijekovi = lijekoviRepository;
+            _unit = unit;
             NapuniView();
         }
 
         private void NapuniView()
         {
             _view.Zivotinja = null;
-            _view.VrstePostupaka = _repositoryVeterinar.DohvatiSvePostupke(NHibernateService.PrijavljeniVeterinar.Id);
+            _view.VrstePostupaka = _unit.VeterinarRepository.DohvatiSvePostupke(NHibernateService.PrijavljeniVeterinar.Id);
             _view.Bolesti = new List<Bolest>();
             _view.Lijekovi = new List<Lijek>();
         }
         public void OdaberiZivotinju()
         {
             PridruziZivotinjuForm form = new PridruziZivotinjuForm();
-            PridruziZivotinjuPresenter presenter = new PridruziZivotinjuPresenter(form, new VlasnikRepository(NHibernateService.OpenSession()), new VeterinarRepository(NHibernateService.OpenSession()), new ZivotinjaRepository(NHibernateService.OpenSession()), this);
+            PridruziZivotinjuPresenter presenter = new PridruziZivotinjuPresenter(form, new UnitOfWork(), this);
             form.Show();
         }
         public void OdabranaZivotinja(Zivotinja zivotinja)
@@ -53,7 +49,7 @@ namespace DesktopForms.Presenters
         public void DodajDijagnozu()
         {
             BolestForm form = new BolestForm();
-            BolestiPresenter presenter = new BolestiPresenter(form, new BolestiRepository(NHibernateService.OpenSession()), this);
+            BolestiPresenter presenter = new BolestiPresenter(form, new UnitOfWork(), this);
             form.Show();
         }
         public void IzbrisiIzDijagnoze(Bolest bolest)
@@ -66,7 +62,7 @@ namespace DesktopForms.Presenters
         public void DodajTerapiju()
         {
             LijekoviForm form = new LijekoviForm();
-            LijekoviPresenter presenter = new LijekoviPresenter(form, new LijekoviRepository(NHibernateService.OpenSession()), this);
+            LijekoviPresenter presenter = new LijekoviPresenter(form, new UnitOfWork(), this);
             form.Show();
         }
         public void DodanaTerapija(List<Lijek> lijekovi)
@@ -92,7 +88,7 @@ namespace DesktopForms.Presenters
 
             foreach (var lijek in lijekovi)
             {
-                var lijekSInterakcijama = _repositoryLijekovi.DohvatiLijekPoId(lijek.Id);
+                var lijekSInterakcijama = _unit.LijekoviRepository.DohvatiLijekPoId(lijek.Id);
                 foreach(var interakcija in lijekSInterakcijama.InterakcijaLijekovas1)
                 {
                     if (lijekovi.Contains(interakcija.Lijek2))
@@ -122,17 +118,22 @@ namespace DesktopForms.Presenters
                 VrstaPostupka = vrsta,
                 Datum = DateTime.Now
             };
-            _repository.Stvori(novi);
+            _unit.PostupakRepository.Stvori(novi);
         }
         public void PovijestZivotinje(Zivotinja zivotinja)
         {
-            var lista = _repository.DohvatiSDetaljimaPostupkeZivotinja(zivotinja.Id);
+            var lista = _unit.PostupakRepository.DohvatiSDetaljimaPostupkeZivotinja(zivotinja.Id);
             PovijestPregledaForm form = new PovijestPregledaForm();
             form.Postupci = lista;
             form.Presenter = null;
             form.Dodavanje = false;
             form.Izvjestaj = false;
             form.Show();
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
         }
     }
 }

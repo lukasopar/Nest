@@ -63,11 +63,13 @@ namespace DesktopForms.Views
             
             Presenter.registrirajVlasnika(vlasnik);
 
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             this.Close();
 
             GlavniForm form = new GlavniForm();

@@ -1,5 +1,6 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
@@ -12,16 +13,14 @@ namespace DesktopForms.Presenters
 {
     public class AdministracijaPresenter
     {
-        private readonly IVrstaRepository _vrstaRepository;
-        private readonly IVrstaPostupkaRepository _postupakRepository;
+        private readonly UnitOfWork _unit;
         private readonly IAdministracijaView _view;
 
-        public AdministracijaPresenter(IAdministracijaView view, IVrstaPostupkaRepository postupakRepository, IVrstaRepository vrstaRepository)
+        public AdministracijaPresenter(IAdministracijaView view, UnitOfWork unit)
         {
             _view = view;
             _view.Presenter = this;
-            _vrstaRepository = vrstaRepository;
-            _postupakRepository = postupakRepository;
+            _unit = unit;
             UpdatePostupke();
             UpdateVrste();
         }
@@ -29,13 +28,13 @@ namespace DesktopForms.Presenters
         private void UpdateVrste()
         {
             int idVeterinara = NHibernateService.PrijavljeniVeterinar.Id;
-            _view.Vrste = _vrstaRepository.DohvatiVrsteVeterinara(idVeterinara);
+            _view.Vrste = _unit.VrstaRepository.DohvatiVrsteVeterinara(idVeterinara);
         }
 
         private void UpdatePostupke()
         {
             int idVeterinara = NHibernateService.PrijavljeniVeterinar.Id;
-            _view.Postupci = _postupakRepository.DohvatiPostupkeVeterinara(idVeterinara);
+            _view.Postupci = _unit.VrstaPostupkaRepository.DohvatiPostupkeVeterinara(idVeterinara);
         }
 
         internal void DodajVrstu(string text)
@@ -45,14 +44,14 @@ namespace DesktopForms.Presenters
             vrsta.Veterinar = NHibernateService.PrijavljeniVeterinar;
             vrsta.Vrsta = text;
             vrsta.Zivotinjas = new List<Zivotinja>();
-            _vrstaRepository.Stvori(vrsta);
+            _unit.VrstaRepository.Stvori(vrsta);
             UpdateVrste();
         }
 
         internal void IzbrisiVrstuZivotinje(VrstaZivotinje vrsta)
         {
             vrsta.Aktivno = false;
-            _vrstaRepository.Azuriraj(vrsta);
+            _unit.VrstaRepository.Azuriraj(vrsta);
             UpdateVrste();
         }
 
@@ -65,15 +64,20 @@ namespace DesktopForms.Presenters
             vrsta.Aktivno = true;
             vrsta.Veterinar = NHibernateService.PrijavljeniVeterinar;
             vrsta.Postupaks = new List<Postupak>();
-            _postupakRepository.Stvori(vrsta);
+            _unit.VrstaPostupkaRepository.Stvori(vrsta);
             UpdatePostupke();
         }
 
         internal void IzbrisiVrstuPostupka(VrstaPostupka vrsta)
         {
             vrsta.Aktivno = false;
-            _postupakRepository.Azuriraj(vrsta);
+            _unit.VrstaPostupkaRepository.Azuriraj(vrsta);
             UpdatePostupke();
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
         }
     }
 }

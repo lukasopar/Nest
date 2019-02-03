@@ -13,18 +13,12 @@ namespace DesktopForms.Presenters
     public class RacunPresenter
     {
         IRacunView _view;
-        IRacunRepository _repository;
-        IPostupakRepository _repositoryPostupak;
-        IVeterinarRepository _repositoryVeterinar;
-        //ILijekoviRepository _repositoryLijekovi;
-        public RacunPresenter(IRacunView view, IRacunRepository repository, IVeterinarRepository veterinarRepository, IPostupakRepository repositoryPostupak,ILijekoviRepository lijekoviRepository = null)
+        UnitOfWork _unit;
+        public RacunPresenter(IRacunView view,  UnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;
-            _repository = repository;
-            _repositoryVeterinar = veterinarRepository;
-            _repositoryPostupak = repositoryPostupak;
-            //_repositoryLijekovi = lijekoviRepository;
+            _unit = unit;
             NapuniView();
         }
 
@@ -36,7 +30,7 @@ namespace DesktopForms.Presenters
         public void DodajPostupak()
         {
             PovijestPregledaForm form = new PovijestPregledaForm();
-            form.Postupci = _repositoryPostupak.DohvatiSDetaljimaPostupkeNeplacene(NHibernateService.PrijavljeniVeterinar.Id);
+            form.Postupci = _unit.PostupakRepository.DohvatiSDetaljimaPostupkeNeplacene(NHibernateService.PrijavljeniVeterinar.Id);
             form.Presenter = this;
             form.Dodavanje = true;
             form.Izvjestaj = false;
@@ -61,7 +55,7 @@ namespace DesktopForms.Presenters
         public void DodajLijek()
         {
             LijekoviKodVeterinaraForm form = new LijekoviKodVeterinaraForm();
-            form.Lijekovi = _repositoryVeterinar.DohvatiSveLijekoveKodVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
+            form.Lijekovi = _unit.VeterinarRepository.DohvatiSveLijekoveKodVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
             form.Presenter = this;
             
             form.Show();
@@ -107,8 +101,13 @@ namespace DesktopForms.Presenters
         public void NoviRacun(Racun racun)
         {
             racun.Datum = DateTime.Now;
-            _repository.Stvori(racun);
+            _unit.RacunRepository.Stvori(racun);
         }
-        
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
+        }
+
     }
 }

@@ -53,6 +53,7 @@ namespace DesktopForms.Views
             for (int i = 0; i < number; i++)
                 lista.Add((LijekKodVeterinara)listView1.SelectedItems[i].Tag);
             Presenter.DodaniLijekovi(lista);
+            Presenter.CloseUnitOfWork();
             Close();
             MessageBox.Show("Dodano na račun.", "Dodano", MessageBoxButtons.OK);
         }

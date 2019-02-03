@@ -1,4 +1,5 @@
 ﻿using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using DesktopForms.Views;
 using Nest.Model.Domain;
@@ -13,14 +14,15 @@ namespace DesktopForms.Presenters
     public class BolestiPresenter
     {
         private readonly IBolestiView _view;
-        private readonly IBolestiRepository _repository;
+        private readonly UnitOfWork _unit;
         private readonly PostupakPresenter _presenterDijagnoza;
+        
 
-        public BolestiPresenter(IBolestiView view, IBolestiRepository repository, PostupakPresenter postupakPresenter)
+        public BolestiPresenter(IBolestiView view, UnitOfWork unitOfWork, PostupakPresenter postupakPresenter)
         {
             _view = view;
             view.Presenter = this;
-            _repository = repository;
+            _unit = unitOfWork;
             _presenterDijagnoza = postupakPresenter;
             _view.Dijagnoza = postupakPresenter == null ? false : true;
             UpdateBolestiListView();
@@ -28,21 +30,26 @@ namespace DesktopForms.Presenters
 
         public void UpdateBolestiListView(string query = "")
         {
-            var bolesti = _repository.DohvatiSve();
+            var bolesti = _unit.BolestiRepository.DohvatiSve();
             _view.Bolesti = bolesti.Where(x => x.Naziv.ToLower().Contains(query.ToLower())).ToList();
         }
         public void DetaljiBolest(Bolest bolest)
         {
             BolestDetaljiForm detalji = new BolestDetaljiForm();
             detalji.Presenter = this;
-            var dohvaceno = _repository.DohvatiPrekoIDSLijekovima(bolest.Id);
+            var dohvaceno = _unit.BolestiRepository.DohvatiPrekoIDSLijekovima(bolest.Id);
             detalji.Bolest = dohvaceno;
             //detalji.Bolest = bolest;
-            detalji.ShowDialog();
+            detalji.Show();
         }
         public void DodanaDijagnoza(List<Bolest> bolesti)
         {
             _presenterDijagnoza.DodanaDijagnoza(bolesti);
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
         }
     }
 }

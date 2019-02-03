@@ -95,11 +95,13 @@ namespace DesktopForms.Views
             Presenter.UpdateVlasnik(vlasnik);
             Presenter.RegistrirajZivotinju(zivotinja);
 
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
     }

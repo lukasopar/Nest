@@ -110,6 +110,7 @@ namespace DesktopForms.Views
 
         private void buttonOdustani_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
 
@@ -121,6 +122,7 @@ namespace DesktopForms.Views
                 vrsta = (VrstaZivotinje) comboBox1.SelectedItem;
             }
             Presenter.Spremi((Zivotinja)groupBox3.Tag, vrsta);
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
     }

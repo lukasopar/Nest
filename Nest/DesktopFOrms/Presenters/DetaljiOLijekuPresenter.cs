@@ -1,4 +1,5 @@
 ﻿using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
@@ -12,19 +13,19 @@ namespace DesktopForms.Presenters
     public class DetaljiOLijekuPresenter
     {
         private readonly IDetaljiOLijekuView _view;
-        private readonly ILijekoviRepository _repository;
+        private readonly UnitOfWork _unit;
 
-        public DetaljiOLijekuPresenter(IDetaljiOLijekuView view, ILijekoviRepository repository)
+        public DetaljiOLijekuPresenter(IDetaljiOLijekuView view, UnitOfWork unit)
         {
             _view = view;
             _view.Presenter = this;
-            _repository = repository;
+            _unit = unit;
             UpdateLijek(_view.Lijek);
         }
         
         public void UpdateLijek(Lijek lijek)
         {
-            var novi = _repository.DohvatiLijekPoId(lijek.Id);
+            var novi = _unit.LijekoviRepository.DohvatiLijekPoId(lijek.Id);
             _view.Bolesti = novi.Bolests.ToList();
 
             HashSet<InterakcijaLijekova> interakcije = new HashSet<InterakcijaLijekova>();
@@ -41,6 +42,11 @@ namespace DesktopForms.Presenters
 
             _view.Lijek = lijek;
             _view.Interakcije = interakcije.ToList();
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
         }
 
     }
