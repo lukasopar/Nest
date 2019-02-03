@@ -79,7 +79,7 @@ namespace DesktopForms.Views
             for (int i = 0; i < number; i++)
                 lista.Add((Lijek)listView1.SelectedItems[i].Tag);
             Presenter.DodanaTerapija(lista);
-            Presenter.CloseUnitOfWork();
+            //Presenter.CloseUnitOfWork();
             Close();
             MessageBox.Show("Dodano u terapiju.", "Dodano", MessageBoxButtons.OK);
             

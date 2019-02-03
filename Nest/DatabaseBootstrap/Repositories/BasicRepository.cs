@@ -19,6 +19,8 @@ namespace DatabaseBootstrap.Repositories
             using (ITransaction transaction = _session.BeginTransaction())
             {
                 IQueryable<T> query = _session.Query<T>().AsQueryable();
+                transaction.Commit();
+
                 return query.ToList();
             }
             
@@ -41,6 +43,7 @@ namespace DatabaseBootstrap.Repositories
                 using (ITransaction transaction = _session.BeginTransaction())
                 {
                     T entity = _session.Get<T>(id);
+                    transaction.Commit();
                     return entity;
                 }
             
@@ -66,7 +69,7 @@ namespace DatabaseBootstrap.Repositories
             
                 using (ITransaction transaction = _session.BeginTransaction())
                 {
-                    _session.Save(entity);
+                    _session.SaveOrUpdate(entity);
                     transaction.Commit();
                 }
             

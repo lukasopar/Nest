@@ -49,7 +49,7 @@ namespace DesktopForms.Presenters
         public void DodajDijagnozu()
         {
             BolestForm form = new BolestForm();
-            BolestiPresenter presenter = new BolestiPresenter(form, new UnitOfWork(), this);
+            BolestiPresenter presenter = new BolestiPresenter(form, _unit, this);
             form.Show();
         }
         public void IzbrisiIzDijagnoze(Bolest bolest)
@@ -62,7 +62,7 @@ namespace DesktopForms.Presenters
         public void DodajTerapiju()
         {
             LijekoviForm form = new LijekoviForm();
-            LijekoviPresenter presenter = new LijekoviPresenter(form, new UnitOfWork(), this);
+            LijekoviPresenter presenter = new LijekoviPresenter(form,_unit, this);
             form.Show();
         }
         public void DodanaTerapija(List<Lijek> lijekovi)
