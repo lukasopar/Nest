@@ -38,7 +38,7 @@ namespace DesktopForms.Presenters
             var dohvaceno = _repository.DohvatiPrekoIDSLijekovima(bolest.Id);
             detalji.Bolest = dohvaceno;
             //detalji.Bolest = bolest;
-            detalji.ShowDialog();
+            detalji.Show();
         }
         public void DodanaDijagnoza(List<Bolest> bolesti)
         {
