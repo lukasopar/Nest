@@ -27,7 +27,13 @@ namespace DesktopForms.Views
             {
                 groupBox1.Tag = value;
                 if (value == null)
+                {
+                    button1.Enabled = false;
                     return;
+
+                }
+                button1.Enabled = true;
+
                 labelVlasnik.Text = value.Vlasnik.Ime + " " + value.Vlasnik.Prezime;
                 labelZivotinja.Text = value.Ime;
                 textBox1.Text = value.Napomena;

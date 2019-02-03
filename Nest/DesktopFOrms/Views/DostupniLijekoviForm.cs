@@ -19,6 +19,8 @@ namespace DesktopForms.Views
         public DostupniLijekoviForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         public IList<LijekKodVeterinara> LijekoviKodVeterinara {

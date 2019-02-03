@@ -19,6 +19,8 @@ namespace DesktopForms.Views
         public PreuzimanjeRacunaForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         public List<Racun> Racuni { get => (List<Racun>)listView1.Tag;
@@ -30,6 +32,8 @@ namespace DesktopForms.Views
                     it.Tag = racun;
                     listView1.Items.Add(it);
                 }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             } }
         public PreuzimanjeRacunaPresenter Presenter { private get; set; }
 
@@ -60,6 +64,8 @@ namespace DesktopForms.Views
                 it.Tag = stavka;
                 listView2.Items.Add(it);
             }
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
         }
 
@@ -78,6 +84,17 @@ namespace DesktopForms.Views
                 Presenter.PreuzmiPDF(racun, path);
             }
             
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Presenter.CloseUnitOfWork();
+            Close();
         }
     }
 }

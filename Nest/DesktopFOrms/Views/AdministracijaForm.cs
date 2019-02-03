@@ -20,6 +20,8 @@ namespace DesktopForms.Views
         public AdministracijaForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         public IList<VrstaZivotinje> Vrste { set {
@@ -123,6 +125,26 @@ namespace DesktopForms.Views
         {
             _presenter.CloseUnitOfWork();
             this.Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
