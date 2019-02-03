@@ -1,4 +1,5 @@
 ﻿
+using DatabaseBootstrap.Observer;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace DatabaseBootstrap.Repositories
 {
-    public interface IBasicRepository<T> where T : EntityClass
+    public interface IBasicRepository<T> : Subject<T> where T : EntityClass 
     {
         List<T> DohvatiSve();
         T DohvatiPrekoID(int id);

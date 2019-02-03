@@ -22,6 +22,9 @@ namespace DesktopForms.Presenters
             _view = view;
             _view.Presenter = this;
             _unit = unit;
+            _unit.VrstaRepository.Attach(_view);
+            _unit.VrstaPostupkaRepository.Attach(_view);
+
             UpdatePostupke();
             UpdateVrste();
         }
@@ -42,32 +45,30 @@ namespace DesktopForms.Presenters
         {
             VrstaZivotinje vrsta = ModelFactory.CreateVrstaZivotinje(NHibernateService.PrijavljeniVeterinar, text, true);
             _unit.VrstaRepository.Stvori(vrsta);
-            UpdateVrste();
         }
 
         internal void IzbrisiVrstuZivotinje(VrstaZivotinje vrsta)
         {
             vrsta.Aktivno = false;
             _unit.VrstaRepository.Azuriraj(vrsta);
-            UpdateVrste();
         }
 
         internal void DodajVrstuPostupka(string naziv, string opis, double cijena)
         {
             VrstaPostupka vrsta = ModelFactory.CreateVrstaPostupka(NHibernateService.PrijavljeniVeterinar, naziv, opis, cijena, true);
             _unit.VrstaPostupkaRepository.Stvori(vrsta);
-            UpdatePostupke();
         }
 
         internal void IzbrisiVrstuPostupka(VrstaPostupka vrsta)
         {
             vrsta.Aktivno = false;
             _unit.VrstaPostupkaRepository.Azuriraj(vrsta);
-            UpdatePostupke();
         }
 
         public void CloseUnitOfWork()
         {
+            _unit.VrstaRepository.Detach(_view);
+            _unit.VrstaPostupkaRepository.Detach(_view);
             this._unit.Dispose();
         }
     }

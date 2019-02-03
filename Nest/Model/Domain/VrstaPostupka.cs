@@ -10,7 +10,7 @@ namespace Nest.Model.Domain {
         public VrstaPostupka() { }
         public VrstaPostupka(Veterinar veterinar, string naziv, string opis, double cijena, bool aktivno) {
             Postupaks = new List<Postupak>();
-            Veterinar = Veterinar;
+            Veterinar = veterinar;
             Naziv = naziv;
             Opis = opis;
             Cijena = cijena;

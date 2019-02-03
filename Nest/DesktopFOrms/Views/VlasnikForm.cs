@@ -69,9 +69,6 @@ namespace DesktopForms.Views
         {
             Presenter.CloseUnitOfWork();
             this.Close();
-
-            GlavniForm form = new GlavniForm();
-            form.Show();
         }
     }
 }
