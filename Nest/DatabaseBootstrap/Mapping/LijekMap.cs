@@ -16,7 +16,7 @@ namespace Nest.DatabaseBootstrap.Mapping
 			HasMany(x => x.InterakcijaLijekovas1).Cascade.All();
             HasMany(x => x.InterakcijaLijekovas2).Cascade.All();
             HasMany(x => x.LijekKodVeterinaras).Cascade.All();
-            HasManyToMany(x => x.Bolests).Cascade.All().Table("BolestsLijeks");
+            HasManyToMany(x => x.Bolests).Cascade.SaveUpdate().Table("BolestsLijeks");
             HasManyToMany(x => x.Postupaks).Cascade.All().Table("LijeksPostupaks");
 
         }
