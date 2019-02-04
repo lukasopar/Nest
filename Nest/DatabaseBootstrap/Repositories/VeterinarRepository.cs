@@ -61,7 +61,7 @@ namespace DatabaseBootstrap.Repositories
             
             using (ITransaction transaction = _session.BeginTransaction())
             {
-                var query = _session.Query<LijekKodVeterinara>().Where(x => x.Veterinar.Id == id)
+                var query = _session.Query<LijekKodVeterinara>().Where(x => x.Veterinar.Id == id && x.Aktivno == true)
                     .Fetch(x => x.Lijek)
                     .ToList();
                 return query;
