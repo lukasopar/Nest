@@ -36,6 +36,7 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.labelKrivaPrijava = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -109,11 +110,22 @@
             this.labelKrivaPrijava.Text = "Podaci za prijavu nisu točni!";
             this.labelKrivaPrijava.Visible = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label4.Location = new System.Drawing.Point(105, 269);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(252, 34);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Za testiranje aplikacije može se \r\nkoristiti username: test i password: test";
+            // 
             // PrijavaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 277);
+            this.ClientSize = new System.Drawing.Size(476, 325);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.labelKrivaPrijava);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxPassword);
@@ -140,5 +152,6 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelKrivaPrijava;
+        private System.Windows.Forms.Label label4;
     }
 }
