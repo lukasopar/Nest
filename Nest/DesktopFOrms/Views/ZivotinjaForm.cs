@@ -83,9 +83,11 @@ namespace DesktopForms.Views
             else label11.Text = " ";
             if (!valid) return;
 
+            var vrsta = (VrstaZivotinje)comboBox2.SelectedItem;
+
             Vlasnik vlasnik = (Vlasnik)comboBox1.SelectedItem;
             Zivotinja zivotinja = ModelFactory.CreateZivotinja(vlasnik, textBox1.Text, dateTimePicker1.Value, textBox2.Text);
-            
+            Presenter.PridruziVrstuZivotinjeKodVeterinara(zivotinja, vrsta);
             Presenter.UpdateVlasnik(vlasnik, zivotinja);
             Presenter.RegistrirajZivotinju(zivotinja);
 

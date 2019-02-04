@@ -70,12 +70,13 @@ namespace DesktopForms.Presenters
                 
                 if (test != null)
                 {
-                    test.Kolicina += 1;
+                    test.PovecajKolicinu(1);
                 }
                 else
                 {
                     LijekStavkaRacuna stavka = ModelFactory.CreateLijekStavkaRacuna(1, lijek, null);
                     stavke.Add(stavka);
+                    _unit.StavkeRepository.Stvori(stavka);
                 }
             }
             _view.Lijekovi = stavke;
@@ -86,11 +87,13 @@ namespace DesktopForms.Presenters
             var test = stavke.Where(stavka => stavka.Equals(lijek)).SingleOrDefault();
             if (test.Kolicina > 1)
             {
-                test.Kolicina -= 1;
+                test.SmanjiKolicinu(1);
+                _unit.StavkeRepository.Azuriraj(test);
             }
             else
             {
                 stavke.Remove(test);
+                //_unit.StavkeRepository.Izbrisi(test.Id);
             }
             _view.Lijekovi = stavke;
 
@@ -99,6 +102,7 @@ namespace DesktopForms.Presenters
         {
             racun.Datum = DateTime.Now;
             _unit.RacunRepository.Stvori(racun);
+            CloseUnitOfWork();
         }
 
         public void CloseUnitOfWork()

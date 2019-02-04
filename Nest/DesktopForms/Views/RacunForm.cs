@@ -39,7 +39,8 @@ namespace DesktopForms.Views
                     it.Tag = lijek;
                     listView1.Items.Add(it);
                 }
-                Racun.LijekStavkaRacunas = new HashSet<LijekStavkaRacuna>(Lijekovi);
+                Racun.LijekStavkaRacunas = new HashSet<LijekStavkaRacuna>(value);
+                
                 labelUkupno.Text = Racun.IzracunajUkupnuCijenu() + " kn";
             }
         }
@@ -57,7 +58,7 @@ namespace DesktopForms.Views
                     it.Tag = postupak;
                     listView2.Items.Add(it);
                 }
-                Racun.Postupaks = new HashSet<Postupak>(Postupci);
+                Racun.Postupaks = new HashSet<Postupak>(value);
                 labelUkupno.Text = Racun.IzracunajUkupnuCijenu() + " kn";
 
             }
@@ -106,6 +107,7 @@ namespace DesktopForms.Views
         private void button1_Click(object sender, EventArgs e)
         {
             Presenter.NoviRacun(Racun);
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

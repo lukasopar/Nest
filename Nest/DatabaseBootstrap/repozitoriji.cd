@@ -3,15 +3,15 @@
   <Class Name="DatabaseBootstrap.Repositories.BasicRepository&lt;T&gt;">
     <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAEAAACAAAQAAAAAAAAAgAAAACAAAAAA=</HashCode>
+      <HashCode>AAAIAAgAAAAAAEIAACAAAQAAAIAAAABgAAAACAAAAAA=</HashCode>
       <FileName>Repositories\BasicRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DatabaseBootstrap.Repositories.BolestiRepository">
+  <Class Name="DatabaseBootstrap.Repositories.StavkeRepository">
     <Position X="6.5" Y="3.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repositories\BolestiRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -30,7 +30,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>YAIAAAQAQyAAAAAAACAAAEAIABAAEgEoAUgCAAAgAAA=</HashCode>
+      <HashCode>YAIAAAQAQyAAAACAACAAAEAIABAAEgEoAUgCCAAgAAA=</HashCode>
       <FileName>Repositories\UnitOfWork.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -59,7 +59,7 @@
   <Interface Name="DatabaseBootstrap.Repositories.IUnitOfWork">
     <Position X="12.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAQiAAAAAAACAAAAAAABAAEAEIAQAAAAAgAAA=</HashCode>
+      <HashCode>QAAAAAAAQiAAAACAACAAAAAAABAAEAEIAQAAAAAgAAA=</HashCode>
       <FileName>Repositories\IUnitOfWork.cs</FileName>
     </TypeIdentifier>
   </Interface>

@@ -111,6 +111,8 @@ namespace DesktopForms.Presenters
         public void NoviPostupak(Zivotinja zivotinja, VrstaPostupka vrsta, List<Lijek> lijekovi, List<Bolest> bolesti, String napomena)
         {
             Postupak novi = ModelFactory.CreatePostupak(zivotinja, vrsta, napomena, DateTime.Now, null);
+            novi.Bolests = new HashSet<Bolest>(_view.Bolesti);
+            novi.Lijeks = new HashSet<Lijek>(_view.Lijekovi);
             _unit.PostupakRepository.Stvori(novi);
         }
         public void PovijestZivotinje(Zivotinja zivotinja)

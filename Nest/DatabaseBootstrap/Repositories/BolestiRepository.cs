@@ -9,23 +9,13 @@ using System.Text;
 
 namespace DatabaseBootstrap.Repositories
 {
-    public class BolestiRepository : BasicRepository<Bolest>, IBolestiRepository
+    public class StavkeRepository : BasicRepository<LijekStavkaRacuna>, IStavkeRepository
     {
 
-        public BolestiRepository(ISession session) : base(session)
+        public StavkeRepository(ISession session) : base(session)
         {  
         }
-        public Bolest DohvatiPrekoIDSLijekovima(int id)
-        {
-            
-            using (ITransaction transaction = _session.BeginTransaction())
-            {
-                var entity = _session.Query<Bolest>().Where(x => x.Id == id).Fetch(x => x.Lijeks);
-                return entity.FirstOrDefault();
-            }
-            
-            
-        }
+       
 
     }
 }

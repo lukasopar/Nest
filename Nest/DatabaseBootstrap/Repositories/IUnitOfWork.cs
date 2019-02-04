@@ -33,6 +33,8 @@ namespace DatabaseBootstrap.Repositories
       
 
         IZivotinjaRepository ZivotinjaRepository { get; }
+        IStavkeRepository StavkeRepository { get; }
+
 
         void Dispose();
        

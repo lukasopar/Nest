@@ -21,7 +21,7 @@ namespace DesktopForms.Views
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
         }
-
+        private Postupak postupak = new Postupak(); 
         public Zivotinja Zivotinja { get => (Zivotinja)groupBox1.Tag;
             set
             {

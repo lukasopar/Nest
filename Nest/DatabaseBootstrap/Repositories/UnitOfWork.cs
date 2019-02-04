@@ -23,7 +23,7 @@ namespace DatabaseBootstrap.Repositories
         private IVrstaPostupkaRepository _vrstaPostupkaRepository;
         private IVrstaRepository _vrstaRepository;
         private IZivotinjaRepository _zivotinjaRepository;
-        
+        private IStavkeRepository _stavkeRepository;
 
         public ILijekoviRepository LijekoviRepository
         {
@@ -47,6 +47,18 @@ namespace DatabaseBootstrap.Repositories
                     this._veterinarLijekRepository = new LijekKodVeterinaraRepository(_session);
                 }
                 return _veterinarLijekRepository;
+            }
+        }
+        public IStavkeRepository StavkeRepository
+        {
+            get
+            {
+
+                if (this._stavkeRepository == null)
+                {
+                    this._stavkeRepository = new StavkeRepository(_session);
+                }
+                return _stavkeRepository;
             }
         }
 

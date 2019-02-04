@@ -85,7 +85,8 @@ namespace DesktopForms.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Presenter.CloseUnitOfWork();
+            if(!Dijagnoza) 
+                Presenter.CloseUnitOfWork();
             this.Close();
         }
 

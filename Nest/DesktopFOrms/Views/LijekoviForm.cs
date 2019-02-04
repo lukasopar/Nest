@@ -68,7 +68,9 @@ namespace DesktopForms.Views
 
         private void buttonOdustani_Click(object sender, EventArgs e)
         {
-            Presenter.CloseUnitOfWork();
+            if (!Terapija)
+                Presenter.CloseUnitOfWork();
+            //Presenter.CloseUnitOfWork();
             Close();
         }
 
