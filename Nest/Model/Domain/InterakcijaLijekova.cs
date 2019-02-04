@@ -2,7 +2,7 @@
 using Model;
 
 namespace Nest.Model.Domain {
-    
+
     public class InterakcijaLijekova : EntityClass {
         //public virtual System.Guid Id { get; set; }
 

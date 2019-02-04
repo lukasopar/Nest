@@ -10,6 +10,7 @@ using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,7 +29,6 @@ namespace DesktopForms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
             PrijavaForm form = new PrijavaForm();
             PrijavaPresenter presenter = new PrijavaPresenter(form, new UnitOfWork());     
             form.Show();
@@ -36,7 +36,6 @@ namespace DesktopForms
             Application.Run();
         }
 
-        
 
     }
 }

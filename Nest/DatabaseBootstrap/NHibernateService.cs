@@ -5,6 +5,7 @@ using Nest.Model.Domain;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using System;
+using System.IO;
 
 namespace DatabaseBootstrap
 {
@@ -32,9 +33,12 @@ namespace DatabaseBootstrap
         }
         public static ISessionFactory OpenSessionFactory()
         {
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+
             var nhConfig = Fluently.Configure()
             .Database(SQLiteConfiguration.Standard
-            .ConnectionString("Data Source=c:\\Objektno\\Veterinari.db;Version=3;BinaryGUID=False")
+            .ConnectionString("Data Source=" + projectDirectory + "\\Veterinari.db;Version=3;BinaryGUID=False")
             .AdoNetBatchSize(100))
             .Mappings(mappings => mappings.FluentMappings
                 .AddFromAssemblyOf<BolestMap>()
