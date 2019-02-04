@@ -90,16 +90,6 @@ namespace DesktopForms.Views
 
         public DetaljiOLijekuPresenter Presenter { private get; set; }
 
-       
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prebaci se na stranicu s tom bolesti
-            ListView.SelectedListViewItemCollection items = listView2.SelectedItems;
-            ListViewItem lvItem = items[0];
-            Bolest bolest = (Bolest)lvItem.Tag;
-        }
-
         private void label4_Click(object sender, EventArgs e)
         {
             Presenter.CloseUnitOfWork();
@@ -126,5 +116,6 @@ namespace DesktopForms.Views
             Presenter.CloseUnitOfWork();
             Close();
         }
+        
     }
 }

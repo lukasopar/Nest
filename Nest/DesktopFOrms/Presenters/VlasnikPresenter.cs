@@ -33,5 +33,10 @@ namespace DesktopForms.Presenters
             this._unit.Dispose();
         }
 
+        internal bool KorisnickoImeZauzet(string text)
+        {
+            Vlasnik vlasnik = _unit.VlasnikRepository.DohvatiVlasnikaKorisnickoIme(text);
+            return vlasnik != null;
+        }
     }
 }

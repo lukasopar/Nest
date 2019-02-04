@@ -47,6 +47,10 @@ namespace DesktopForms.Views
             {
                 label9.Text = "Ovo polje je obavezno";
                 valid = false;
+            } else if (Presenter.KorisnickoImeZauzet(textBox3.Text))
+            {
+                label9.Text = "Korisničko ime je zauzeto!";
+                valid = false;
             }
             else label9.Text = " ";
             if (textBox4.Text.Equals(""))
@@ -69,8 +73,8 @@ namespace DesktopForms.Views
         {
             Presenter.CloseUnitOfWork();
             this.Close();
-
-            
         }
+       
+        
     }
 }
