@@ -127,5 +127,10 @@ namespace DesktopForms.Views
             Presenter.OtvoriDostupneLijekove();
 
         }
+
+        private void buttonOdjava_Click(object sender, EventArgs e)
+        {
+            Presenter.Odjava();
+        }
     }
 }

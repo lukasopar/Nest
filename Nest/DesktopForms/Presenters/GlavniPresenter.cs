@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseBootstrap;
 using Nest.Model.Domain;
+using System.Windows.Forms;
 
 namespace DesktopForms.Presenters
 {
@@ -57,7 +58,10 @@ namespace DesktopForms.Presenters
             var presenter = new RacunPresenter(view, new UnitOfWork());
             view.Show();
         }
-
+        public void Odjava()
+        {
+            Application.Restart();
+        }
         internal void OtvoriAdministraciju()
         {
             AdministracijaForm view = new AdministracijaForm();

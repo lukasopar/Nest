@@ -35,10 +35,11 @@ namespace DatabaseBootstrap
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-
+            var index = projectDirectory.IndexOf("Nest");
+            projectDirectory = projectDirectory.Substring(0, index +  4);
             var nhConfig = Fluently.Configure()
             .Database(SQLiteConfiguration.Standard
-            .ConnectionString("Data Source=" + projectDirectory + "\\Veterinari.db;Version=3;BinaryGUID=False")
+            .ConnectionString("Data Source=" + projectDirectory + "\\Nest\\Veterinari.db;Version=3;BinaryGUID=False")
             .AdoNetBatchSize(100))
             .Mappings(mappings => mappings.FluentMappings
                 .AddFromAssemblyOf<BolestMap>()

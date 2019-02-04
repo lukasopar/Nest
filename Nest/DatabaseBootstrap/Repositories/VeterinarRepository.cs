@@ -30,7 +30,7 @@ namespace DatabaseBootstrap.Repositories
             using (ITransaction transaction = _session.BeginTransaction())
             {
                     
-                var entity = _session.Query<VrstaZivotinje>().Where(x => x.Veterinar.Id == id).ToList();
+                var entity = _session.Query<VrstaZivotinje>().Where(x => x.Veterinar.Id == id && x.Aktivno).ToList();
                 return entity;
             }
             
