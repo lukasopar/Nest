@@ -93,6 +93,8 @@ namespace DesktopForms.Views
 
             Presenter.CloseUnitOfWork();
             this.Close();
+            MessageBox.Show("Životinja dodana.", "Životinja dodana", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void button2_Click(object sender, EventArgs e)

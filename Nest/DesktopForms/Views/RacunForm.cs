@@ -108,6 +108,8 @@ namespace DesktopForms.Views
         {
             Presenter.NoviRacun(Racun);
             this.Close();
+            MessageBox.Show("Račun dodan.", "Račun dodan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
