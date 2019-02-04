@@ -6,7 +6,12 @@ using System.ComponentModel.DataAnnotations;
 namespace Nest.Model.Domain {
     
     public class Bolest : EntityClass {
-        public Bolest() {
+
+        public Bolest() { }
+        public Bolest(string naziv, string opis)
+        {
+            Naziv = naziv;
+            Opis = opis;
             Postupaks = new List<Postupak>();
             Lijeks = new List<Lijek>();
         }

@@ -16,18 +16,21 @@ namespace Web.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        IVlasnikRepository _repository;
-        IZivotinjaRepository _repositoryZivotinja;
-        IBolestiRepository _repositoryBolest;
-        ILijekoviRepository _repositroyLijekovi;
-        IVeterinarRepository _repositoryVeterinar;
-        public HomeController(IVlasnikRepository repository, IZivotinjaRepository repositoryZivotinja, IBolestiRepository repositoryBolest, ILijekoviRepository repositroyLijekovi,IVeterinarRepository repositoryVeterinar)
+        private readonly IUnitOfWork _unit;
+        private readonly IVlasnikRepository _repository;
+        private readonly IZivotinjaRepository _repositoryZivotinja;
+        private readonly IBolestiRepository _repositoryBolest;
+        private readonly ILijekoviRepository _repositroyLijekovi;
+        private readonly IVeterinarRepository _repositoryVeterinar;
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
-            _repositoryZivotinja = repositoryZivotinja;
-            _repositoryBolest = repositoryBolest;
-            _repositoryVeterinar = repositoryVeterinar;
-            _repositroyLijekovi = repositroyLijekovi;
+            _unit = unitOfWork;
+
+            _repository = unitOfWork.VlasnikRepository;
+            _repositoryZivotinja = unitOfWork.ZivotinjaRepository;
+            _repositoryBolest = unitOfWork.BolestiRepository;
+            _repositoryVeterinar = unitOfWork.VeterinarRepository;
+            _repositroyLijekovi = unitOfWork.LijekoviRepository;
         }
         [HttpGet]
         public IActionResult Index()

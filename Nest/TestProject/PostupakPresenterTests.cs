@@ -1,5 +1,6 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
 using Moq;
@@ -28,9 +29,12 @@ namespace TestProject
         private readonly Mock<IVeterinarRepository> mockVeterinarRepository;
         private readonly Mock<ILijekoviRepository> mockLijekoviRepository;
         private readonly PostupakPresenter presenter;
+        private readonly Mock<IUnitOfWork> mockUOW;
 
         public PostupakPresenterTests()
         {
+            mockUOW = new Mock<IUnitOfWork>();
+
             mockPostupakView = Mock.Of<IPostupakView>(view =>
                 view.VrstePostupaka == new List<VrstaPostupka>() && view.Lijekovi == new List<Lijek>() && view.Bolesti == new List<Bolest>() );
             mockPostupakRepository = new Mock<IPostupakRepository>();
@@ -42,7 +46,11 @@ namespace TestProject
             mockLijekoviRepository.Setup(x => x.DohvatiLijekPoId(1)).Returns(lijek1);
             mockLijekoviRepository.Setup(x => x.DohvatiLijekPoId(2)).Returns(lijek2);
 
-            presenter = new PostupakPresenter(mockPostupakView, mockPostupakRepository.Object, mockVeterinarRepository.Object, mockLijekoviRepository.Object);
+            mockUOW.Setup(x => x.LijekoviRepository).Returns(mockLijekoviRepository.Object);
+            mockUOW.Setup(x => x.VeterinarRepository).Returns(mockVeterinarRepository.Object);
+            mockUOW.Setup(x => x.PostupakRepository).Returns(mockPostupakRepository.Object);
+
+            presenter = new PostupakPresenter(mockPostupakView, mockUOW.Object);
         }
         [Fact]
         public void PostupakPresenter_constructor_TrebaNapunitiListu()

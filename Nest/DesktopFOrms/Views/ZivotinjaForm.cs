@@ -1,6 +1,7 @@
 ﻿using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
+using Model;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,8 @@ namespace DesktopForms.Views
         public ZivotinjaForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
 
@@ -54,7 +57,6 @@ namespace DesktopForms.Views
         private void button1_Click(object sender, EventArgs e)
         {
             Boolean valid = true;
-            var zivotinja = new Zivotinja();
             if (textBox1.Text.Equals(""))
             {
                 label9.Text = "Ovo polje je obavezno";
@@ -81,25 +83,21 @@ namespace DesktopForms.Views
             else label11.Text = " ";
             if (!valid) return;
 
+            var vrsta = (VrstaZivotinje)comboBox2.SelectedItem;
+
             Vlasnik vlasnik = (Vlasnik)comboBox1.SelectedItem;
-
-            zivotinja.Ime = textBox1.Text;
-            zivotinja.DatumRod = dateTimePicker1.Value;
-            zivotinja.Napomena = textBox3.Text;
-            zivotinja.Vlasnik = vlasnik;
-            zivotinja.Napomena = textBox2.Text;
-            zivotinja.VrstaZivotinjes = new List<VrstaZivotinje>();
-            zivotinja.PridruziVrstuZivotinjeKodVeterinara((VrstaZivotinje)comboBox2.SelectedItem);
-            vlasnik.DodajZivotinju(zivotinja);
-
-            Presenter.UpdateVlasnik(vlasnik);
+            Zivotinja zivotinja = ModelFactory.CreateZivotinja(vlasnik, textBox1.Text, dateTimePicker1.Value, textBox2.Text);
+            Presenter.PridruziVrstuZivotinjeKodVeterinara(zivotinja, vrsta);
+            Presenter.UpdateVlasnik(vlasnik, zivotinja);
             Presenter.RegistrirajZivotinju(zivotinja);
 
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
     }

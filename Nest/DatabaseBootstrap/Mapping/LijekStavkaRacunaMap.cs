@@ -15,7 +15,6 @@ namespace Nest.DatabaseBootstrap.Mapping
             Map(x => x.Kolicina).Not.Nullable();
 			References(x => x.LijekKodVeterinara).Cascade.SaveUpdate();
             References(x => x.Racun).Cascade.SaveUpdate();
-            //HasManyToMany(x => x.Racuns).Cascade.All().Table("LijekVetsRacuns");
         }
     }
 }

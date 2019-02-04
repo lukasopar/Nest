@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Nest.Model.Domain.Veterinar">
+    <Position X="14.25" Y="4" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="LijekKodVeterinaras" />
+      <Property Name="VrstaPostupkas" />
+      <Property Name="VrstaZivotinjes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.Racun">
+    <Position X="6" Y="9" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Postupaks" />
+      <Property Name="LijekStavkaRacunas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.Bolest">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Postupaks" />
+      <Property Name="Lijeks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.Lijek">
+    <Position X="1" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="InterakcijaLijekovas2" Type="Nest.Model.Domain.InterakcijaLijekova">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.48" Y="0.051" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Bolests" />
+      <Property Name="InterakcijaLijekovas1" />
+      <Property Name="InterakcijaLijekovas2" />
+      <Property Name="Postupaks" />
+      <Property Name="LijekKodVeterinaras" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.VrstaPostupka">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Veterinar" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Postupaks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.Postupak">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Racun" />
+      <Property Name="VrstaPostupka" />
+      <Property Name="Zivotinja" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Lijeks" />
+      <Property Name="Bolests" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.LijekStavkaRacuna">
+    <Position X="4" Y="7" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="LijekKodVeterinara" />
+      <Property Name="Racun" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.InterakcijaLijekova">
+    <Position X="1" Y="7.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Lijek2" Type="Nest.Model.Domain.Lijek">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.041" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Lijek1" />
+      <Property Name="Lijek2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.LijekKodVeterinara">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Veterinar" />
+      <Property Name="Lijek" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Stavkas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.Vlasnik">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Zivotinjas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.VrstaZivotinje">
+    <Position X="12.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Veterinar" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Zivotinjas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Nest.Model.Domain.Zivotinja">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Vlasnik" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Postupaks" />
+      <Property Name="VrstaZivotinjes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

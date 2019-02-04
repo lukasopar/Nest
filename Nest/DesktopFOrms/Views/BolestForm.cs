@@ -55,6 +55,7 @@ namespace DesktopForms.Views
             for (int i = 0; i < number; i++)
                 lista.Add((Bolest)listView1.SelectedItems[i].Tag);
             Presenter.DodanaDijagnoza(lista);
+            //Presenter.CloseUnitOfWork();
             Close();
             MessageBox.Show("Dodano u dijagnozu.", "Dodano", MessageBoxButtons.OK);
 
@@ -84,6 +85,8 @@ namespace DesktopForms.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if(!Dijagnoza) 
+                Presenter.CloseUnitOfWork();
             this.Close();
         }
 

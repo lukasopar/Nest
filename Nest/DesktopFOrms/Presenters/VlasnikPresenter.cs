@@ -1,4 +1,5 @@
 ﻿using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
 using System;
@@ -12,20 +13,30 @@ namespace DesktopForms.Presenters
     public class VlasnikPresenter
     {
         private readonly IVlasnikView _view;
-        private readonly IVlasnikRepository _repository;
+        private readonly IUnitOfWork _unit;
 
 
-        public VlasnikPresenter(IVlasnikView view, IVlasnikRepository repository)
+        public VlasnikPresenter(IVlasnikView view, IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;
-            _repository = repository;
+            _unit = unit;
         }
 
         public void registrirajVlasnika(Vlasnik vlasnik)
         {
-            _repository.Stvori(vlasnik);
+            _unit.VlasnikRepository.Stvori(vlasnik);
         }
 
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
+        }
+
+        internal bool KorisnickoImeZauzet(string text)
+        {
+            Vlasnik vlasnik = _unit.VlasnikRepository.DohvatiVlasnikaKorisnickoIme(text);
+            return vlasnik != null;
+        }
     }
 }

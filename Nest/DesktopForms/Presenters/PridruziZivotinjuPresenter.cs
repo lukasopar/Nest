@@ -1,5 +1,6 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using DesktopForms.Views;
 using Nest.Model.Domain;
@@ -14,17 +15,13 @@ namespace DesktopForms.Presenters
     public class PridruziZivotinjuPresenter
     {
         private readonly IPridruziZivotinjuView _view;
-        private readonly IVlasnikRepository _repositoryVlasnik;
-        private readonly IVeterinarRepository _repositoryVeterinar;
-        private readonly IZivotinjaRepository _repositoryZiv;
+        private readonly IUnitOfWork _unit;
         private readonly PostupakPresenter _presenter;
-        public PridruziZivotinjuPresenter(IPridruziZivotinjuView view, IVlasnikRepository repositoryVlasnik, IVeterinarRepository repositoryVeterinar, IZivotinjaRepository repositoryZiv, PostupakPresenter presenter)
+        public PridruziZivotinjuPresenter(IPridruziZivotinjuView view, IUnitOfWork unit, PostupakPresenter presenter)
         {
             _view = view;
             view.Presenter = this;
-            _repositoryVeterinar = repositoryVeterinar;
-            _repositoryVlasnik = repositoryVlasnik;
-            _repositoryZiv = repositoryZiv;
+            _unit = unit;
             _presenter = presenter;
 
             UpdateVlasnikListView();
@@ -32,19 +29,19 @@ namespace DesktopForms.Presenters
 
         public void UpdateVlasnikListView(string query = "")
         {
-            var bolesti = _repositoryVlasnik.DohvatiSve();
+            var bolesti = _unit.VlasnikRepository.DohvatiSve();
             _view.Vlasnici = bolesti.Where(x => (x.Ime + " "+ x.Prezime).Contains(query)).ToList();
-            _view.VrsteZivotinja = _repositoryVeterinar.DohvatiSveVrsteVeterinar(NHibernateService.PrijavljeniVeterinar.Id);
+            _view.VrsteZivotinja = _unit.VeterinarRepository.DohvatiSveVrsteVeterinar(NHibernateService.PrijavljeniVeterinar.Id);
         }
 
         public void UpdateZivotinjaListView(Vlasnik vlasnik)
         {
-            vlasnik.Zivotinjas = _repositoryVlasnik.DohvatiVlasnikaSaZivotinjom(vlasnik.Id);
+            vlasnik.Zivotinjas = _unit.VlasnikRepository.DohvatiVlasnikaSaZivotinjom(vlasnik.Id);
         }
 
         public VrstaZivotinje OdabranaZivotinja(Zivotinja zivotinja)
         {
-            var vrsta = _repositoryVeterinar.DohvatiVrstuZivotinjeKodVeterinara(zivotinja.Id, NHibernateService.PrijavljeniVeterinar.Id);
+            var vrsta = _unit.VeterinarRepository.DohvatiVrstuZivotinjeKodVeterinara(zivotinja.Id, NHibernateService.PrijavljeniVeterinar.Id);
             return vrsta;
         }
 
@@ -54,10 +51,15 @@ namespace DesktopForms.Presenters
             {
                 //zivotinja.PridruziVrstuZivotinjeKodVeterinara(vrsta);
                 //_repositoryZiv.Azuriraj(zivotinja);
-                _repositoryZiv.AzurirajSNovomVrstom(zivotinja, vrsta);
+                _unit.ZivotinjaRepository.AzurirajSNovomVrstom(zivotinja, vrsta);
                 
             }
             _presenter.OdabranaZivotinja(zivotinja);
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
         }
     }
 }

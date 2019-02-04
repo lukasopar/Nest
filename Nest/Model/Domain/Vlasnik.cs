@@ -8,8 +8,14 @@ using System.ComponentModel.DataAnnotations;
 namespace Nest.Model.Domain {
     
     public class Vlasnik : EntityClass{
-        public Vlasnik() {
+        public Vlasnik() { }
+        public Vlasnik(string korisnickoIme, string lozinka, string ime, string prezime, DateTime? datumRod) {
             Zivotinjas = new List<Zivotinja>();
+            KorisnickoIme = korisnickoIme;
+            Lozinka = lozinka;
+            Ime = ime;
+            Prezime = prezime;
+            DatumRod = datumRod;
         }
 //        public virtual System.Guid Id { get; set; }
         [Required]

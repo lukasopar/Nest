@@ -21,8 +21,7 @@ namespace DesktopForms.Views
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-
-
+            
         }
 
 
@@ -61,7 +60,7 @@ namespace DesktopForms.Views
 
             DetaljiOLijekuForm view = new DetaljiOLijekuForm(lijek);
 
-            var presenter = new DetaljiOLijekuPresenter(view, new LijekoviRepository(NHibernateService.OpenSession()));
+            var presenter = new DetaljiOLijekuPresenter(view, new UnitOfWork());
 
             view.Show();
 
@@ -69,6 +68,9 @@ namespace DesktopForms.Views
 
         private void buttonOdustani_Click(object sender, EventArgs e)
         {
+            if (!Terapija)
+                Presenter.CloseUnitOfWork();
+            //Presenter.CloseUnitOfWork();
             Close();
         }
 
@@ -79,6 +81,7 @@ namespace DesktopForms.Views
             for (int i = 0; i < number; i++)
                 lista.Add((Lijek)listView1.SelectedItems[i].Tag);
             Presenter.DodanaTerapija(lista);
+            //Presenter.CloseUnitOfWork();
             Close();
             MessageBox.Show("Dodano u terapiju.", "Dodano", MessageBoxButtons.OK);
             

@@ -49,19 +49,21 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonObrisiBolest = new System.Windows.Forms.Button();
             this.buttonDodajBolest = new System.Windows.Forms.Button();
-            this.listBoxBolesti = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.labelUpozorenje = new System.Windows.Forms.Label();
             this.buttonObrisiLijek = new System.Windows.Forms.Button();
             this.buttonLijek = new System.Windows.Forms.Button();
-            this.listBoxLijekovi = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listViewBolesti = new System.Windows.Forms.ListView();
+            this.listViewLijekovi = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -240,8 +242,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.listViewBolesti);
             this.groupBox3.Controls.Add(this.buttonObrisiBolest);
-            this.groupBox3.Controls.Add(this.listBoxBolesti);
             this.groupBox3.Controls.Add(this.buttonDodajBolest);
             this.groupBox3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox3.Location = new System.Drawing.Point(30, 337);
@@ -272,20 +274,10 @@
             this.buttonDodajBolest.UseVisualStyleBackColor = true;
             this.buttonDodajBolest.Click += new System.EventHandler(this.buttonDodajBolest_Click);
             // 
-            // listBoxBolesti
-            // 
-            this.listBoxBolesti.FormattingEnabled = true;
-            this.listBoxBolesti.ItemHeight = 16;
-            this.listBoxBolesti.Location = new System.Drawing.Point(11, 35);
-            this.listBoxBolesti.Name = "listBoxBolesti";
-            this.listBoxBolesti.Size = new System.Drawing.Size(161, 116);
-            this.listBoxBolesti.TabIndex = 0;
-            this.listBoxBolesti.SelectedIndexChanged += new System.EventHandler(this.listBoxBolesti_SelectedIndexChanged);
-            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.listViewLijekovi);
             this.groupBox4.Controls.Add(this.labelUpozorenje);
-            this.groupBox4.Controls.Add(this.listBoxLijekovi);
             this.groupBox4.Controls.Add(this.buttonObrisiLijek);
             this.groupBox4.Controls.Add(this.buttonLijek);
             this.groupBox4.Location = new System.Drawing.Point(399, 337);
@@ -327,16 +319,6 @@
             this.buttonLijek.UseVisualStyleBackColor = true;
             this.buttonLijek.Click += new System.EventHandler(this.buttonLijek_Click);
             // 
-            // listBoxLijekovi
-            // 
-            this.listBoxLijekovi.FormattingEnabled = true;
-            this.listBoxLijekovi.ItemHeight = 16;
-            this.listBoxLijekovi.Location = new System.Drawing.Point(9, 34);
-            this.listBoxLijekovi.Name = "listBoxLijekovi";
-            this.listBoxLijekovi.Size = new System.Drawing.Size(161, 116);
-            this.listBoxLijekovi.TabIndex = 0;
-            this.listBoxLijekovi.SelectedIndexChanged += new System.EventHandler(this.listBoxLijekovi_SelectedIndexChanged);
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.richTextBox1);
@@ -377,6 +359,16 @@
             this.panel1.Size = new System.Drawing.Size(825, 81);
             this.panel1.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DesktopForms.Properties.Resources.stethoscope;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -388,15 +380,41 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // pictureBox1
+            // listViewBolesti
             // 
-            this.pictureBox1.Image = global::DesktopForms.Properties.Resources.stethoscope;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.listViewBolesti.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.listViewBolesti.FullRowSelect = true;
+            this.listViewBolesti.GridLines = true;
+            this.listViewBolesti.Location = new System.Drawing.Point(14, 40);
+            this.listViewBolesti.MultiSelect = false;
+            this.listViewBolesti.Name = "listViewBolesti";
+            this.listViewBolesti.Size = new System.Drawing.Size(166, 113);
+            this.listViewBolesti.TabIndex = 3;
+            this.listViewBolesti.UseCompatibleStateImageBehavior = false;
+            this.listViewBolesti.View = System.Windows.Forms.View.Details;
+            // 
+            // listViewLijekovi
+            // 
+            this.listViewLijekovi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.listViewLijekovi.FullRowSelect = true;
+            this.listViewLijekovi.GridLines = true;
+            this.listViewLijekovi.Location = new System.Drawing.Point(9, 40);
+            this.listViewLijekovi.MultiSelect = false;
+            this.listViewLijekovi.Name = "listViewLijekovi";
+            this.listViewLijekovi.Size = new System.Drawing.Size(172, 113);
+            this.listViewLijekovi.TabIndex = 4;
+            this.listViewLijekovi.UseCompatibleStateImageBehavior = false;
+            this.listViewLijekovi.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Bolest";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Lijek";
             // 
             // PostupakForm
             // 
@@ -454,11 +472,9 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonObrisiBolest;
         private System.Windows.Forms.Button buttonDodajBolest;
-        private System.Windows.Forms.ListBox listBoxBolesti;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button buttonObrisiLijek;
         private System.Windows.Forms.Button buttonLijek;
-        private System.Windows.Forms.ListBox listBoxLijekovi;
         private System.Windows.Forms.Label labelUpozorenje;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -467,5 +483,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ListView listViewBolesti;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ListView listViewLijekovi;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

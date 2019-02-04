@@ -7,24 +7,19 @@ using DatabaseBootstrap.Repositories;
 using DesktopForms.Views;
 using DesktopForms.ViewInterfaces;
 using Nest.Model.Domain;
+using Model;
 
 namespace DesktopForms.Presenters
 {
     public class RacunPresenter
     {
-        IRacunView _view;
-        IRacunRepository _repository;
-        IPostupakRepository _repositoryPostupak;
-        IVeterinarRepository _repositoryVeterinar;
-        //ILijekoviRepository _repositoryLijekovi;
-        public RacunPresenter(IRacunView view, IRacunRepository repository, IVeterinarRepository veterinarRepository, IPostupakRepository repositoryPostupak,ILijekoviRepository lijekoviRepository = null)
+        private IRacunView _view;
+        private IUnitOfWork _unit;
+        public RacunPresenter(IRacunView view,  IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;
-            _repository = repository;
-            _repositoryVeterinar = veterinarRepository;
-            _repositoryPostupak = repositoryPostupak;
-            //_repositoryLijekovi = lijekoviRepository;
+            _unit = unit;
             NapuniView();
         }
 
@@ -36,7 +31,7 @@ namespace DesktopForms.Presenters
         public void DodajPostupak()
         {
             PovijestPregledaForm form = new PovijestPregledaForm();
-            form.Postupci = _repositoryPostupak.DohvatiSDetaljimaPostupkeNeplacene(NHibernateService.PrijavljeniVeterinar.Id);
+            form.Postupci = _unit.PostupakRepository.DohvatiSDetaljimaPostupkeNeplacene(NHibernateService.PrijavljeniVeterinar.Id);
             form.Presenter = this;
             form.Dodavanje = true;
             form.Izvjestaj = false;
@@ -61,7 +56,7 @@ namespace DesktopForms.Presenters
         public void DodajLijek()
         {
             LijekoviKodVeterinaraForm form = new LijekoviKodVeterinaraForm();
-            form.Lijekovi = _repositoryVeterinar.DohvatiSveLijekoveKodVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
+            form.Lijekovi = _unit.VeterinarRepository.DohvatiSveLijekoveKodVeterinara(NHibernateService.PrijavljeniVeterinar.Id);
             form.Presenter = this;
             
             form.Show();
@@ -75,16 +70,13 @@ namespace DesktopForms.Presenters
                 
                 if (test != null)
                 {
-                    test.Kolicina += 1;
+                    test.PovecajKolicinu(1);
                 }
                 else
                 {
-                    LijekStavkaRacuna stavka = new LijekStavkaRacuna()
-                    {
-                        Kolicina = 1,
-                        LijekKodVeterinara = lijek
-                    };
+                    LijekStavkaRacuna stavka = ModelFactory.CreateLijekStavkaRacuna(1, lijek, null);
                     stavke.Add(stavka);
+                    _unit.StavkeRepository.Stvori(stavka);
                 }
             }
             _view.Lijekovi = stavke;
@@ -95,11 +87,13 @@ namespace DesktopForms.Presenters
             var test = stavke.Where(stavka => stavka.Equals(lijek)).SingleOrDefault();
             if (test.Kolicina > 1)
             {
-                test.Kolicina -= 1;
+                test.SmanjiKolicinu(1);
+                _unit.StavkeRepository.Azuriraj(test);
             }
             else
             {
                 stavke.Remove(test);
+                //_unit.StavkeRepository.Izbrisi(test.Id);
             }
             _view.Lijekovi = stavke;
 
@@ -107,8 +101,14 @@ namespace DesktopForms.Presenters
         public void NoviRacun(Racun racun)
         {
             racun.Datum = DateTime.Now;
-            _repository.Stvori(racun);
+            _unit.RacunRepository.Stvori(racun);
+            CloseUnitOfWork();
         }
-        
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
+        }
+
     }
 }

@@ -8,9 +8,12 @@ using System.ComponentModel.DataAnnotations;
 namespace Nest.Model.Domain {
     
     public class Racun : EntityClass {
-        public Racun() {
+
+        public Racun() { }
+        public Racun(DateTime datum) {
             LijekStavkaRacunas = new HashSet<LijekStavkaRacuna>();
             Postupaks = new HashSet<Postupak>();
+            Datum = datum;
         }
         //public virtual System.Guid Id { get; set; }
         [Required]

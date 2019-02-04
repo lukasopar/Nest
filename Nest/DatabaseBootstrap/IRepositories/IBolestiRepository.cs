@@ -7,8 +7,8 @@ using System.Text;
 
 namespace DatabaseBootstrap.IRepositories
 {
-    public interface IBolestiRepository : IBasicRepository<Bolest>
+    public interface IStavkeRepository : IBasicRepository<LijekStavkaRacuna>
     {
-        Bolest DohvatiPrekoIDSLijekovima(int id);
+        
     }
 }

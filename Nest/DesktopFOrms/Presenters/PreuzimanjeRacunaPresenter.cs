@@ -1,5 +1,6 @@
 ﻿using DatabaseBootstrap;
 using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.ViewInterfaces;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -15,20 +16,20 @@ namespace DesktopForms.Presenters
 {
     public class PreuzimanjeRacunaPresenter
     {
-        IPreuzimanjeRacunaView _view;
-        IRacunRepository _repository;
+        private readonly IPreuzimanjeRacunaView _view;
+        private readonly IUnitOfWork _unit;
         
-        public PreuzimanjeRacunaPresenter(IPreuzimanjeRacunaView view, IRacunRepository repository)
+        public PreuzimanjeRacunaPresenter(IPreuzimanjeRacunaView view, IUnitOfWork unit)
         {
             _view = view;
             view.Presenter = this;
-            _repository = repository;
+            _unit = unit;
             
             NapuniView();
         }
         public void NapuniView()
         {
-            var lista = _repository.DohvatiSveRacune(NHibernateService.PrijavljeniVeterinar.Id);
+            var lista = _unit.RacunRepository.DohvatiSveRacune(NHibernateService.PrijavljeniVeterinar.Id);
             _view.Racuni = lista;
         }
         public void PreuzmiPDF(Racun racun, string path)
@@ -129,6 +130,11 @@ namespace DesktopForms.Presenters
             doc.Add(footer);
 
             doc.Close();
+        }
+
+        public void CloseUnitOfWork()
+        {
+            this._unit.Dispose();
         }
     }
 }

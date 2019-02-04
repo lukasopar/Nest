@@ -31,6 +31,8 @@ namespace DatabaseBootstrap.Repositories
                     .FetchMany(lijek => lijek.InterakcijaLijekovas1)
                     .ThenFetch(lijek => lijek.Lijek2)
                     .FirstOrDefault();
+                transaction.Commit();
+
                 return query;
             }
             

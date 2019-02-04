@@ -1,4 +1,5 @@
 using DatabaseBootstrap.IRepositories;
+using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
 using Moq;
@@ -21,15 +22,18 @@ namespace TestProject
         private readonly IBolestiView mockBolestiView;
         private readonly Mock<IBolestiRepository> mockBolestiRepository;
         private readonly BolestiPresenter presenter;
+        private readonly Mock<IUnitOfWork> mockUOW;
 
         public BolestiPresenterTests()
         {
+            mockUOW = new Mock<IUnitOfWork>();
             mockBolestiView = Mock.Of<IBolestiView>(view =>
                 view.Bolesti == new List<Bolest>());
             mockBolestiRepository = new Mock<IBolestiRepository>();
             mockBolestiRepository.Setup(x => x.DohvatiSve()).Returns(stubList);
-            
-            presenter = new BolestiPresenter(mockBolestiView, mockBolestiRepository.Object, null);
+            mockUOW.Setup(x => x.BolestiRepository).Returns(mockBolestiRepository.Object);
+
+            presenter = new BolestiPresenter(mockBolestiView, mockUOW.Object, null);
         }
 
         [Fact]

@@ -1,6 +1,7 @@
 ﻿using DatabaseBootstrap.Repositories;
 using DesktopForms.Presenters;
 using DesktopForms.ViewInterfaces;
+using Model;
 using Nest.Model.Domain;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,13 @@ namespace DesktopForms.Views
         public VlasnikForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Boolean valid = true;
-            var vlasnik = new Vlasnik();
             if (textBox1.Text.Equals(""))
             {
                 label7.Text = "Ovo polje je obavezno";
@@ -45,6 +47,10 @@ namespace DesktopForms.Views
             {
                 label9.Text = "Ovo polje je obavezno";
                 valid = false;
+            } else if (Presenter.KorisnickoImeZauzet(textBox3.Text))
+            {
+                label9.Text = "Korisničko ime je zauzeto!";
+                valid = false;
             }
             else label9.Text = " ";
             if (textBox4.Text.Equals(""))
@@ -54,24 +60,21 @@ namespace DesktopForms.Views
             }
             else label10.Text = " ";
             if (!valid) return;
-
-            vlasnik.Ime = textBox1.Text;
-            vlasnik.Prezime = textBox2.Text;
-            vlasnik.KorisnickoIme = textBox3.Text;
-            vlasnik.Lozinka = textBox4.Text;
-            vlasnik.DatumRod = dateTimePicker1.Value;
+            
+            Vlasnik vlasnik = ModelFactory.CreateVlasnik(textBox3.Text, textBox4.Text, textBox1.Text, textBox2.Text, dateTimePicker1.Value);
             
             Presenter.registrirajVlasnika(vlasnik);
 
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             this.Close();
-
-            GlavniForm form = new GlavniForm();
-            form.Show();
         }
+       
+        
     }
 }

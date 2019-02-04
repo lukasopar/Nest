@@ -18,6 +18,8 @@ namespace DesktopForms.Views
         public PridruziZivotinjuForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         public IList<Vlasnik> Vlasnici {
@@ -36,6 +38,8 @@ namespace DesktopForms.Views
                     it.Tag = vlasnik;
                     listView1.Items.Add(it);
                 }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
         public PridruziZivotinjuPresenter Presenter { private get; set; }
@@ -56,7 +60,7 @@ namespace DesktopForms.Views
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupBox3.Visible = false;
-            buttonOdaberi.Enabled = false;
+            button1.Enabled = false;
             if (listView1.SelectedItems.Count == 0)
             {
                 listView2.Items.Clear();
@@ -74,6 +78,8 @@ namespace DesktopForms.Views
                 it.Tag = zivotinja;
                 listView2.Items.Add(it);
             }
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,11 +87,11 @@ namespace DesktopForms.Views
             if (listView2.SelectedItems.Count == 0)
             {
                 groupBox3.Visible = false;
-                buttonOdaberi.Enabled = false;
+                button1.Enabled = false;
                 return;
             }
             groupBox3.Visible = true;
-            buttonOdaberi.Enabled = true;
+            button1.Enabled = true;
             var zivotinja = (Zivotinja)listView2.SelectedItems[0].Tag;
             groupBox3.Tag = zivotinja;
             //Presenter.UpdateZivotinjaListView(vlasnik);
@@ -110,18 +116,29 @@ namespace DesktopForms.Views
 
         private void buttonOdustani_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             this.Close();
         }
 
-        private void buttonOdaberi_Click(object sender, EventArgs e)
+      
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            VrstaZivotinje vrsta = null;
-            if(comboBox1.Visible)
-            {
-                vrsta = (VrstaZivotinje) comboBox1.SelectedItem;
-            }
-            Presenter.Spremi((Zivotinja)groupBox3.Tag, vrsta);
-            this.Close();
+            
+                VrstaZivotinje vrsta = null;
+                if (comboBox1.Visible)
+                {
+                    vrsta = (VrstaZivotinje)comboBox1.SelectedItem;
+                }
+                Presenter.Spremi((Zivotinja)groupBox3.Tag, vrsta);
+                Presenter.CloseUnitOfWork();
+                this.Close();
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

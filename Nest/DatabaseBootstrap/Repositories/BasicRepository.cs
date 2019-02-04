@@ -1,6 +1,6 @@
-﻿using Model;
+﻿using DatabaseBootstrap.Observer;
+using Model;
 using NHibernate;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +9,8 @@ namespace DatabaseBootstrap.Repositories
     public class BasicRepository<T> : IBasicRepository<T> where T : EntityClass
     {
         protected readonly ISession _session;
+
+        private List<IObserver<T>> observers = new List<IObserver<T>>();
         public BasicRepository(ISession session)
         {
             _session = session;
@@ -19,6 +21,8 @@ namespace DatabaseBootstrap.Repositories
             using (ITransaction transaction = _session.BeginTransaction())
             {
                 IQueryable<T> query = _session.Query<T>().AsQueryable();
+                transaction.Commit();
+
                 return query.ToList();
             }
             
@@ -31,6 +35,7 @@ namespace DatabaseBootstrap.Repositories
                 {
                     _session.Update(entity);
                     _session.Transaction.Commit();
+                    Notify(entity, false);
                 }
             
         }
@@ -41,6 +46,7 @@ namespace DatabaseBootstrap.Repositories
                 using (ITransaction transaction = _session.BeginTransaction())
                 {
                     T entity = _session.Get<T>(id);
+                    transaction.Commit();
                     return entity;
                 }
             
@@ -66,12 +72,29 @@ namespace DatabaseBootstrap.Repositories
             
                 using (ITransaction transaction = _session.BeginTransaction())
                 {
-                    _session.Save(entity);
+                    _session.SaveOrUpdate(entity);
                     transaction.Commit();
+                    Notify(entity, true);
                 }
             
         }
 
-        
+        public void Attach(IObserver<T> observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void Detach(IObserver<T> observer)
+        {
+            observers.Remove(observer);
+        }
+
+        public void Notify(T entity, bool state)
+        {
+            foreach (IObserver<T> observer in observers)
+            {
+                observer.Update(entity, state);
+            }
+        }
     }
 }

@@ -63,6 +63,16 @@ namespace DesktopForms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _386768_200 {
+            get {
+                object obj = ResourceManager.GetObject("_386768_200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap administracija {
             get {
                 object obj = ResourceManager.GetObject("administracija", resourceCulture);

@@ -21,13 +21,19 @@ namespace DesktopForms.Views
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
         }
-
+        private Postupak postupak = new Postupak(); 
         public Zivotinja Zivotinja { get => (Zivotinja)groupBox1.Tag;
             set
             {
                 groupBox1.Tag = value;
                 if (value == null)
+                {
+                    button1.Enabled = false;
                     return;
+
+                }
+                button1.Enabled = true;
+
                 labelVlasnik.Text = value.Vlasnik.Ime + " " + value.Vlasnik.Prezime;
                 labelZivotinja.Text = value.Ime;
                 textBox1.Text = value.Napomena;
@@ -40,8 +46,34 @@ namespace DesktopForms.Views
         public PostupakPresenter Presenter { private get; set; }
         public List<VrstaPostupka> VrstePostupaka { get => (List<VrstaPostupka>)comboBoxVrstePostupaka.DataSource; set { comboBoxVrstePostupaka.DataSource = value; comboBoxVrstePostupaka.DisplayMember = "Naziv"; } }
 
-        public List<Bolest> Bolesti { get => (List<Bolest>)listBoxBolesti.DataSource; set { listBoxBolesti.DisplayMember = "Naziv"; listBoxBolesti.DataSource = value; buttonObrisiBolest.Enabled =!(value.Count == 0);  }}
-        public List<Lijek> Lijekovi { get => (List<Lijek>)listBoxLijekovi.DataSource; set { listBoxLijekovi.DisplayMember = "Naziv"; listBoxLijekovi.DataSource = value; buttonObrisiLijek.Enabled = !(value.Count == 0); } }
+        public List<Bolest> Bolesti { get => (List<Bolest>)listViewBolesti.Tag; set
+            {
+                listViewBolesti.Tag = value;
+                listViewBolesti.Items.Clear();
+                foreach (var bolest in value)
+                {
+                    ListViewItem it = new ListViewItem(new string[] { bolest.Naziv });
+                    it.Tag = bolest;
+                    listViewBolesti.Items.Add(it);
+                }
+                listViewBolesti.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewBolesti.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+        }
+        public List<Lijek> Lijekovi { get => (List<Lijek>)listViewLijekovi.Tag; set
+            {
+                listViewLijekovi.Tag = value;
+                listViewLijekovi.Items.Clear();
+                foreach (var lijek in value)
+                {
+                    ListViewItem it = new ListViewItem(new string[] { lijek.Naziv });
+                    it.Tag = lijek;
+                    listViewLijekovi.Items.Add(it);
+                }
+                listViewLijekovi.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewLijekovi.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+        }
 
         public string InterakcijaUpozorenje { get => "";
             set
@@ -74,13 +106,14 @@ namespace DesktopForms.Views
 
         private void buttonObrisiBolest_Click(object sender, EventArgs e)
         {
-            var selected = (Bolest)listBoxBolesti.SelectedItem;
+           
+            var selected = (Bolest)listViewBolesti.SelectedItems[0].Tag;
             Presenter.IzbrisiIzDijagnoze(selected);
         }
 
         private void listBoxBolesti_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxBolesti.SelectedItems.Count == 0)
+            if (listViewBolesti.SelectedItems.Count == 0)
             {
                 buttonObrisiBolest.Enabled = false;
                 return;
@@ -97,13 +130,13 @@ namespace DesktopForms.Views
 
         private void buttonObrisiLijek_Click(object sender, EventArgs e)
         {
-            var selected = (Lijek)listBoxLijekovi.SelectedItem;
+            var selected = (Lijek)listViewLijekovi.SelectedItems[0].Tag;
             Presenter.IzbrisiIzTerapije(selected);
         }
 
         private void listBoxLijekovi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxLijekovi.SelectedItems.Count == 0)
+            if (listViewLijekovi.SelectedItems.Count == 0)
             {
                 buttonObrisiLijek.Enabled = false;
                 return;
@@ -143,6 +176,7 @@ namespace DesktopForms.Views
 //            var vrsta = (VrstaPostupka)comboBoxVrstePostupaka.SelectedItem;
             var napomena = richTextBox1.Text;
             Presenter.NoviPostupak(Zivotinja, vrsta, Lijekovi, Bolesti, napomena);
+            Presenter.CloseUnitOfWork();
             this.Close();
             MessageBox.Show("Postupak dodan.", "Postupak dodan", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -154,6 +188,7 @@ namespace DesktopForms.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Presenter.CloseUnitOfWork();
             Close();
         }
     }
